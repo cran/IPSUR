@@ -27,3 +27,11 @@ iv)	Sampling Distributions ->Discrete Uniform was mislabeled Cauchy.
 v)	Loading required packages at startup bug fixed.
 vi)	Empty fields bug in Probability menu fixed
 
+Version 0.1-2:
+FEATURES
+i)	Updated to Rcmdr 1.2-6
+ii)	Added suggested packages distr, distrEx
+iii) Updated and completed BloodPressure data
+
+BUGS
+i)	influence plot bug fixed. 

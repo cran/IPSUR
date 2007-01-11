@@ -1,3 +1,5 @@
+# block linePlot
+
 #linePlot <- function(){
 #    initializeDialog(title=gettextRcmdr("Line Plot"))
 #    variablesFrame <- tkframe(top)

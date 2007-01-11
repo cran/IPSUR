@@ -1,23 +1,19 @@
-# last modified 28 September 2006 by J. Kerns
 
-.onAttach <- function(...){
-    Commander()
-    cat(gettext("\nRcmdr Version", domain="R-Rcmdr"), getRcmdr("RcmdrVersion"), "\n")
-    }
+
+
 
 .onLoad <- function(...){
     packagesAvailable <- function(packages){
         sapply(sapply(packages, .find.package, quiet=TRUE), 
             function(x) length(x) != 0)
         }
+    if (!interactive()) return()
     save.options <- options(warn=-1)
     on.exit(options(save.options))
     tcltk <- require(tcltk)
     if (!tcltk) stop(gettext("The tcltk package is absent. The R Commander cannot function.", domain="R-Rcmdr"))
-    required.packages <- rev(c( "abind", "car", "effects", "foreign", "grid", 
-                                "lattice", "lmtest", "MASS", "mgcv", "multcomp", 
-                                "nlme", "nnet", "qcc", "relimp", "rgl", "RODBC"
-                                ))
+    required.packages <- rev(c("abind", "car", "distr", "distrEx", "effects", "foreign", "grid", "lattice", "lmtest", 
+        "MASS", "mgcv", "multcomp", "nlme", "nnet", "qcc", "relimp", "rgl", "RODBC"))
     packages.to.load <- options("Rcmdr")[[1]]$load.at.startup
     if (is.null(packages.to.load)) packages.to.load <- "car"
     for (package in packages.to.load){ 
@@ -32,8 +28,8 @@
     if (any(!available.packages)) {
         response <- tkmessageBox(message=paste(gettext("The following packages used by IPSUR are missing:\n", domain="R-Rcmdr"),
                             paste(missing.packages, collapse=", "), 
-                            gettext("\nWithout these packages, some features will not be available. ", domain="R-Rcmdr"),
-                            gettext("Install these packages?", domain="R-Rcmdr")), 
+                            gettext("\nWithout these packages, some features will not be available.", domain="R-Rcmdr"),
+                            gettext("\nInstall these packages?", domain="R-Rcmdr")), 
                         icon="error", type="yesno")
         if (tclvalue(response) == "yes") {
             top <- tktoplevel(borderwidth=10)

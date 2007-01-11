@@ -1,15 +1,19 @@
-# last modified 22 September 2006 by J. Fox
-#
-#.onAttach <- function(...){
-#    Commander()
-#    cat(gettext("\nRcmdr Version", domain="R-Rcmdr"), getRcmdr("RcmdrVersion"), "\n")
-#    }
-#
-##.onLoad <- function(...){
+
+# block .onLoad
+
+# last modified 27 November 2006 by J. Fox
+
+.onAttach <- function(...){
+    Commander()
+    cat(gettext("\nRcmdr Version", domain="R-Rcmdr"), getRcmdr("RcmdrVersion"), "\n")
+    }
+
+#.onLoad <- function(...){
 #    packagesAvailable <- function(packages){
 #        sapply(sapply(packages, .find.package, quiet=TRUE), 
 #            function(x) length(x) != 0)
 #        }
+#    if (!interactive()) return()
 #    save.options <- options(warn=-1)
 #    on.exit(options(save.options))
 #    tcltk <- require(tcltk)

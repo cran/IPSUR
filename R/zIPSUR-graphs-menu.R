@@ -3,7 +3,8 @@
 ################################################################################################################    
 ################################################################################################################
 
-
+# Changed indexPlot, Histogram, boxPlot, scatterPlot, scatterPlotMatrix,
+#   barGraph, QQPlot, Xyplot
 
 
 
@@ -72,8 +73,8 @@ indexPlot <- function(){
 
 
 # 3548   Modified to include titles
+#
 
- 
 Histogram <- function(){
     initializeDialog(title=gettextRcmdr("Histogram"))
     xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
@@ -120,7 +121,7 @@ Histogram <- function(){
     dialogSuffix(rows=4, columns=1)
     }
 
-    
+#
 ################################################################################################################    
 ###############################################################################################################
 

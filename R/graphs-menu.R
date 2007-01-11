@@ -1,7 +1,10 @@
-## Graphs menu dialogs
-#
-## last modified 21 August 06 by J. Fox
-#
+# block indexPlot, Histogram, boxPlot, scatterPlot, scatterPlotMatrix,
+#       barGraph, QQPlot, Xyplot
+
+# Graphs menu dialogs
+
+# last modified 21 August 06 by J. Fox
+
 #indexPlot <- function(){
 #    initializeDialog(title=gettextRcmdr("Index Plot"))                                               
 #    xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
@@ -73,7 +76,7 @@
 #    binsFrame <- tkframe(top)
 #    binsVariable <- tclVar(gettextRcmdr("<auto>"))
 #    binsField <- tkentry(binsFrame, width="6", textvariable=binsVariable)
-#    tkgrid(getFrame(xBox), sticky="nw")    
+#    tkgrid(getFrame(xBox), sticky="nw")
 #    tkgrid(tklabel(binsFrame, text=gettextRcmdr("Number of bins: ")), binsField, sticky="w")
 #    tkgrid(binsFrame, sticky="w")
 #    tkgrid(scaleFrame, sticky="w")
@@ -81,7 +84,7 @@
 #    tkgrid.configure(binsField, sticky="e")
 #    dialogSuffix(rows=4, columns=1)
 #    }
-#
+
 stemAndLeaf <- function(){
     initializeDialog(title=gettextRcmdr("Stem and Leaf Display"), preventCrisp=TRUE)
     xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
@@ -355,7 +358,7 @@ stemAndLeaf <- function(){
 #    tkgrid(buttonsFrame, sticky="w")
 #    dialogSuffix(rows=2, columns=1)
 #    }
-
+#
 pieChart <- function(){
     initializeDialog(title=gettextRcmdr("Pie Chart"))
     variableBox <- variableListBox(top, Factors(), title=gettextRcmdr("Variable (pick one)"))
@@ -647,7 +650,7 @@ PlotMeans <- function(){
     buttonsFrame <- tkframe(top)
     OKCancelHelp(helpSubject="plotMeans")
     tkgrid(getFrame(groupBox), getFrame(responseBox), sticky="nw")
-    tkgrid(tklabel(optionsFrame, text=gettextRcmdr("Error Bars"), fg="blue"), sticky="w")
+    tkgrid(tklabel(optionsFrame, text=gettextRcmdr("Error Bars", fg="blue")), sticky="w")
     tkgrid(tklabel(optionsFrame, text=gettextRcmdr("Standard errors")), seButton, sticky="w")
     tkgrid(tklabel(optionsFrame, text=gettextRcmdr("Standard deviations")), sdButton, sticky="w")
     tkgrid(tklabel(optionsFrame, text=gettextRcmdr("Confidence intervals")), confIntButton,
@@ -921,8 +924,8 @@ saveRglGraph <- function(){
     Message(paste(gettextRcmdr("Graph saved to file"), filename), type="note")
     }
     
-## The following function by Richard Heiberger, with small modifications by J. Fox
-#
+# The following function by Richard Heiberger, with small modifications by J. Fox
+
 #Xyplot <- function() {
 #    require("lattice")
 #    initializeDialog(title=gettextRcmdr("XY Conditioning Plot"))

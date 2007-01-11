@@ -212,7 +212,7 @@ commanderPosition()
     upon the function.}
   \item{name}{quoted name.}
   \item{names}{optional names to be stored.}
-  \item{n}{number of variables to check for.}
+  \item{n}{number of items to check for.}
   \item{object}{an object (depends on context).}
   \item{offset}{in pixels, from top-left of Commander window.}
   \item{onOK}{function to execute when the \emph{OK} button is pressed.}

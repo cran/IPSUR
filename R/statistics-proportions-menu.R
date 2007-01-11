@@ -1,10 +1,11 @@
+
+
 # Statistics Menu dialogs
 
-
+# last modified 24 February 06 by J. Fox
 
     # Proportions menu
-
-# As in Rcmdr
+    
 singleProportionTest <- function(){
     initializeDialog(title=gettextRcmdr("Single-Sample Proportion Test"))
     xBox <- variableListBox(top, TwoLevelFactors(), title=gettextRcmdr("Variable (pick one)"))
@@ -45,7 +46,7 @@ singleProportionTest <- function(){
         labels=gettextRcmdr(c("Normal approximation", "Normal approximation with\ncontinuity correction", "Exact binomial")), 
         title=gettextRcmdr("Type of Test"))
     tkgrid(getFrame(xBox), sticky="nw")    
-    tkgrid(tklabel(pFrame, text=gettextRcmdr("Null hypothesis: p0 = "), fg="blue"), pField, sticky="w")
+    tkgrid(tklabel(pFrame, text=gettextRcmdr("Null hypothesis: p = "), fg="blue"), pField, sticky="w")
     tkgrid(pFrame, sticky="w")
     tkgrid(tklabel(rightFrame, text=""))
     tkgrid(tklabel(confidenceFrame, text=gettextRcmdr("Confidence Level: "), fg="blue"), confidenceField, sticky="w")
@@ -57,7 +58,6 @@ singleProportionTest <- function(){
     dialogSuffix(rows=4, columns=2)
     }
 
-# As in Rcmdr
 twoSampleProportionsTest <- function(){
     require("abind")
     initializeDialog(title=gettextRcmdr("Two-Sample Proportions Test"))
@@ -112,53 +112,5 @@ twoSampleProportionsTest <- function(){
     tkgrid(testFrame, sticky="w")
     tkgrid(buttonsFrame, columnspan=2, sticky="w")
     tkgrid.configure(confidenceField, sticky="e")
-    dialogSuffix(rows=5, columns=2)
-    }
-
-
-multiSampleProportionsTest <- function(){
-    require("abind")
-    initializeDialog(title=gettextRcmdr("Test equality of several proportions..."))
-    .multifactors <- listMultiLevelFactors()
-    .twoLevelFactors <- TwoLevelFactors()
-    groupsBox <- variableListBox(top, .multifactors, title=gettextRcmdr("Groups (pick one)"))
-    xBox <- variableListBox(top, .twoLevelFactors, title=gettextRcmdr("Response Variable (pick one)"))
-    onOK <- function(){
-        groups <- getSelection(groupsBox)
-        if (length(groups) == 0) {
-            errorCondition(recall=multiSampleProportionsTest, message=gettextRcmdr("You must select a groups variable."))
-            return()
-            }
-        x <- getSelection(xBox)
-        if (length(x) == 0) {
-            errorCondition(recall=multiSampleProportionsTest, message=gettextRcmdr("You must select a response variable."))
-            return()
-            }
-        if (x == groups) {
-            errorCondition(recall=multiSampleProportionsTest, message=gettextRcmdr("Groups and response variables must be different."))
-            return()
-            }
-
-        closeDialog()
-        command <- paste("xtabs(~", groups, "+", x, ", data=", ActiveDataSet(), ")", sep="")
-        logger(paste(".Table <-", command))
-        assign(".Table", justDoIt(command), envir=.GlobalEnv)
-        doItAndPrint("rowPercents(.Table)")
-
-
-        doItAndPrint(paste("prop.test(.Table)", sep=""))
-        logger("remove(.Table)")
-        remove(.Table, envir=.GlobalEnv)
-        tkfocus(CommanderWindow())
-        }
-
-    OKCancelHelp(helpSubject="prop.test")
-
-    rightFrame <- tkframe(top)
-
-    tkgrid(getFrame(groupsBox), getFrame(xBox), sticky="nw")
-    #groupsLabel(columnspan=2)
-    tkgrid(buttonsFrame, columnspan=2, sticky="w")
-
     dialogSuffix(rows=5, columns=2)
     }

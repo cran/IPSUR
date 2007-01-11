@@ -1,4 +1,4 @@
-# last modified 17 August 06 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 4 October 06 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
                                                                                        
 # utility functions
 
@@ -484,7 +484,7 @@ print.numSummary <- function(x, ...){
     invisible(x)       
     }           
 
-    # wrapper function for histograms
+#    # wrapper function for histograms
 #
 #Hist <- function(x, scale=c("frequency", "percent", "density"), ...){
 #    xlab <- deparse(substitute(x))
@@ -500,12 +500,12 @@ print.numSummary <- function(x, ...){
 #        at <- if (max <= 3) (0:(2*max))/20
 #                else (0:max)/10
 #        axis(2, at=at*n, labels=at*100)
-#        }  
-#    box()   
-#    abline(h=0, col="gray") 
+#        }
+#    box()
+#    abline(h=0, col="gray")
 #    invisible(NULL)
 #    }
-
+#
 stem.leaf <- function(data, unit, m, Min, Max, rule.line=c("Dixon", "Velleman", "Sturges"),
      style=c("Tukey", "bare"), trim.outliers=TRUE, depths=TRUE, reverse.negative.leaves=TRUE){
 #Author:  Peter Wolf 05/2003  (modified slightly by J. Fox, 20 July 03)
@@ -1733,12 +1733,16 @@ checkClass <- defmacro(object, class, message=NULL,
     )
     
 
-# the following function is from John Chambers
+# the following function is from John Chambers (plus new test for R 2.4.0)
 
 isS4object <- function(object) {
-     if(length(attr(object, "class"))!= 1)
-         return(FALSE)
-    !isVirtualClass(getClass(class(object), TRUE)) }
+    if (getRversion() < "2.4.0"){
+        if (length(attr(object, "class"))!= 1)
+             return(FALSE)
+        !isVirtualClass(getClass(class(object), TRUE)) 
+        }
+    else isS4(object)
+    }
 
 
 #isS4object <- function(object) {
