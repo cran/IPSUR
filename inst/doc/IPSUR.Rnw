@@ -664,7 +664,7 @@ makes it \emph{incredibly} easy for me to distribute bug-fixes and
 corrected typographical errors. As an author I can make my corrections,
 upload them to the repository at \textsf{R}-Forge, and they will be
 reflected \emph{worldwide} within hours. We aren't in Kansas anymore,
-Dorothy.
+Toto.
 
 
 \subsection*{Ancillary Materials}
