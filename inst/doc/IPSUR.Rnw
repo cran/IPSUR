@@ -1,4 +1,4 @@
-%% LyX 1.6.5 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 1.6.7 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[12pt,english,nogin]{book}
 \usepackage{lmodern}
@@ -33,7 +33,7 @@ language=R}
 \hypersetup{pdftitle={Introduction to Probability and Statistics Using R},
  pdfauthor={G. Jay Kerns},
  linkcolor=blue,  citecolor=black, urlcolor=blue}
- 
+
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
@@ -422,7 +422,7 @@ Free Documentation License''.
 
 \tableofcontents{}
 
-\noindent \cleardoublepage
+\cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Preface}
 
@@ -739,7 +739,7 @@ got away with it.
 
 \pagenumbering{arabic} 
 
-\noindent \noindent This chapter has proved to be the hardest to write, by far.
+\noindent This chapter has proved to be the hardest to write, by far.
 The trouble is that there is so much to say -- and so many people
 have already said it so much better than I could. When I get something
 I like I will release it here.
@@ -792,8 +792,6 @@ This book is devoted mostly to the frequentist viewpoint because that
 is how I was trained, with the conspicuous exception of Sections \ref{sec:Bayes'-Rule}
 and \ref{sec:Conditional-Distributions}. I plan to add more bayesian
 material in later editions of this book.
-
-\pagebreak{}
 
 
 \section*{Chapter Exercises}
@@ -1942,6 +1940,9 @@ par(mfrow = c(1,1)) # back to normal
 
 \end{example}
 
+\paragraph*{Density estimates}
+
+
 \subsection{Qualitative Data, Categorical Data, and Factors\label{sub:Qualitative-Data}}
 
 Qualitative data are simply any type of data that are not numerical,
@@ -3072,15 +3073,43 @@ The above is identical to \inputencoding{latin9}\lstinline[showstringspaces=fals
 
 \subsection{Bivariate Data\label{sub:Bivariate-Data}}
 \begin{itemize}
+\item Stacked bar charts
+\item odds ratio and relative risk
 \item Introduce the sample correlation coefficient.
+\end{itemize}
+The \textbf{sample Pearson product-moment }\textbf{\emph{correlation
+coefficient}}:\[
+r=\frac{\sum_{i=1}^{n}(x_{i}-\xbar)(y_{i}-\ybar)}{\sqrt{\sum_{i=1}^{n}(x_{i}-\xbar)}\sqrt{\sum_{i=1}^{n}(y_{i}-\ybar)}}\]
+
+\begin{itemize}
+\item independent of scale
+\item $-1<r<1$
+\item measures \emph{strength} and \emph{direction} of linear association
 \item Two-Way Tables. Done with \inputencoding{latin9}\lstinline[showstringspaces=false]!table!\inputencoding{utf8},
 or in the \textsf{R} Commander by following \textsf{Statistics $\triangleright$
 Contingency Tables $\triangleright$} \textsf{Two-way Tables}. You
 can also enter and analyze a two-way table.
+
+\begin{itemize}
+\item table
+\item prop.table
+\item addmargins
+\item rowPercents (Rcmdr)
+\item colPercents (Rcmdr)
+\item totPercents(Rcmdr)
+\item A <- xtabs(\textasciitilde{} gender + race, data = RcmdrTestDrive)
+\item xtabs( Freq \textasciitilde{} Class + Sex, data = Titanic) \# from
+built in table
+\item barplot(A, legend.text=TRUE) 
+\item barplot(t(A), legend.text=TRUE) 
+\item barplot(A, legend.text=TRUE, beside = TRUE)
+\item spineplot(gender \textasciitilde{} race, data = RcmdrTestDrive)
+\item Spine plot: plots categorical versus categorical
+\end{itemize}
 \item Scatterplot: look for linear association and correlation. 
 
 \begin{itemize}
-\item carb \textasciitilde{} optden, data = Formaldehyde
+\item carb \textasciitilde{} optden, data = Formaldehyde (boring)
 \item conc \textasciitilde{} rate, data = Puromycin
 \item xyplot(accel \textasciitilde{} dist, data = attenu) nonlinear association
 \item xyplot(eruptions \textasciitilde{} waiting, data = faithful) (linear,
@@ -3111,10 +3140,8 @@ Again, look for linear association and correlation.
 \section{Comparing Populations\label{sec:Comparing-Data-Sets}}
 
 Sometimes we have data from two or more groups (or populations) and
-we would like to compare them and draw conclusions. What we should
-imagine is
-
-Some issues that we would like to address:
+we would like to compare them and draw conclusions. Some issues that
+we would like to address:
 \begin{itemize}
 \item Comparing centers and spreads: variation within versus between groups
 \item Comparing clusters and gaps
@@ -3144,11 +3171,14 @@ to give roughly a 95\% confidence interval for the difference in two
 medians. See Chapter \ref{cha:Hypothesis-Testing}.
 \end{itemize}
 \item Stripcharts
+
+\begin{itemize}
+\item stripchart(weight \textasciitilde{} feed, method=\textquotedbl{}stack\textquotedbl{},
+data=chickwts)
+\end{itemize}
 \item Bar Graphs
 
 \begin{itemize}
-\item plot(xtabs(Freq \textasciitilde{} Admit + Gender, data = UCBAdmissions))
-\# rescaled barplot
 \item barplot(xtabs(Freq \textasciitilde{} Admit + Gender, data = UCBAdmissions))
 \# stacked bar chart
 \item barplot(xtabs(Freq \textasciitilde{} Admit, data = UCBAdmissions))
@@ -3226,6 +3256,12 @@ data = swiss) (positive and negative)
 \item mosaic(\textasciitilde{} Survived + Class + Age + Sex, data = Titanic)
 (or just mosaic(Titanic))
 \item mosaic(\textasciitilde{} Admit + Dept + Gender, data = UCBAdmissions)
+\end{itemize}
+\item Spine plots
+
+\begin{itemize}
+\item spineplot(xtabs(Freq \textasciitilde{} Admit + Gender, data = UCBAdmissions))
+\# rescaled barplot
 \end{itemize}
 \item Quantile-quantile plots: There are two ways to do this. One way is
 to compare two independent samples (of the same size). qqplot(x,y).
@@ -3803,12 +3839,32 @@ probability functions, \emph{etc}.
 \item Bayes' Rule and how it relates to the subjective view of probability
 \item what we mean by 'random variables', and where they come from
 \end{itemize}
+%
+\begin{figure}
+\begin{centering}
+<<echo = FALSE, fig = TRUE, width = 4.5, height = 2.75>>=
+require(diagram)
+par(mex = 0.2, cex = 0.5)
+openplotmat(frame.plot=TRUE)
+straightarrow(from = c(0.46,0.74), to = c(0.53,0.71), arr.pos = 1)
+straightarrow(from = c(0.3,0.65), to = c(0.3,0.51), arr.pos = 1)
+textellipse(mid = c(0.74,0.55), box.col = grey(0.95), radx = 0.24, rady = 0.22, lab = c(expression(bold(underline(DETERMINISTIC))), expression(2*H[2]+O[2] %->% H[2]*O), "3 + 4 = 7"), cex = 2 )
+textrect(mid = c(0.3, 0.75), radx = 0.15, rady = 0.1, lab = c("Experiments"), cex = 2 )
+textellipse(mid = c(0.29,0.25), box.col = grey(0.95), radx = 0.27, rady = 0.22, lab = c(expression(bold(underline(RANDOM))), "toss coin, roll die", "count ants on sidewalk", "measure rainfall" ), cex = 2 )
+@
+\par\end{centering}
+
+\caption{Two types of experiments}
+
+\end{figure}
+
+
 
 \section{Sample Spaces\label{sec:Sample-Spaces}}
 
 For a random experiment $E$, the set of all possible outcomes of
 $E$ is called the \emph{sample space\index{sample space}} and is
-denoted by the letter $S$. For the coin-toss experiment, $S$ would
+denoted by the letter $S$. For a coin-toss experiment, $S$ would
 be the results {}``Head'' and {}``Tail'', which we may represent
 by $S=\left\{ H,T\right\} $. Formally, the performance of a random
 experiment is the unpredictable selection of an outcome in $S$.
@@ -6271,14 +6327,14 @@ $f_{X}(x)=\P(X=x)$ & 1/8 & 3/8 & 3/8 & 1/8 & 1\tabularnewline
 \subsection{Mean, Variance, and Standard Deviation\label{sub:mean-variance-sd}}
 
 There are numbers associated with PMFs. One important example is the
-mean $\mu$, also known as $\E X$:\begin{equation}
+mean $\mu$, also known as $\E X$ (which we will discuss later):\begin{equation}
 \mu=\E X=\sum_{x\in S}xf_{X}(x),\end{equation}
 provided the (potentially infinite) series $\sum|x|f_{X}(x)$ is convergent.
 Another important number is the variance:\begin{equation}
-\sigma^{2}=\E(X-\mu)^{2}=\sum_{x\in S}(x-\mu)^{2}f_{X}(x),\end{equation}
+\sigma^{2}=\sum_{x\in S}(x-\mu)^{2}f_{X}(x),\end{equation}
 which can be computed (see Exercise \ref{xca:variance-shortcut})
-with the alternate formula $\sigma^{2}=\E X^{2}-(\E X)^{2}$. Directly
-defined from the variance is the standard deviation $\sigma=\sqrt{\sigma^{2}}$. 
+with the alternate formula $\sigma^{2}=\sum x{}^{2}f_{X}(x)-\mu^{2}$.
+Directly defined from the variance is the standard deviation $\sigma=\sqrt{\sigma^{2}}$. 
 \begin{example}
 \label{exa:disc-pmf-mean}We will calculate the mean of $X$ in Example
 \ref{exa:Toss-a-coin}.\[
@@ -6398,9 +6454,9 @@ where we have used the famous identity $1+2+\cdots+m=m(m+1)/2$. That
 is, if we repeatedly choose integers at random from 1 to $m$ then,
 on the average, we expect to get $(m+1)/2$. To get the variance we
 first calculate\[
-\E X^{2}=\frac{1}{m}\sum_{x=1}^{m}x^{2}=\frac{1}{m}\frac{m(m+1)(2m+3)}{6}=\frac{(m+1)(2m+1)}{6},\]
+\sum_{x=1}^{m}x^{2}f_{X}(x)=\frac{1}{m}\sum_{x=1}^{m}x^{2}=\frac{1}{m}\frac{m(m+1)(2m+1)}{6}=\frac{(m+1)(2m+1)}{6},\]
  and finally,\begin{equation}
-\sigma^{2}=\E X^{2}-(\E X)^{2}=\frac{(m+1)(2m+1)}{6}-\left(\frac{m+1}{2}\right)^{2}=\cdots=\frac{m^{2}-1}{12}.\end{equation}
+\sigma^{2}=\sum_{x=1}^{m}x^{2}f_{X}(x)-\mu^{2}=\frac{(m+1)(2m+1)}{6}-\left(\frac{m+1}{2}\right)^{2}=\cdots=\frac{m^{2}-1}{12}.\end{equation}
 
 \begin{example}
 Roll a die and let $X$ be the upward face showing. Then $m=6$, $\mu=7/2=3.5$,
@@ -7683,15 +7739,6 @@ of land.
 \end{enumerate}
 
 \begin{xca}
-Find the constant $c$ so that the given function is a valid PDF of
-a random variable $X$.\end{xca}
-\begin{enumerate}
-\item $f(x)=Cx^{n},\quad0<x<1$.
-\item $f(x)=Cx\me^{-x},\quad0<x<\infty$.
-\item $f(x)=\me^{-(x-C)},\quad7<x<\infty.$
-\item $f(x)=Cx^{3}(1-x)^{2},\quad0<x<1.$
-\item ${\displaystyle f(x)=C(1+x^{2}/4)^{-1}},\quad-\infty<x<\infty.$\end{enumerate}
-\begin{xca}
 \label{xca:variance-shortcut}Show that $\E(X-\mu)^{2}=\E X^{2}-\mu^{2}$.
 \emph{Hint}: expand the quantity $(X-\mu)^{2}$ and distribute the
 expectation over the resulting terms.
@@ -8031,6 +8078,8 @@ If $X\sim\mathsf{norm}(\mathtt{mean}=\mu,\,\mathtt{sd}=\sigma)$ then
 Z=\frac{X-\mu}{\sigma}\sim\mathsf{norm}(\mathtt{mean}=0,\,\mathtt{sd}=1).\end{equation}
 
 \end{prop}
+
+
 The MGF of $Z\sim\mathsf{norm}(\mathtt{mean}=0,\,\mathtt{sd}=1)$
 is relatively easy to derive:\begin{eqnarray*}
 M_{Z}(t) & = & \int_{-\infty}^{\infty}\me^{tz}\frac{1}{\sqrt{2\pi}}\me^{-z^{2}/2}\diff z,\\
@@ -8050,7 +8099,9 @@ Therefore: \[
 M_{X}(t)=\E\me^{tX}=\E\me^{t(\sigma Z+\mu)}=\E\me^{\sigma tX}\me^{\mu}=\me^{t\mu}M_{Z}(\sigma t),\]
 and we know that $M_{Z}(t)=\me^{t^{2}/2}$, thus substituting we get\[
 M_{X}(t)=\me^{t\mu}\me^{(\sigma t)^{2}/2}=\exp\left\{ \mu t+\sigma^{2}t^{2}/2\right\} ,\]
-for $-\infty<t<\infty$.\end{example}
+for $-\infty<t<\infty$.
+\end{example}
+
 \begin{fact}
 The same argument above shows that if $X$ has MGF $M_{X}(t)$ then
 the MGF of $Y=a+bX$ is \begin{equation}
@@ -15653,6 +15704,19 @@ regression; see
 \url{http://cran.r-project.org/doc/contrib/Fox-Companion/appendix.html}
 \par\end{center}
 
+Here is an example of how it works, based on a question from R-help.
+
+<<>>=
+# fake data 
+set.seed(1) 
+x <- seq(from = 0, to = 1000, length.out = 200) 
+y <- 1 + 2*(sin((2*pi*x/360) - 3))^2 + rnorm(200, sd = 2)
+plot(x, y)
+acc.nls <- nls(y ~ a + b*(sin((2*pi*x/360) - c))^2, start = list(a = 0.9, b = 2.3, c = 2.9))
+summary(acc.nls)
+#plot(x, fitted(acc.nls))
+@
+
 
 \subsection{Multicollinearity\label{sub:Multicollinearity}}
 
@@ -16891,7 +16955,7 @@ permit their use in free software.
 \vfill{}
 
 
-\noindent 
+
 \chapter{Data\label{cha:data}}
 
 This appendix is a reference of sorts regarding some of the data structures

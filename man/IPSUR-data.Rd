@@ -5,6 +5,7 @@
 \alias{B}
 \alias{btsamps}
 \alias{C}
+\alias{acc.nls}
 \alias{cars.lm}
 \alias{carsCI}
 \alias{carsPI}
