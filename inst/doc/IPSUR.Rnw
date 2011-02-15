@@ -1,6 +1,6 @@
 %% LyX 1.6.7 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[12pt,english,nogin]{book}
+\documentclass[10pt,english,nogin]{book}
 \usepackage{lmodern}
 \renewcommand{\sfdefault}{lmss}
 \renewcommand{\ttdefault}{lmtt}
@@ -10,7 +10,7 @@
 \lstset{basicstyle={\ttfamily},
 breaklines=true,
 language=R}
-\usepackage[a4paper]{geometry}
+\usepackage[paperwidth=7.44in,paperheight=9.69in]{geometry}
 \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
 \pagestyle{headings}
 \setcounter{secnumdepth}{2}
@@ -198,7 +198,7 @@ morestring=[b]"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                  %%%
 %%%  IPSUR.Rnw - Introduction to Probability and Statistics Using R  %%%
-%%%  Copyright (C) 2010  G. Jay Kerns, <gkerns@ysu.edu>              %%%
+%%%  Copyright (C) 2011  G. Jay Kerns, <gkerns@ysu.edu>              %%%
 %%%  This program is free software: you can redistribute it and/or   %%%
 %%%  modify it under the terms of the GNU General Public License as  %%%
 %%%  published by the Free Software Foundation, either version 3     %%%
@@ -216,7 +216,7 @@ morestring=[b]"
 
 <<echo = FALSE>>=
 ###  IPSUR.R - Introduction to Probability and Statistics Using R
-###  Copyright (C) 2010  G. Jay Kerns, <gkerns@ysu.edu>
+###  Copyright (C) 2011  G. Jay Kerns, <gkerns@ysu.edu>
 ###  This program is free software: you can redistribute it and/or modify
 ###  it under the terms of the GNU General Public License as published by
 ###  the Free Software Foundation, either version 3 of the License, or
@@ -1133,7 +1133,7 @@ become familiar:
 are represented exactly by \textsf{R}.
 \item [{double:}] real numbers (rational and irrational); these numbers
 are not represented exactly (save integers or fractions with a denominator
-that is a multiple of 2, see \cite{Venables2010}).
+that is a power of 2, see \cite{Venables2010}).
 \item [{character:}] elements that are wrapped with pairs of \inputencoding{latin9}\lstinline[basicstyle={\ttfamily}]!"!\inputencoding{utf8}
 or \inputencoding{latin9}\lstinline[basicstyle={\ttfamily}]!'!\inputencoding{utf8};
 \item [{logical:}] includes \inputencoding{latin9}\lstinline[basicstyle={\ttfamily}]!TRUE!\inputencoding{utf8},
@@ -18771,7 +18771,7 @@ Detective Pyork E.~Pig
 <<echo=FALSE, results=hide, split=FALSE>>= 
 rm(.Random.seed)
 try(dir.create("../../data"), silent = TRUE)
-save.image(file = "../../data/IPSUR.RData")
+save.image(file = "../../data/IPSUR.RData", compress = "xz")
 Stangle(file="IPSUR.Rnw", output="../IPSUR.R", annotate=TRUE)
 @
 \end{document}

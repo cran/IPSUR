@@ -3,7 +3,7 @@
 ###################################################
 #line 218 "IPSUR.Rnw"
 ###  IPSUR.R - Introduction to Probability and Statistics Using R
-###  Copyright (C) 2010  G. Jay Kerns, <gkerns@ysu.edu>
+###  Copyright (C) 2011  G. Jay Kerns, <gkerns@ysu.edu>
 ###  This program is free software: you can redistribute it and/or modify
 ###  it under the terms of the GNU General Public License as published by
 ###  the Free Software Foundation, either version 3 of the License, or
@@ -3555,7 +3555,7 @@ runif(1)
 #line 18772 "IPSUR.Rnw"
 rm(.Random.seed)
 try(dir.create("../../data"), silent = TRUE)
-save.image(file = "../../data/IPSUR.RData")
+save.image(file = "../../data/IPSUR.RData", compress = "xz")
 Stangle(file="IPSUR.Rnw", output="../IPSUR.R", annotate=TRUE)
 
 
