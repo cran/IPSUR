@@ -276,7 +276,7 @@ remove(x, n, m, s, tmp)
 
 <<echo = FALSE>>=
 plot.htest <- function (x, hypoth.or.conf = 'Hypoth',...) { 
-require(HH) 
+require("HH") 
 if (x$method == "1-sample proportions test with continuity correction" || x$method == "1-sample proportions test without continuity correction"){
 mu <- x$null.value
 obs.mean <- x$estimate
@@ -673,15 +673,6 @@ These are extra materials that accompany \IPSUR. They reside in the
 \inputencoding{latin9}\lstinline[showstringspaces=false]!/etc!\inputencoding{utf8}
 subdirectory of the package source.
 \begin{description}
-\item [{\texttt{IPSUR.RData}}] is a saved image of the \textsf{R} workspace
-at the completion of the Sweave processing of \IPSUR. It can be loaded
-into memory with \textsf{File} $\triangleright$ \textsf{Load Workspace}
-or with the command \inputencoding{latin9}\lstinline[showstringspaces=false]!load("/path/to/IPSUR.Rdata")!\inputencoding{utf8}.
-Either method will make every single object in the file immediately
-available and in memory. In particular, the data BLANK from Exercise
-BLANK in Chapter BLANK on page BLANK will be loaded. Type BLANK at
-the command line (after loading \inputencoding{latin9}\lstinline[showstringspaces=false]!IPSUR.RData!\inputencoding{utf8})
-to see for yourself. 
 \item [{\texttt{IPSUR.R}}] is the exported \textsf{R} code from \inputencoding{latin9}\lstinline[showstringspaces=false]!IPSUR.Rnw!\inputencoding{utf8}.
 With this script, literally every \textsf{R} command from the entirety
 of \IPSUR\ can be resubmitted at the command line.
@@ -6833,7 +6824,7 @@ Find the MGF for $X\sim\mathsf{binom}(\mathtt{size}=n,\,\mathtt{prob}=p)$.
 \end{example}
 \begin{alignat*}{1}
 M_{X}(t)= & \sum_{x=0}^{n}\me^{tx}\,{n \choose x}\, p^{x}(1-p)^{n-x},\\
-= & \sum_{x=0}^{n-x}{n \choose x}\,(p\me^{t})^{x}q^{n-x},\\
+= & \sum_{x=0}^{n}{n \choose x}\,(p\me^{t})^{x}q^{n-x},\\
 = & (p\me^{t}+q)^{n},\quad\mbox{for any \ensuremath{t}.}\end{alignat*}
 
 
@@ -6886,7 +6877,7 @@ derivation. Suffice it to say that when the MGF exists in a neighborhood
 of $t=0$, the exchange of differentiation and summation is valid
 in that neighborhood, and our remarks hold true.%
 } that\begin{equation}
-M_{X}^{(r)}(0)=\E X^{r}=\mbox{\ensuremath{r^{th}}moment of \ensuremath{X}about the origin.}\end{equation}
+M_{X}^{(r)}(0)=\E X^{r}=\mbox{\ensuremath{r^{\mathrm{th}}}moment of \ensuremath{X}about the origin.}\end{equation}
 These are also known as \emph{raw moments} and are sometimes denoted
 $\mu_{r}'$. In addition to these are the so called \emph{central
 moments} $\mu_{r}$ defined by\begin{equation}
@@ -18437,7 +18428,7 @@ answer keys already for all of your QUIZZES and EXAMS, too.
 \section{Ancillary Materials\label{sec:Ancillary-Materials}}
 
 In addition to the main text, student manual, and instructor manual,
-there are two other ancillaries. IPSUR.R, and IPSUR.RData.
+there is IPSUR.R which is all of the parsed R code used in the document.
 
 
 \section{Modifying This Document\label{sec:Modifying-This-Document}}
@@ -18770,8 +18761,9 @@ Detective Pyork E.~Pig
 
 <<echo=FALSE, results=hide, split=FALSE>>= 
 rm(.Random.seed)
-try(dir.create("../../data"), silent = TRUE)
-save.image(file = "../../data/IPSUR.RData", compress = "xz")
+# try(dir.create("../../data"), silent = TRUE)
+# save.image(file = "../../data/IPSUR.RData")
+# tools::resaveRdaFiles('../../data', compress = 'xz')
 Stangle(file="IPSUR.Rnw", output="../IPSUR.R", annotate=TRUE)
 @
 \end{document}

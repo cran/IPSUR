@@ -1,5 +1,5 @@
 \name{IPSUR-package}
-\Rdversion{1.3}
+\Rdversion{1.4}
 \alias{IPSUR-package}
 \alias{IPSUR}
 \docType{package}
@@ -13,8 +13,8 @@ This package contains the Sweave source code used to generate IPSUR, an introduc
 \tabular{ll}{
 Package: \tab IPSUR\cr
 Type: \tab Package\cr
-Version: \tab 1.3\cr
-Date: \tab 2011-02-15\cr
+Version: \tab 1.4\cr
+Date: \tab 2011-02-17\cr
 License: \tab GPL (>= 3)\cr
 LazyLoad: \tab yes\cr
 }

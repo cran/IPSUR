@@ -4,7 +4,7 @@
 
 ###################################################
 plot.htest <- function (x, hypoth.or.conf = 'Hypoth',...) { 
-require(HH)
+require("HH")
 if (x$method == "1-sample proportions test with continuity correction" || x$method == "1-sample proportions test without continuity correction"){
   mu <- x$null.value
   obs.mean <- x$estimate
