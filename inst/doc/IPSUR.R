@@ -1,7 +1,9 @@
+### R code from vignette source 'IPSUR.Rnw'
+### Encoding: ASCII
+
 ###################################################
-### chunk number 1: 
+### code chunk number 1: IPSUR.Rnw:217-230
 ###################################################
-#line 218 "IPSUR.Rnw"
 ###  IPSUR.R - Introduction to Probability and Statistics Using R
 ###  Copyright (C) 2011  G. Jay Kerns, <gkerns@ysu.edu>
 ###  This program is free software: you can redistribute it and/or modify
@@ -18,9 +20,8 @@
 
 
 ###################################################
-### chunk number 2: 
+### code chunk number 2: IPSUR.Rnw:233-240
 ###################################################
-#line 234 "IPSUR.Rnw"
 seed <- 42
 set.seed(seed)
 options(width = 75)
@@ -31,9 +32,8 @@ options(width = 75)
 
 
 ###################################################
-### chunk number 3: 
+### code chunk number 3: IPSUR.Rnw:243-274
 ###################################################
-#line 244 "IPSUR.Rnw"
 options(useFancyQuotes = FALSE)
 #library(prob)
 library(RcmdrPlugin.IPSUR)
@@ -68,9 +68,8 @@ remove(x, n, m, s, tmp)
 
 
 ###################################################
-### chunk number 4: 
+### code chunk number 4: IPSUR.Rnw:277-377
 ###################################################
-#line 278 "IPSUR.Rnw"
 plot.htest <- function (x, hypoth.or.conf = 'Hypoth',...) { 
 require("HH") 
 if (x$method == "1-sample proportions test with continuity correction" || x$method == "1-sample proportions test without continuity correction"){
@@ -174,34 +173,30 @@ return(normal.and.t.dist(mu.H0 = mu, obs.mean = obs.mean, std.dev = std.dev, n =
 
 
 ###################################################
-### chunk number 5:  eval=FALSE
+### code chunk number 5: IPSUR.Rnw:645-648 (eval = FALSE)
 ###################################################
-## #line 646 "IPSUR.Rnw"
 ## install.packages("IPSUR")
 ## library(IPSUR)
 ## read(IPSUR)
 
 
 ###################################################
-### chunk number 6: 
+### code chunk number 6: IPSUR.Rnw:871-872
 ###################################################
-#line 872 "IPSUR.Rnw"
 getOption("defaultPackages")
 
 
 ###################################################
-### chunk number 7: 
+### code chunk number 7: IPSUR.Rnw:1061-1064
 ###################################################
-#line 1062 "IPSUR.Rnw"
 2 + 3       # add
 4 * 5 / 6   # multiply and divide
 7^8         # 7 to the 8th power
 
 
 ###################################################
-### chunk number 8: 
+### code chunk number 8: IPSUR.Rnw:1073-1079
 ###################################################
-#line 1074 "IPSUR.Rnw"
 options(digits = 16)
 10/3                 # see more digits
 sqrt(2)              # square root
@@ -211,17 +206,15 @@ options(digits = 7)  # back to default
 
 
 ###################################################
-### chunk number 9: 
+### code chunk number 9: IPSUR.Rnw:1102-1104
 ###################################################
-#line 1103 "IPSUR.Rnw"
 x <- 7*41/pi   # don't see the calculated value
 x              # take a look
 
 
 ###################################################
-### chunk number 10: five
+### code chunk number 10: five
 ###################################################
-#line 1141 "IPSUR.Rnw"
 sqrt(-1)              # isn't defined
 sqrt(-1+0i)           # is defined
 sqrt(as.complex(-1))  # same thing
@@ -230,32 +223,28 @@ typeof((0 + 1i)^2)
 
 
 ###################################################
-### chunk number 11: 
+### code chunk number 11: IPSUR.Rnw:1167-1169
 ###################################################
-#line 1168 "IPSUR.Rnw"
 x <- c(74, 31, 95, 61, 76, 34, 23, 54, 96)
 x
 
 
 ###################################################
-### chunk number 12: 
+### code chunk number 12: IPSUR.Rnw:1198-1200
 ###################################################
-#line 1199 "IPSUR.Rnw"
 seq(from = 1, to = 5)
 seq(from = 2, by = -0.1, length.out = 4)
 
 
 ###################################################
-### chunk number 13: 
+### code chunk number 13: IPSUR.Rnw:1206-1207
 ###################################################
-#line 1207 "IPSUR.Rnw"
 1:5
 
 
 ###################################################
-### chunk number 14: 
+### code chunk number 14: IPSUR.Rnw:1223-1227
 ###################################################
-#line 1224 "IPSUR.Rnw"
 x[1]
 x[2:4]
 x[c(1,3,4,8)]
@@ -263,18 +252,16 @@ x[-c(1,3,4,8)]
 
 
 ###################################################
-### chunk number 15: 
+### code chunk number 15: IPSUR.Rnw:1233-1236
 ###################################################
-#line 1234 "IPSUR.Rnw"
 LETTERS[1:5]
 letters[-(6:24)]
 
 
 
 ###################################################
-### chunk number 16: 
+### code chunk number 16: IPSUR.Rnw:1246-1252
 ###################################################
-#line 1247 "IPSUR.Rnw"
 x <- 1:5
 sum(x)
 length(x)
@@ -284,84 +271,73 @@ sd(x)        # sample standard deviation
 
 
 ###################################################
-### chunk number 17: 
+### code chunk number 17: IPSUR.Rnw:1268-1269
 ###################################################
-#line 1269 "IPSUR.Rnw"
 intersect
 
 
 ###################################################
-### chunk number 18: 
+### code chunk number 18: IPSUR.Rnw:1279-1280
 ###################################################
-#line 1280 "IPSUR.Rnw"
 rev
 
 
 ###################################################
-### chunk number 19: 
+### code chunk number 19: IPSUR.Rnw:1287-1288
 ###################################################
-#line 1288 "IPSUR.Rnw"
 methods(rev)
 
 
 ###################################################
-### chunk number 20: 
+### code chunk number 20: IPSUR.Rnw:1300-1301
 ###################################################
-#line 1301 "IPSUR.Rnw"
 rev.default
 
 
 ###################################################
-### chunk number 21: 
+### code chunk number 21: IPSUR.Rnw:1310-1312
 ###################################################
-#line 1311 "IPSUR.Rnw"
 wilcox.test
 methods(wilcox.test)
 
 
 ###################################################
-### chunk number 22: 
+### code chunk number 22: IPSUR.Rnw:1331-1332
 ###################################################
-#line 1332 "IPSUR.Rnw"
 exp
 
 
 ###################################################
-### chunk number 23: 
+### code chunk number 23: IPSUR.Rnw:1616-1618
 ###################################################
-#line 1617 "IPSUR.Rnw"
 str(precip)
 precip[1:4]
 
 
 ###################################################
-### chunk number 24: 
+### code chunk number 24: IPSUR.Rnw:1637-1638
 ###################################################
-#line 1638 "IPSUR.Rnw"
 str(rivers)
 
 
 ###################################################
-### chunk number 25: 
+### code chunk number 25: IPSUR.Rnw:1656-1658
 ###################################################
-#line 1657 "IPSUR.Rnw"
 str(discoveries)
 discoveries[1:4]
 
 
 ###################################################
-### chunk number 26:  eval=FALSE
+### code chunk number 26: IPSUR.Rnw:1697-1700 (eval = FALSE)
 ###################################################
-## #line 1698 "IPSUR.Rnw"
 ## stripchart(precip, xlab="rainfall")
 ## stripchart(rivers, method="jitter", xlab="length")
 ## stripchart(discoveries, method="stack", xlab="number")
 
 
 ###################################################
-### chunk number 27: 
+### code chunk number 27: IPSUR.Rnw:1718-1723
 ###################################################
-#line 1719 "IPSUR.Rnw"
 par(mfrow = c(1,3)) # 3 plots: 1 row, 3 columns
 stripchart(precip, xlab="rainfall")
 stripchart(rivers, method="jitter", xlab="length")
@@ -370,17 +346,15 @@ par(mfrow = c(1,1)) # back to normal
 
 
 ###################################################
-### chunk number 28:  eval=FALSE
+### code chunk number 28: IPSUR.Rnw:1767-1769 (eval = FALSE)
 ###################################################
-## #line 1768 "IPSUR.Rnw"
 ## hist(precip, main = "")
 ## hist(precip, freq = FALSE, main = "")
 
 
 ###################################################
-### chunk number 29: 
+### code chunk number 29: IPSUR.Rnw:1781-1785
 ###################################################
-#line 1782 "IPSUR.Rnw"
 par(mfrow = c(1,2)) # 2 plots: 1 row, 2 columns
 hist(precip, main = "")
 hist(precip, freq = FALSE, main = "")
@@ -388,17 +362,15 @@ par(mfrow = c(1,1)) # back to normal
 
 
 ###################################################
-### chunk number 30:  eval=FALSE
+### code chunk number 30: IPSUR.Rnw:1814-1816 (eval = FALSE)
 ###################################################
-## #line 1815 "IPSUR.Rnw"
 ## hist(precip, breaks = 10, main = "")
 ## hist(precip, breaks = 200, main = "")
 
 
 ###################################################
-### chunk number 31: 
+### code chunk number 31: IPSUR.Rnw:1822-1826
 ###################################################
-#line 1823 "IPSUR.Rnw"
 par(mfrow = c(1,2)) # 2 plots: 1 row, 2 columns
 hist(precip, breaks = 10, main = "")
 hist(precip, breaks = 200, main = "")
@@ -406,25 +378,22 @@ par(mfrow = c(1,1)) # back to normal
 
 
 ###################################################
-### chunk number 32: 
+### code chunk number 32: IPSUR.Rnw:1869-1871
 ###################################################
-#line 1870 "IPSUR.Rnw"
 library(aplpack)
 stem.leaf(UKDriverDeaths, depth = FALSE)
 
 
 ###################################################
-### chunk number 33: 
+### code chunk number 33: IPSUR.Rnw:1908-1910
 ###################################################
-#line 1909 "IPSUR.Rnw"
 plot(LakeHuron, type = "h")
 plot(LakeHuron, type = "p")
 
 
 ###################################################
-### chunk number 34: 
+### code chunk number 34: IPSUR.Rnw:1919-1923
 ###################################################
-#line 1920 "IPSUR.Rnw"
 par(mfrow = c(2,1)) # 2 plots: 1 row, 2 columns
 plot(LakeHuron, type = "h")
 plot(LakeHuron, type = "p")
@@ -432,24 +401,21 @@ par(mfrow = c(1,1)) # back to normal
 
 
 ###################################################
-### chunk number 35: 
+### code chunk number 35: IPSUR.Rnw:1985-1986
 ###################################################
-#line 1986 "IPSUR.Rnw"
 str(state.abb)
 
 
 ###################################################
-### chunk number 36: 
+### code chunk number 36: IPSUR.Rnw:2002-2004
 ###################################################
-#line 2003 "IPSUR.Rnw"
 str(state.region)
 state.region[1:5]
 
 
 ###################################################
-### chunk number 37: 
+### code chunk number 37: IPSUR.Rnw:2032-2036
 ###################################################
-#line 2033 "IPSUR.Rnw"
 Tbl <- table(state.division)
 Tbl               # frequencies
 Tbl/sum(Tbl)      # relative frequencies
@@ -457,17 +423,15 @@ prop.table(Tbl)   # same thing
 
 
 ###################################################
-### chunk number 38:  eval=FALSE
+### code chunk number 38: IPSUR.Rnw:2056-2058 (eval = FALSE)
 ###################################################
-## #line 2057 "IPSUR.Rnw"
 ## barplot(table(state.region), cex.names = 0.50)
 ## barplot(prop.table(table(state.region)), cex.names = 0.50)
 
 
 ###################################################
-### chunk number 39: 
+### code chunk number 39: IPSUR.Rnw:2077-2081
 ###################################################
-#line 2078 "IPSUR.Rnw"
 par(mfrow = c(1,2)) # 2 plots: 1 row, 2 columns
 barplot(table(state.region), cex.names = 0.50)
 barplot(prop.table(table(state.region)), cex.names = 0.50)
@@ -475,304 +439,265 @@ par(mfrow = c(1,1))
 
 
 ###################################################
-### chunk number 40:  eval=FALSE
+### code chunk number 40: IPSUR.Rnw:2115-2117 (eval = FALSE)
 ###################################################
-## #line 2116 "IPSUR.Rnw"
 ## library(qcc)
 ## pareto.chart(table(state.division), ylab="Frequency")
 
 
 ###################################################
-### chunk number 41: 
+### code chunk number 41: IPSUR.Rnw:2123-2125
 ###################################################
-#line 2124 "IPSUR.Rnw"
 library(qcc)
 pareto.chart(table(state.division), ylab="Frequency")
 
 
 ###################################################
-### chunk number 42:  eval=FALSE
+### code chunk number 42: IPSUR.Rnw:2147-2149 (eval = FALSE)
 ###################################################
-## #line 2148 "IPSUR.Rnw"
 ## x <- table(state.region)
 ## dotchart(as.vector(x), labels = names(x))
 
 
 ###################################################
-### chunk number 43: 
+### code chunk number 43: IPSUR.Rnw:2155-2157
 ###################################################
-#line 2156 "IPSUR.Rnw"
 x <- table(state.region)
 dotchart(as.vector(x), labels = names(x))
 
 
 ###################################################
-### chunk number 44: 
+### code chunk number 44: IPSUR.Rnw:2193-2196
 ###################################################
-#line 2194 "IPSUR.Rnw"
 x <- 5:9
 y <- (x < 7.3)
 y
 
 
 ###################################################
-### chunk number 45: 
+### code chunk number 45: IPSUR.Rnw:2211-2212
 ###################################################
-#line 2212 "IPSUR.Rnw"
 !y
 
 
 ###################################################
-### chunk number 46: 
+### code chunk number 46: IPSUR.Rnw:2229-2232
 ###################################################
-#line 2230 "IPSUR.Rnw"
 x <- c(3, 7, NA, 4, 7)
 y <- c(5, NA, 1, 2, 2)
 x + y
 
 
 ###################################################
-### chunk number 47: 
+### code chunk number 47: IPSUR.Rnw:2244-2246
 ###################################################
-#line 2245 "IPSUR.Rnw"
 sum(x)
 sum(x, na.rm = TRUE)
 
 
 ###################################################
-### chunk number 48: 
+### code chunk number 48: IPSUR.Rnw:2257-2260
 ###################################################
-#line 2258 "IPSUR.Rnw"
 is.na(x)
 z <- x[!is.na(x)]
 sum(z)
 
 
 ###################################################
-### chunk number 49: 
+### code chunk number 49: IPSUR.Rnw:2357-2359
 ###################################################
-#line 2358 "IPSUR.Rnw"
 library(aplpack)
 stem.leaf(faithful$eruptions)
 
 
 ###################################################
-### chunk number 50: 
+### code chunk number 50: IPSUR.Rnw:2725-2728
 ###################################################
-#line 2726 "IPSUR.Rnw"
 library(e1071)
 skewness(discoveries)
 2*sqrt(6/length(discoveries))
 
 
 ###################################################
-### chunk number 51: 
+### code chunk number 51: IPSUR.Rnw:2735-2737
 ###################################################
-#line 2736 "IPSUR.Rnw"
 kurtosis(UKDriverDeaths)
 4*sqrt(6/length(UKDriverDeaths))
 
 
 ###################################################
-### chunk number 52: 
+### code chunk number 52: IPSUR.Rnw:2819-2820
 ###################################################
-#line 2820 "IPSUR.Rnw"
 stem.leaf(rivers)
 
 
 ###################################################
-### chunk number 53: 
+### code chunk number 53: IPSUR.Rnw:2844-2845
 ###################################################
-#line 2845 "IPSUR.Rnw"
 stem.leaf(precip)
 
 
 ###################################################
-### chunk number 54: 
+### code chunk number 54: IPSUR.Rnw:2957-2958
 ###################################################
-#line 2958 "IPSUR.Rnw"
 boxplot.stats(rivers)$out
 
 
 ###################################################
-### chunk number 55: 
+### code chunk number 55: IPSUR.Rnw:2964-2965
 ###################################################
-#line 2965 "IPSUR.Rnw"
 boxplot.stats(rivers, coef = 3)$out
 
 
 ###################################################
-### chunk number 56: 
+### code chunk number 56: IPSUR.Rnw:3016-3019
 ###################################################
-#line 3017 "IPSUR.Rnw"
 x <- 5:8
 y <- letters[3:6]
 A <- data.frame(v1 = x, v2 = y)
 
 
 ###################################################
-### chunk number 57: 
+### code chunk number 57: IPSUR.Rnw:3039-3042
 ###################################################
-#line 3040 "IPSUR.Rnw"
 A[3,]
 A[1, ]
 A[ ,2]
 
 
 ###################################################
-### chunk number 58: 
+### code chunk number 58: IPSUR.Rnw:3057-3059
 ###################################################
-#line 3058 "IPSUR.Rnw"
 names(A)
 A$v1
 
 
 ###################################################
-### chunk number 59:  eval=FALSE
+### code chunk number 59: IPSUR.Rnw:3210-3212 (eval = FALSE)
 ###################################################
-## #line 3211 "IPSUR.Rnw"
 ## library(lattice)
 ## xyplot()
 
 
 ###################################################
-### chunk number 60:  eval=FALSE
+### code chunk number 60: IPSUR.Rnw:3292-3294 (eval = FALSE)
 ###################################################
-## #line 3293 "IPSUR.Rnw"
 ## library(lattice)
 ## bwplot(~weight | feed, data = chickwts)
 
 
 ###################################################
-### chunk number 61: 
+### code chunk number 61: IPSUR.Rnw:3300-3302
 ###################################################
-#line 3301 "IPSUR.Rnw"
 library(lattice)
 print(bwplot(~ weight | feed, data = chickwts))
 
 
 ###################################################
-### chunk number 62:  eval=FALSE
+### code chunk number 62: IPSUR.Rnw:3317-3318 (eval = FALSE)
 ###################################################
-## #line 3318 "IPSUR.Rnw"
 ## histogram(~age | education, data = infert)
 
 
 ###################################################
-### chunk number 63: 
+### code chunk number 63: IPSUR.Rnw:3324-3326
 ###################################################
-#line 3325 "IPSUR.Rnw"
 library(lattice)
 print(histogram(~age | education, data = infert))
 
 
 ###################################################
-### chunk number 64:  eval=FALSE
+### code chunk number 64: IPSUR.Rnw:3339-3340 (eval = FALSE)
 ###################################################
-## #line 3340 "IPSUR.Rnw"
 ## xyplot(Petal.Length ~ Petal.Width | Species, data = iris)
 
 
 ###################################################
-### chunk number 65: 
+### code chunk number 65: IPSUR.Rnw:3346-3348
 ###################################################
-#line 3347 "IPSUR.Rnw"
 library(lattice)
 print(xyplot(Petal.Length ~ Petal.Width | Species, data = iris))
 
 
 ###################################################
-### chunk number 66:  eval=FALSE
+### code chunk number 66: IPSUR.Rnw:3361-3362 (eval = FALSE)
 ###################################################
-## #line 3362 "IPSUR.Rnw"
 ## coplot(conc ~ uptake | Type * Treatment, data = CO2)
 
 
 ###################################################
-### chunk number 67: 
+### code chunk number 67: IPSUR.Rnw:3368-3370
 ###################################################
-#line 3369 "IPSUR.Rnw"
 library(lattice)
 print(coplot(conc ~ uptake | Type * Treatment, data = CO2))
 
 
 ###################################################
-### chunk number 68: 
+### code chunk number 68: IPSUR.Rnw:3401-3403
 ###################################################
-#line 3402 "IPSUR.Rnw"
 attach(RcmdrTestDrive)
 names(RcmdrTestDrive)
 
 
 ###################################################
-### chunk number 69: "Find summary statistics"
+### code chunk number 69: "Find summary statistics"
 ###################################################
-#line 3429 "IPSUR.Rnw"
 summary(RcmdrTestDrive)
 
 
 ###################################################
-### chunk number 70: 
+### code chunk number 70: IPSUR.Rnw:3450-3451
 ###################################################
-#line 3451 "IPSUR.Rnw"
 table(race)
 
 
 ###################################################
-### chunk number 71: 
+### code chunk number 71: IPSUR.Rnw:3461-3462
 ###################################################
-#line 3462 "IPSUR.Rnw"
 barplot(table(RcmdrTestDrive$race), main="", xlab="race", ylab="Frequency", legend.text=FALSE, col=NULL) 
 
 
 ###################################################
-### chunk number 72: 
+### code chunk number 72: IPSUR.Rnw:3498-3500
 ###################################################
-#line 3499 "IPSUR.Rnw"
 x <- tapply(salary, list(gender = gender), mean)
 x
 
 
 ###################################################
-### chunk number 73: 
+### code chunk number 73: IPSUR.Rnw:3506-3507
 ###################################################
-#line 3507 "IPSUR.Rnw"
 by(salary, gender, mean, na.rm = TRUE)
 
 
 ###################################################
-### chunk number 74: 
+### code chunk number 74: IPSUR.Rnw:3527-3528
 ###################################################
-#line 3528 "IPSUR.Rnw"
 x[which(x==max(x))]
 
 
 ###################################################
-### chunk number 75: 
+### code chunk number 75: IPSUR.Rnw:3536-3538
 ###################################################
-#line 3537 "IPSUR.Rnw"
 y <- tapply(salary, list(gender = gender), sd)
 y
 
 
 ###################################################
-### chunk number 76: 
+### code chunk number 76: IPSUR.Rnw:3552-3553
 ###################################################
-#line 3553 "IPSUR.Rnw"
 boxplot(salary~gender, xlab="salary", ylab="gender", main="", notch=FALSE, varwidth=TRUE, horizontal=TRUE, data=RcmdrTestDrive) 
 
 
 ###################################################
-### chunk number 77: 
+### code chunk number 77: IPSUR.Rnw:3589-3590
 ###################################################
-#line 3590 "IPSUR.Rnw"
 x = sort(reduction)
 
 
 ###################################################
-### chunk number 78: 
+### code chunk number 78: IPSUR.Rnw:3593-3597
 ###################################################
-#line 3594 "IPSUR.Rnw"
 x[137]
 IQR(x)
 fivenum(x)
@@ -780,16 +705,14 @@ fivenum(x)[4] - fivenum(x)[2]
 
 
 ###################################################
-### chunk number 79: 
+### code chunk number 79: IPSUR.Rnw:3609-3610
 ###################################################
-#line 3610 "IPSUR.Rnw"
 boxplot(reduction, xlab="reduction", main="", notch=FALSE, varwidth=TRUE, horizontal=TRUE, data=RcmdrTestDrive) 
 
 
 ###################################################
-### chunk number 80: 
+### code chunk number 80: IPSUR.Rnw:3614-3619
 ###################################################
-#line 3615 "IPSUR.Rnw"
 temp <- fivenum(x)
 inF <- 1.5 * (temp[4] - temp[2]) + temp[4]
 outF <- 3 * (temp[4] - temp[2]) + temp[4]
@@ -798,71 +721,62 @@ which(x > outF)
 
 
 ###################################################
-### chunk number 81: 
+### code chunk number 81: IPSUR.Rnw:3660-3662
 ###################################################
-#line 3661 "IPSUR.Rnw"
 c(mean(before), median(before))
 c(mean(after), median(after))
 
 
 ###################################################
-### chunk number 82: 
+### code chunk number 82: IPSUR.Rnw:3680-3681
 ###################################################
-#line 3681 "IPSUR.Rnw"
 boxplot(before, xlab="before", main="", notch=FALSE, varwidth=TRUE, horizontal=TRUE, data=RcmdrTestDrive) 
 
 
 ###################################################
-### chunk number 83: 
+### code chunk number 83: IPSUR.Rnw:3696-3697
 ###################################################
-#line 3697 "IPSUR.Rnw"
 boxplot(after, xlab="after", notch=FALSE, varwidth=TRUE, horizontal=TRUE, data=RcmdrTestDrive) 
 
 
 ###################################################
-### chunk number 84: 
+### code chunk number 84: IPSUR.Rnw:3718-3721
 ###################################################
-#line 3719 "IPSUR.Rnw"
 sd(before)
 mad(after)
 IQR(after)/1.349
 
 
 ###################################################
-### chunk number 85: 
+### code chunk number 85: IPSUR.Rnw:3736-3739
 ###################################################
-#line 3737 "IPSUR.Rnw"
 library(e1071)
 skewness(before)
 kurtosis(before)
 
 
 ###################################################
-### chunk number 86: 
+### code chunk number 86: IPSUR.Rnw:3758-3760
 ###################################################
-#line 3759 "IPSUR.Rnw"
 skewness(after)
 kurtosis(after)
 
 
 ###################################################
-### chunk number 87: 
+### code chunk number 87: IPSUR.Rnw:3775-3776
 ###################################################
-#line 3776 "IPSUR.Rnw"
 hist(before, xlab="before", data=RcmdrTestDrive) 
 
 
 ###################################################
-### chunk number 88: 
+### code chunk number 88: IPSUR.Rnw:3781-3782
 ###################################################
-#line 3782 "IPSUR.Rnw"
 hist(after, xlab="after", data=RcmdrTestDrive) 
 
 
 ###################################################
-### chunk number 89: 
+### code chunk number 89: IPSUR.Rnw:3836-3844
 ###################################################
-#line 3837 "IPSUR.Rnw"
 require(diagram)
 par(mex = 0.2, cex = 0.5)
 openplotmat(frame.plot=TRUE)
@@ -874,162 +788,141 @@ textellipse(mid = c(0.29,0.25), box.col = grey(0.95), radx = 0.27, rady = 0.22, 
 
 
 ###################################################
-### chunk number 90: 
+### code chunk number 90: IPSUR.Rnw:3884-3886
 ###################################################
-#line 3885 "IPSUR.Rnw"
 S <- data.frame(lands = c("down","up","side"))
 S
 
 
 ###################################################
-### chunk number 91: 
+### code chunk number 91: IPSUR.Rnw:3916-3918
 ###################################################
-#line 3917 "IPSUR.Rnw"
 library(prob)
 tosscoin(1) 
 
 
 ###################################################
-### chunk number 92: 
+### code chunk number 92: IPSUR.Rnw:3925-3926
 ###################################################
-#line 3926 "IPSUR.Rnw"
 tosscoin(3) 
 
 
 ###################################################
-### chunk number 93: 
+### code chunk number 93: IPSUR.Rnw:3931-3932
 ###################################################
-#line 3932 "IPSUR.Rnw"
 rolldie(1) 
 
 
 ###################################################
-### chunk number 94: 
+### code chunk number 94: IPSUR.Rnw:3944-3945
 ###################################################
-#line 3945 "IPSUR.Rnw"
 head(cards()) 
 
 
 ###################################################
-### chunk number 95: 
+### code chunk number 95: IPSUR.Rnw:4016-4017
 ###################################################
-#line 4017 "IPSUR.Rnw"
 urnsamples(1:3, size = 2, replace = TRUE, ordered = TRUE)
 
 
 ###################################################
-### chunk number 96: 
+### code chunk number 96: IPSUR.Rnw:4034-4035
 ###################################################
-#line 4035 "IPSUR.Rnw"
 urnsamples(1:3, size = 2, replace = FALSE, ordered = TRUE)
 
 
 ###################################################
-### chunk number 97: 
+### code chunk number 97: IPSUR.Rnw:4053-4054
 ###################################################
-#line 4054 "IPSUR.Rnw"
 urnsamples(1:3, size = 2, replace = FALSE, ordered = FALSE) 
 
 
 ###################################################
-### chunk number 98: 
+### code chunk number 98: IPSUR.Rnw:4068-4069
 ###################################################
-#line 4069 "IPSUR.Rnw"
 urnsamples(1:3, size = 2, replace = TRUE, ordered = FALSE) 
 
 
 ###################################################
-### chunk number 99: 
+### code chunk number 99: IPSUR.Rnw:4131-4134
 ###################################################
-#line 4132 "IPSUR.Rnw"
 S <- tosscoin(2, makespace = TRUE) 
 S[1:3, ] 
 S[c(2,4), ] 
 
 
 ###################################################
-### chunk number 100: 
+### code chunk number 100: IPSUR.Rnw:4141-4142
 ###################################################
-#line 4142 "IPSUR.Rnw"
 S <- cards() 
 
 
 ###################################################
-### chunk number 101: 
+### code chunk number 101: IPSUR.Rnw:4145-4147
 ###################################################
-#line 4146 "IPSUR.Rnw"
 subset(S, suit == "Heart") 
 subset(S, rank %in% 7:9)
 
 
 ###################################################
-### chunk number 102: 
+### code chunk number 102: IPSUR.Rnw:4153-4154
 ###################################################
-#line 4154 "IPSUR.Rnw"
 subset(rolldie(3), X1+X2+X3 > 16) 
 
 
 ###################################################
-### chunk number 103: 
+### code chunk number 103: IPSUR.Rnw:4174-4177
 ###################################################
-#line 4175 "IPSUR.Rnw"
 x <- 1:10 
 y <- 8:12 
 y %in% x
 
 
 ###################################################
-### chunk number 104: 
+### code chunk number 104: IPSUR.Rnw:4194-4195
 ###################################################
-#line 4195 "IPSUR.Rnw"
 isin(x,y) 
 
 
 ###################################################
-### chunk number 105: 
+### code chunk number 105: IPSUR.Rnw:4203-4205
 ###################################################
-#line 4204 "IPSUR.Rnw"
 x <- 1:10 
 y <- c(3,3,7) 
 
 
 ###################################################
-### chunk number 106: 
+### code chunk number 106: IPSUR.Rnw:4208-4210
 ###################################################
-#line 4209 "IPSUR.Rnw"
 all(y %in% x)
 isin(x,y) 
 
 
 ###################################################
-### chunk number 107: 
+### code chunk number 107: IPSUR.Rnw:4223-4225
 ###################################################
-#line 4224 "IPSUR.Rnw"
 isin(x, c(3,4,5), ordered = TRUE) 
 isin(x, c(3,5,4), ordered = TRUE) 
 
 
 ###################################################
-### chunk number 108: 
+### code chunk number 108: IPSUR.Rnw:4234-4236
 ###################################################
-#line 4235 "IPSUR.Rnw"
 S <- rolldie(4) 
 subset(S, isin(S, c(2,2,6), ordered = TRUE)) 
 
 
 ###################################################
-### chunk number 109: 
+### code chunk number 109: IPSUR.Rnw:4268-4271
 ###################################################
-#line 4269 "IPSUR.Rnw"
 S = cards() 
 A = subset(S, suit == "Heart") 
 B = subset(S, rank %in% 7:9)
 
 
 ###################################################
-### chunk number 110: 
+### code chunk number 110: IPSUR.Rnw:4276-4280
 ###################################################
-#line 4277 "IPSUR.Rnw"
 union(A,B) 
 intersect(A,B) 
 setdiff(A,B) 
@@ -1037,69 +930,60 @@ setdiff(B,A)
 
 
 ###################################################
-### chunk number 111: 
+### code chunk number 111: IPSUR.Rnw:4546-4549
 ###################################################
-#line 4547 "IPSUR.Rnw"
 outcomes <- rolldie(1) 
 p <- rep(1/6, times = 6) 
 probspace(outcomes, probs = p) 
 
 
 ###################################################
-### chunk number 112: 
+### code chunk number 112: IPSUR.Rnw:4558-4559
 ###################################################
-#line 4559 "IPSUR.Rnw"
 probspace(1:6, probs = p) 
 
 
 ###################################################
-### chunk number 113: 
+### code chunk number 113: IPSUR.Rnw:4567-4568
 ###################################################
-#line 4568 "IPSUR.Rnw"
 probspace(1:6) 
 
 
 ###################################################
-### chunk number 114: 
+### code chunk number 114: IPSUR.Rnw:4577-4578
 ###################################################
-#line 4578 "IPSUR.Rnw"
 rolldie(1, makespace = TRUE)
 
 
 ###################################################
-### chunk number 115: 
+### code chunk number 115: IPSUR.Rnw:4607-4608
 ###################################################
-#line 4608 "IPSUR.Rnw"
 probspace(tosscoin(1), probs = c(0.70, 0.30)) 
 
 
 ###################################################
-### chunk number 116: 
+### code chunk number 116: IPSUR.Rnw:4853-4856
 ###################################################
-#line 4854 "IPSUR.Rnw"
 S <- cards(makespace = TRUE) 
 A <- subset(S, suit == "Heart") 
 B <- subset(S, rank %in% 7:9)
 
 
 ###################################################
-### chunk number 117: 
+### code chunk number 117: IPSUR.Rnw:4861-4862
 ###################################################
-#line 4862 "IPSUR.Rnw"
 prob(A) 
 
 
 ###################################################
-### chunk number 118: 
+### code chunk number 118: IPSUR.Rnw:4867-4868
 ###################################################
-#line 4868 "IPSUR.Rnw"
 prob(S, suit == "Heart") 
 
 
 ###################################################
-### chunk number 119: 
+### code chunk number 119: IPSUR.Rnw:5067-5071
 ###################################################
-#line 5068 "IPSUR.Rnw"
 nsamp(n=3, k=2, replace = TRUE, ordered = TRUE) 
 nsamp(n=3, k=2, replace = FALSE, ordered = TRUE) 
 nsamp(n=3, k=2, replace = FALSE, ordered = FALSE) 
@@ -1107,53 +991,46 @@ nsamp(n=3, k=2, replace = TRUE, ordered = FALSE)
 
 
 ###################################################
-### chunk number 120: 
+### code chunk number 120: IPSUR.Rnw:5106-5109
 ###################################################
-#line 5107 "IPSUR.Rnw"
 n <- c(11,7,31) 
 k <- c(3,4,3) 
 r <- c(FALSE,FALSE,TRUE) 
 
 
 ###################################################
-### chunk number 121: 
+### code chunk number 121: IPSUR.Rnw:5112-5113
 ###################################################
-#line 5113 "IPSUR.Rnw"
 x <- nsamp(n, k, rep = r, ord = TRUE) 
 
 
 ###################################################
-### chunk number 122: 
+### code chunk number 122: IPSUR.Rnw:5125-5126
 ###################################################
-#line 5126 "IPSUR.Rnw"
 prod(x) 
 
 
 ###################################################
-### chunk number 123: 
+### code chunk number 123: IPSUR.Rnw:5131-5132
 ###################################################
-#line 5132 "IPSUR.Rnw"
 (11*10*9)*(7*6*5*4)*313 
 
 
 ###################################################
-### chunk number 124: 
+### code chunk number 124: IPSUR.Rnw:5137-5138
 ###################################################
-#line 5138 "IPSUR.Rnw"
 prod(9:11)*prod(4:7)*313 
 
 
 ###################################################
-### chunk number 125: 
+### code chunk number 125: IPSUR.Rnw:5143-5144
 ###################################################
-#line 5144 "IPSUR.Rnw"
 prod(factorial(c(11,7))/factorial(c(8,3)))*313 
 
 
 ###################################################
-### chunk number 126: 
+### code chunk number 126: IPSUR.Rnw:5219-5224
 ###################################################
-#line 5220 "IPSUR.Rnw"
 g <- Vectorize(pbirthday.ipsur)
 plot(1:50, g(1:50), xlab = "Number of people in room", ylab = "Prob(at least one match)")
 abline(h = 0.5)
@@ -1162,42 +1039,37 @@ remove(g)
 
 
 ###################################################
-### chunk number 127: 
+### code chunk number 127: IPSUR.Rnw:5357-5360
 ###################################################
-#line 5358 "IPSUR.Rnw"
 library(prob)
 S <- rolldie(2, makespace = TRUE)  # assumes ELM
 head(S)                            #  first few rows
 
 
 ###################################################
-### chunk number 128: 
+### code chunk number 128: IPSUR.Rnw:5365-5367
 ###################################################
-#line 5366 "IPSUR.Rnw"
 A <- subset(S, X1 == X2)
 B <- subset(S, X1 + X2 >= 8)
 
 
 ###################################################
-### chunk number 129: 
+### code chunk number 129: IPSUR.Rnw:5375-5377
 ###################################################
-#line 5376 "IPSUR.Rnw"
 prob(A, given = B)
 prob(B, given = A)
 
 
 ###################################################
-### chunk number 130: 
+### code chunk number 130: IPSUR.Rnw:5385-5387
 ###################################################
-#line 5386 "IPSUR.Rnw"
 prob(S, X1==X2, given = (X1 + X2 >= 8) )
 prob(S, X1+X2 >= 8, given = (X1==X2) )
 
 
 ###################################################
-### chunk number 131: 
+### code chunk number 131: IPSUR.Rnw:5471-5475
 ###################################################
-#line 5472 "IPSUR.Rnw"
 library(prob)
 L <- cards()
 M <- urnsamples(L, size = 2)
@@ -1205,16 +1077,14 @@ N <- probspace(M)
 
 
 ###################################################
-### chunk number 132: 
+### code chunk number 132: IPSUR.Rnw:5487-5488
 ###################################################
-#line 5488 "IPSUR.Rnw"
 prob(N, all(rank == "A"))
 
 
 ###################################################
-### chunk number 133: 
+### code chunk number 133: IPSUR.Rnw:5523-5527
 ###################################################
-#line 5524 "IPSUR.Rnw"
 library(prob)
 L <- rep(c("red","green"), times = c(7,3))
 M <- urnsamples(L, size = 3, replace = FALSE, ordered = TRUE)
@@ -1222,62 +1092,54 @@ N <- probspace(M)
 
 
 ###################################################
-### chunk number 134: 
+### code chunk number 134: IPSUR.Rnw:5543-5544
 ###################################################
-#line 5544 "IPSUR.Rnw"
 prob(N, isrep(N, "red", 3))
 
 
 ###################################################
-### chunk number 135: 
+### code chunk number 135: IPSUR.Rnw:5551-5552
 ###################################################
-#line 5552 "IPSUR.Rnw"
 prob(N, isrep(N, "red", 2))
 
 
 ###################################################
-### chunk number 136: 
+### code chunk number 136: IPSUR.Rnw:5561-5562
 ###################################################
-#line 5562 "IPSUR.Rnw"
 prob(N, isin(N, c("red","green","red"), ordered = TRUE))
 
 
 ###################################################
-### chunk number 137: 
+### code chunk number 137: IPSUR.Rnw:5571-5572
 ###################################################
-#line 5572 "IPSUR.Rnw"
 prob(N, isin(N, c("red","green","red")))
 
 
 ###################################################
-### chunk number 138: 
+### code chunk number 138: IPSUR.Rnw:5603-5606
 ###################################################
-#line 5604 "IPSUR.Rnw"
 .Table <- xtabs(~smoke+gender, data=RcmdrTestDrive)
 addmargins(.Table) # Table with Marginal Distributions
 remove(.Table)
 
 
 ###################################################
-### chunk number 139: 
+### code chunk number 139: IPSUR.Rnw:5724-5727
 ###################################################
-#line 5725 "IPSUR.Rnw"
 S <- tosscoin(10, makespace = TRUE)
 A <- subset(S, isrep(S, vals = "T", nrep = 10))
 1 - prob(A)
 
 
 ###################################################
-### chunk number 140: 
+### code chunk number 140: IPSUR.Rnw:5765-5766
 ###################################################
-#line 5766 "IPSUR.Rnw"
 iidspace(c("H","T"), ntrials = 3, probs = c(0.7, 0.3)) 
 
 
 ###################################################
-### chunk number 141: 
+### code chunk number 141: IPSUR.Rnw:5973-5977
 ###################################################
-#line 5974 "IPSUR.Rnw"
 prior <- c(0.6, 0.3, 0.1)
 like <- c(0.003, 0.007, 0.010)
 post <- prior * like
@@ -1285,94 +1147,82 @@ post / sum(post)
 
 
 ###################################################
-### chunk number 142: 
+### code chunk number 142: IPSUR.Rnw:5997-6000
 ###################################################
-#line 5998 "IPSUR.Rnw"
 newprior <- post
 post <- newprior * like^7
 post / sum(post)
 
 
 ###################################################
-### chunk number 143: 
+### code chunk number 143: IPSUR.Rnw:6021-6023
 ###################################################
-#line 6022 "IPSUR.Rnw"
 fastpost <- prior * like^8
 fastpost / sum(fastpost)
 
 
 ###################################################
-### chunk number 144: 
+### code chunk number 144: IPSUR.Rnw:6117-6119
 ###################################################
-#line 6118 "IPSUR.Rnw"
 S <- rolldie(3, nsides = 4, makespace = TRUE) 
 S <- addrv(S, U = X1-X2+X3) 
 
 
 ###################################################
-### chunk number 145: 
+### code chunk number 145: IPSUR.Rnw:6126-6127
 ###################################################
-#line 6127 "IPSUR.Rnw"
 head(S)
 
 
 ###################################################
-### chunk number 146: 
+### code chunk number 146: IPSUR.Rnw:6133-6134
 ###################################################
-#line 6134 "IPSUR.Rnw"
 prob(S, U > 6) 
 
 
 ###################################################
-### chunk number 147: 
+### code chunk number 147: IPSUR.Rnw:6152-6155
 ###################################################
-#line 6153 "IPSUR.Rnw"
 S <- addrv(S, FUN = max, invars = c("X1","X2","X3"), name = "V") 
 S <- addrv(S, FUN = sum, invars = c("X1","X2","X3"), name = "W") 
 head(S) 
 
 
 ###################################################
-### chunk number 148: 
+### code chunk number 148: IPSUR.Rnw:6183-6184
 ###################################################
-#line 6184 "IPSUR.Rnw"
 marginal(S, vars = "V") 
 
 
 ###################################################
-### chunk number 149: 
+### code chunk number 149: IPSUR.Rnw:6193-6194
 ###################################################
-#line 6194 "IPSUR.Rnw"
 marginal(S, vars = c("V", "W")) 
 
 
 ###################################################
-### chunk number 150: 
+### code chunk number 150: IPSUR.Rnw:6210-6211
 ###################################################
-#line 6211 "IPSUR.Rnw"
 rnorm(1)
 
 
 ###################################################
-### chunk number 151: 
+### code chunk number 151: IPSUR.Rnw:6375-6377
 ###################################################
-#line 6376 "IPSUR.Rnw"
 x <- c(0,1,2,3)
 f <- c(1/8, 3/8, 3/8, 1/8)
 
 
 ###################################################
-### chunk number 152: 
+### code chunk number 152: IPSUR.Rnw:6386-6388
 ###################################################
-#line 6387 "IPSUR.Rnw"
 mu <- sum(x * f)
 mu
 
 
 ###################################################
-### chunk number 153: 
+### code chunk number 153: IPSUR.Rnw:6397-6401
 ###################################################
-#line 6398 "IPSUR.Rnw"
 sigma2 <- sum((x-mu)^2 * f)
 sigma2
 sigma <- sqrt(sigma2)
@@ -1380,43 +1230,38 @@ sigma
 
 
 ###################################################
-### chunk number 154: 
+### code chunk number 154: IPSUR.Rnw:6408-6410
 ###################################################
-#line 6409 "IPSUR.Rnw"
 F = cumsum(f)
 F
 
 
 ###################################################
-### chunk number 155: 
+### code chunk number 155: IPSUR.Rnw:6420-6423
 ###################################################
-#line 6421 "IPSUR.Rnw"
 library(distrEx)
 X <- DiscreteDistribution(supp = 0:3, prob = c(1,3,3,1)/8)
 E(X); var(X); sd(X)
 
 
 ###################################################
-### chunk number 156: 
+### code chunk number 156: IPSUR.Rnw:6586-6589
 ###################################################
-#line 6587 "IPSUR.Rnw"
 A <- data.frame(Pr=dbinom(0:4, size = 4, prob = 0.5))
 rownames(A) <- 0:4 
 A
 
 
 ###################################################
-### chunk number 157: 
+### code chunk number 157: IPSUR.Rnw:6613-6615
 ###################################################
-#line 6614 "IPSUR.Rnw"
 pbinom(9, size=12, prob=1/6) - pbinom(6, size=12, prob=1/6)
 diff(pbinom(c(6,9), size = 12, prob = 1/6))  # same thing
 
 
 ###################################################
-### chunk number 158: 
+### code chunk number 158: IPSUR.Rnw:6662-6667
 ###################################################
-#line 6663 "IPSUR.Rnw"
 plot(0, xlim = c(-1.2, 4.2), ylim = c(-0.04, 1.04), type = "n", xlab = "number of successes", ylab = "cumulative probability")
 abline(h = c(0,1), lty = 2, col = "grey")
 lines(stepfun(0:3, pbinom(-1:3, size = 3, prob = 0.5)), verticals = FALSE, do.p = FALSE)
@@ -1425,33 +1270,29 @@ points(0:3, pbinom(-1:2, size = 3, prob = 0.5), pch = 1, cex = 1.2)
 
 
 ###################################################
-### chunk number 159: 
+### code chunk number 159: IPSUR.Rnw:6689-6692
 ###################################################
-#line 6690 "IPSUR.Rnw"
 library(distr)
 X <- Binom(size = 3, prob = 1/2)
 X
 
 
 ###################################################
-### chunk number 160: 
+### code chunk number 160: IPSUR.Rnw:6702-6704
 ###################################################
-#line 6703 "IPSUR.Rnw"
 d(X)(1)   # pmf of X evaluated at x = 1
 p(X)(2)   # cdf of X evaluated at x = 2
 
 
 ###################################################
-### chunk number 161: 
+### code chunk number 161: IPSUR.Rnw:6716-6717
 ###################################################
-#line 6717 "IPSUR.Rnw"
 plot(X, cex = 0.2)
 
 
 ###################################################
-### chunk number 162: 
+### code chunk number 162: IPSUR.Rnw:6926-6930
 ###################################################
-#line 6927 "IPSUR.Rnw"
 X <- Binom(size = 3, prob = 0.45)
 library(distrEx)
 E(X)
@@ -1459,121 +1300,105 @@ E(3*X + 4)
 
 
 ###################################################
-### chunk number 163: 
+### code chunk number 163: IPSUR.Rnw:6942-6944
 ###################################################
-#line 6943 "IPSUR.Rnw"
 var(X)
 sd(X)
 
 
 ###################################################
-### chunk number 164: 
+### code chunk number 164: IPSUR.Rnw:6993-6995
 ###################################################
-#line 6994 "IPSUR.Rnw"
 x <- c(4, 7, 9, 11, 12)
 ecdf(x)
 
 
 ###################################################
-### chunk number 165:  eval=FALSE
+### code chunk number 165: IPSUR.Rnw:7008-7009 (eval = FALSE)
 ###################################################
-## #line 7009 "IPSUR.Rnw"
 ## plot(ecdf(x))
 
 
 ###################################################
-### chunk number 166: 
+### code chunk number 166: IPSUR.Rnw:7015-7016
 ###################################################
-#line 7016 "IPSUR.Rnw"
 plot(ecdf(x))
 
 
 ###################################################
-### chunk number 167: 
+### code chunk number 167: IPSUR.Rnw:7034-7037
 ###################################################
-#line 7035 "IPSUR.Rnw"
 epdf <- function(x) function(t){sum(x %in% t)/length(x)}
 x <- c(0,0,1)
 epdf(x)(0)       # should be 2/3
 
 
 ###################################################
-### chunk number 168: 
+### code chunk number 168: IPSUR.Rnw:7045-7047
 ###################################################
-#line 7046 "IPSUR.Rnw"
 x <- c(0,0,1)
 sample(x, size = 7, replace = TRUE)
 
 
 ###################################################
-### chunk number 169: 
+### code chunk number 169: IPSUR.Rnw:7122-7123
 ###################################################
-#line 7123 "IPSUR.Rnw"
 dhyper(3, m = 17, n = 233, k = 5)
 
 
 ###################################################
-### chunk number 170: 
+### code chunk number 170: IPSUR.Rnw:7133-7136
 ###################################################
-#line 7134 "IPSUR.Rnw"
 A <- data.frame(Pr=dhyper(0:4, m = 17, n = 233, k = 5))
 rownames(A) <- 0:4 
 A
 
 
 ###################################################
-### chunk number 171: 
+### code chunk number 171: IPSUR.Rnw:7150-7151
 ###################################################
-#line 7151 "IPSUR.Rnw"
 dhyper(5, m = 17, n = 233, k = 5)
 
 
 ###################################################
-### chunk number 172: 
+### code chunk number 172: IPSUR.Rnw:7171-7172
 ###################################################
-#line 7172 "IPSUR.Rnw"
 phyper(2, m = 17, n = 233, k = 5)
 
 
 ###################################################
-### chunk number 173: 
+### code chunk number 173: IPSUR.Rnw:7189-7190
 ###################################################
-#line 7190 "IPSUR.Rnw"
 phyper(1, m = 17, n = 233, k = 5, lower.tail = FALSE)
 
 
 ###################################################
-### chunk number 174: 
+### code chunk number 174: IPSUR.Rnw:7244-7245
 ###################################################
-#line 7245 "IPSUR.Rnw"
 rhyper(10, m = 17, n = 233, k = 5)
 
 
 ###################################################
-### chunk number 175: 
+### code chunk number 175: IPSUR.Rnw:7320-7321
 ###################################################
-#line 7321 "IPSUR.Rnw"
 pgeom(4, prob = 0.812, lower.tail = FALSE)
 
 
 ###################################################
-### chunk number 176: 
+### code chunk number 176: IPSUR.Rnw:7372-7373
 ###################################################
-#line 7373 "IPSUR.Rnw"
 dnbinom(5, size = 7, prob = 0.5)
 
 
 ###################################################
-### chunk number 177: 
+### code chunk number 177: IPSUR.Rnw:7483-7484
 ###################################################
-#line 7484 "IPSUR.Rnw"
 diff(ppois(c(47, 50), lambda = 50))
 
 
 ###################################################
-### chunk number 178: 
+### code chunk number 178: IPSUR.Rnw:7598-7605
 ###################################################
-#line 7599 "IPSUR.Rnw"
 xmin <- qbinom(.0005, size=31 , prob=0.447) 
 xmax <- qbinom(.9995, size=31 , prob=0.447) 
 .x <- xmin:xmax 
@@ -1584,9 +1409,8 @@ remove(.x, xmin, xmax)
 
 
 ###################################################
-### chunk number 179: 
+### code chunk number 179: IPSUR.Rnw:7613-7622
 ###################################################
-#line 7614 "IPSUR.Rnw"
 xmin <- qbinom(.0005, size=31 , prob=0.447) 
 xmax <- qbinom(.9995, size=31 , prob=0.447) 
 .x <- xmin:xmax 
@@ -1599,98 +1423,85 @@ remove(.x, xmin, xmax)
 
 
 ###################################################
-### chunk number 180: 
+### code chunk number 180: IPSUR.Rnw:7629-7630
 ###################################################
-#line 7630 "IPSUR.Rnw"
 dbinom(17, size = 31, prob = 0.447)
 
 
 ###################################################
-### chunk number 181: 
+### code chunk number 181: IPSUR.Rnw:7636-7637
 ###################################################
-#line 7637 "IPSUR.Rnw"
 pbinom(13, size = 31, prob = 0.447)
 
 
 ###################################################
-### chunk number 182: 
+### code chunk number 182: IPSUR.Rnw:7643-7644
 ###################################################
-#line 7644 "IPSUR.Rnw"
 pbinom(11, size = 31, prob = 0.447, lower.tail = FALSE)
 
 
 ###################################################
-### chunk number 183: 
+### code chunk number 183: IPSUR.Rnw:7650-7651
 ###################################################
-#line 7651 "IPSUR.Rnw"
 pbinom(14, size = 31, prob = 0.447, lower.tail = FALSE)
 
 
 ###################################################
-### chunk number 184: 
+### code chunk number 184: IPSUR.Rnw:7657-7659
 ###################################################
-#line 7658 "IPSUR.Rnw"
 sum(dbinom(16:19, size = 31, prob = 0.447))
 diff(pbinom(c(19,15), size = 31, prob = 0.447, lower.tail = FALSE))
 
 
 ###################################################
-### chunk number 185: 
+### code chunk number 185: IPSUR.Rnw:7665-7668
 ###################################################
-#line 7666 "IPSUR.Rnw"
 library(distrEx)
 X = Binom(size = 31, prob = 0.447)
 E(X)
 
 
 ###################################################
-### chunk number 186: 
+### code chunk number 186: IPSUR.Rnw:7674-7675
 ###################################################
-#line 7675 "IPSUR.Rnw"
 var(X)
 
 
 ###################################################
-### chunk number 187: 
+### code chunk number 187: IPSUR.Rnw:7681-7682
 ###################################################
-#line 7682 "IPSUR.Rnw"
 sd(X)
 
 
 ###################################################
-### chunk number 188: 
+### code chunk number 188: IPSUR.Rnw:7688-7689
 ###################################################
-#line 7689 "IPSUR.Rnw"
 E(4*X + 51.324)
 
 
 ###################################################
-### chunk number 189: 
+### code chunk number 189: IPSUR.Rnw:7694-7695
 ###################################################
-#line 7695 "IPSUR.Rnw"
 rnorm(1)
 
 
 ###################################################
-### chunk number 190: 
+### code chunk number 190: IPSUR.Rnw:7946-7948
 ###################################################
-#line 7947 "IPSUR.Rnw"
 f <- function(x) 3*x^2
 integrate(f, lower = 0.14, upper = 0.71)
 
 
 ###################################################
-### chunk number 191: 
+### code chunk number 191: IPSUR.Rnw:7963-7965
 ###################################################
-#line 7964 "IPSUR.Rnw"
 g <- function(x) 3/x^3
 integrate(g, lower = 1, upper = Inf)
 
 
 ###################################################
-### chunk number 192: 
+### code chunk number 192: IPSUR.Rnw:7980-7984
 ###################################################
-#line 7981 "IPSUR.Rnw"
 library(distr)
 f <- function(x) 3*x^2
 X <- AbscontDistribution(d = f, low1 = 0, up1 = 1)
@@ -1698,9 +1509,8 @@ p(X)(0.71) - p(X)(0.14)
 
 
 ###################################################
-### chunk number 193: 
+### code chunk number 193: IPSUR.Rnw:7991-7995
 ###################################################
-#line 7992 "IPSUR.Rnw"
 library(distrEx)
 E(X)
 var(X)
@@ -1708,45 +1518,39 @@ var(X)
 
 
 ###################################################
-### chunk number 194: 
+### code chunk number 194: IPSUR.Rnw:8110-8111
 ###################################################
-#line 8111 "IPSUR.Rnw"
 pnorm(1:3)-pnorm(-(1:3))
 
 
 ###################################################
-### chunk number 195: 
+### code chunk number 195: IPSUR.Rnw:8150-8152
 ###################################################
-#line 8151 "IPSUR.Rnw"
 g <- function(x) pnorm(x, mean = 100, sd = 15) - 0.99
 uniroot(g, interval = c(130, 145))
 
 
 ###################################################
-### chunk number 196: 
+### code chunk number 196: IPSUR.Rnw:8154-8155
 ###################################################
-#line 8155 "IPSUR.Rnw"
 temp <- round(uniroot(g, interval = c(130, 145))$root, 4)
 
 
 ###################################################
-### chunk number 197: 
+### code chunk number 197: IPSUR.Rnw:8225-8226
 ###################################################
-#line 8226 "IPSUR.Rnw"
 qnorm(0.99, mean = 100, sd = 15)
 
 
 ###################################################
-### chunk number 198: 
+### code chunk number 198: IPSUR.Rnw:8236-8237
 ###################################################
-#line 8237 "IPSUR.Rnw"
 qnorm(c(0.025, 0.01, 0.005), lower.tail = FALSE)
 
 
 ###################################################
-### chunk number 199: 
+### code chunk number 199: IPSUR.Rnw:8409-8413
 ###################################################
-#line 8410 "IPSUR.Rnw"
 library(distr)
 X <- Norm(mean = 0, sd = 1)
 Y <- 4 - 3*X
@@ -1754,102 +1558,89 @@ Y
 
 
 ###################################################
-### chunk number 200: 
+### code chunk number 200: IPSUR.Rnw:8425-8427
 ###################################################
-#line 8426 "IPSUR.Rnw"
 Y <- exp(X)
 Y
 
 
 ###################################################
-### chunk number 201: 
+### code chunk number 201: IPSUR.Rnw:8452-8454
 ###################################################
-#line 8453 "IPSUR.Rnw"
 W <- sin(exp(X) + 27)
 W
 
 
 ###################################################
-### chunk number 202: 
+### code chunk number 202: IPSUR.Rnw:8465-8468
 ###################################################
-#line 8466 "IPSUR.Rnw"
 p(W)(0.5)
 W <- sin(exp(X) + 27)
 p(W)(0.5)
 
 
 ###################################################
-### chunk number 203:  eval=FALSE
+### code chunk number 203: IPSUR.Rnw:8590-8593 (eval = FALSE)
 ###################################################
-## #line 8591 "IPSUR.Rnw"
 ## curve(dchisq(x, df = 3), from = 0, to = 20, ylab = "y")
 ## ind <- c(4, 5, 10, 15)
 ## for (i in ind) curve(dchisq(x, df = i), 0, 20, add = TRUE)
 
 
 ###################################################
-### chunk number 204: 
+### code chunk number 204: IPSUR.Rnw:8599-8602
 ###################################################
-#line 8600 "IPSUR.Rnw"
 curve(dchisq(x, df = 3), from = 0, to = 20, ylab = "y")
 ind <- c(4, 5, 10, 15)
 for (i in ind) curve(dchisq(x, df = i), 0, 20, add = TRUE)
 
 
 ###################################################
-### chunk number 205: 
+### code chunk number 205: IPSUR.Rnw:8762-8764
 ###################################################
-#line 8763 "IPSUR.Rnw"
 library(actuar)
 mgamma(1:4, shape = 13, rate = 1)
 
 
 ###################################################
-### chunk number 206: 
+### code chunk number 206: IPSUR.Rnw:8769-8770
 ###################################################
-#line 8770 "IPSUR.Rnw"
 plot(function(x){mgfgamma(x, shape = 13, rate = 1)}, from=-0.1, to=0.1, ylab = "gamma mgf")
 
 
 ###################################################
-### chunk number 207: 
+### code chunk number 207: IPSUR.Rnw:8776-8777
 ###################################################
-#line 8777 "IPSUR.Rnw"
 plot(function(x){mgfgamma(x, shape = 13, rate = 1)}, from=-0.1, to=0.1, ylab = "gamma mgf")
 
 
 ###################################################
-### chunk number 208: 
+### code chunk number 208: IPSUR.Rnw:8808-8809
 ###################################################
-#line 8809 "IPSUR.Rnw"
 rnorm(1)
 
 
 ###################################################
-### chunk number 209: 
+### code chunk number 209: IPSUR.Rnw:8835-8836
 ###################################################
-#line 8836 "IPSUR.Rnw"
 pnorm(2.64, lower.tail = FALSE)
 
 
 ###################################################
-### chunk number 210: 
+### code chunk number 210: IPSUR.Rnw:8842-8843
 ###################################################
-#line 8843 "IPSUR.Rnw"
 pnorm(0.87) - 1/2
 
 
 ###################################################
-### chunk number 211: 
+### code chunk number 211: IPSUR.Rnw:8849-8850
 ###################################################
-#line 8850 "IPSUR.Rnw"
 2 * pnorm(-1.39)
 
 
 ###################################################
-### chunk number 212: 
+### code chunk number 212: IPSUR.Rnw:9164-9168
 ###################################################
-#line 9165 "IPSUR.Rnw"
 S <- rolldie(2, makespace = TRUE)
 S <- addrv(S, FUN = max, invars = c("X1","X2"), name = "U")
 S <- addrv(S, FUN = sum, invars = c("X1","X2"), name = "V")
@@ -1857,41 +1648,36 @@ head(S)
 
 
 ###################################################
-### chunk number 213: 
+### code chunk number 213: IPSUR.Rnw:9182-9184
 ###################################################
-#line 9183 "IPSUR.Rnw"
 UV <- marginal(S, vars = c("U", "V"))
 head(UV)
 
 
 ###################################################
-### chunk number 214: 
+### code chunk number 214: IPSUR.Rnw:9192-9193
 ###################################################
-#line 9193 "IPSUR.Rnw"
 xtabs(round(probs,3) ~ U + V, data = UV)
 
 
 ###################################################
-### chunk number 215: 
+### code chunk number 215: IPSUR.Rnw:9200-9202
 ###################################################
-#line 9201 "IPSUR.Rnw"
 marginal(UV, vars = "U")
 head(marginal(UV, vars = "V"))
 
 
 ###################################################
-### chunk number 216: 
+### code chunk number 216: IPSUR.Rnw:9210-9213
 ###################################################
-#line 9211 "IPSUR.Rnw"
 temp <- xtabs(probs ~ U + V, data = UV)
 rowSums(temp)
 colSums(temp)
 
 
 ###################################################
-### chunk number 217: 
+### code chunk number 217: IPSUR.Rnw:9304-9308
 ###################################################
-#line 9305 "IPSUR.Rnw"
 Eu <- sum(S$U*S$probs)
 Ev <- sum(S$V*S$probs)
 Euv <- sum(S$U*S$V*S$probs)
@@ -1899,9 +1685,8 @@ Euv - Eu * Ev
 
 
 ###################################################
-### chunk number 218:  eval=FALSE
+### code chunk number 218: IPSUR.Rnw:9710-9715 (eval = FALSE)
 ###################################################
-## #line 9711 "IPSUR.Rnw"
 ## library(mvtnorm)
 ## x <- y <- seq(from = -3, to = 3, length.out = 30)
 ## f <- function(x,y) dmvnorm(cbind(x,y), mean = c(0,0), sigma = diag(2))
@@ -1910,9 +1695,8 @@ Euv - Eu * Ev
 
 
 ###################################################
-### chunk number 219: 
+### code chunk number 219: IPSUR.Rnw:9724-9729
 ###################################################
-#line 9725 "IPSUR.Rnw"
 library(mvtnorm)
 x <- y <- seq(from = -3, to = 3, length.out = 30)
 f <- function(x,y) dmvnorm(cbind(x,y), mean = c(0,0), sigma = diag(2))
@@ -1921,9 +1705,8 @@ persp(x, y, z, theta = -30, phi = 30, ticktype = "detailed")
 
 
 ###################################################
-### chunk number 220: 
+### code chunk number 220: IPSUR.Rnw:10045-10052
 ###################################################
-#line 10046 "IPSUR.Rnw"
 library(combinat)
 tmp <- t(xsimplex(3, 6))
 p <- apply(tmp, MARGIN = 1, FUN = dmultinom, prob = c(36,27,37))
@@ -1934,130 +1717,113 @@ round(ProbTable, 3)
 
 
 ###################################################
-### chunk number 221: 
+### code chunk number 221: IPSUR.Rnw:10085-10087
 ###################################################
-#line 10086 "IPSUR.Rnw"
 library(lattice)
 print(cloud(probs ~ X1 + X2, data = S, type = c("p","h"), lwd = 2, pch = 16, cex = 1.5), screen = list(z = 15, x = -70))
 
 
 ###################################################
-### chunk number 222:  eval=FALSE
+### code chunk number 222: IPSUR.Rnw:10337-10340 (eval = FALSE)
 ###################################################
-## #line 10338 "IPSUR.Rnw"
 ## curve(dt(x, df = 30), from = -3, to = 3, lwd = 3, ylab = "y")
 ## ind <- c(1, 2, 3, 5, 10)
 ## for (i in ind) curve(dt(x, df = i), -3, 3, add = TRUE)
 
 
 ###################################################
-### chunk number 223: 
+### code chunk number 223: IPSUR.Rnw:10346-10349
 ###################################################
-#line 10347 "IPSUR.Rnw"
 curve(dt(x, df = 30), from = -3, to = 3, lwd = 3, ylab = "y")
 ind <- c(1, 2, 3, 5, 10)
 for (i in ind) curve(dt(x, df = i), -3, 3, add = TRUE)
 
 
 ###################################################
-### chunk number 224: 
+### code chunk number 224: IPSUR.Rnw:10364-10365
 ###################################################
-#line 10365 "IPSUR.Rnw"
 qt(0.01, df = 23, lower.tail = FALSE)
 
 
 ###################################################
-### chunk number 225:  eval=FALSE
+### code chunk number 225: IPSUR.Rnw:10446-10448 (eval = FALSE)
 ###################################################
-## #line 10447 "IPSUR.Rnw"
 ## library(TeachingDemos)
 ## example(clt.examp)
 
 
 ###################################################
-### chunk number 226:  eval=FALSE
+### code chunk number 226: IPSUR.Rnw:10453-10455 (eval = FALSE)
 ###################################################
-## #line 10454 "IPSUR.Rnw"
 ## library(distrTeach)
 ## example(illustrateCLT)
 
 
 ###################################################
-### chunk number 227: 
+### code chunk number 227: IPSUR.Rnw:10634-10635
 ###################################################
-#line 10635 "IPSUR.Rnw"
 iqrs <- replicate(100, IQR(rnorm(100)))
 
 
 ###################################################
-### chunk number 228: 
+### code chunk number 228: IPSUR.Rnw:10640-10641
 ###################################################
-#line 10641 "IPSUR.Rnw"
 mean(iqrs)    # close to 1
 
 
 ###################################################
-### chunk number 229: 
+### code chunk number 229: IPSUR.Rnw:10646-10647
 ###################################################
-#line 10647 "IPSUR.Rnw"
 sd(iqrs)
 
 
 ###################################################
-### chunk number 230: 
+### code chunk number 230: IPSUR.Rnw:10655-10656
 ###################################################
-#line 10656 "IPSUR.Rnw"
 hist(iqrs, breaks = 20)
 
 
 ###################################################
-### chunk number 231: 
+### code chunk number 231: IPSUR.Rnw:10668-10669
 ###################################################
-#line 10669 "IPSUR.Rnw"
 mads <- replicate(100, mad(rnorm(100)))
 
 
 ###################################################
-### chunk number 232: 
+### code chunk number 232: IPSUR.Rnw:10674-10675
 ###################################################
-#line 10675 "IPSUR.Rnw"
 mean(mads)    # close to 1.349
 
 
 ###################################################
-### chunk number 233: 
+### code chunk number 233: IPSUR.Rnw:10680-10681
 ###################################################
-#line 10681 "IPSUR.Rnw"
 sd(mads)
 
 
 ###################################################
-### chunk number 234: 
+### code chunk number 234: IPSUR.Rnw:10689-10690
 ###################################################
-#line 10690 "IPSUR.Rnw"
 hist(mads, breaks = 20)
 
 
 ###################################################
-### chunk number 235: 
+### code chunk number 235: IPSUR.Rnw:10707-10710
 ###################################################
-#line 10708 "IPSUR.Rnw"
 k = 1
 n = sample(10:30, size=10, replace = TRUE)
 mu = round(rnorm(10, mean = 20))
 
 
 ###################################################
-### chunk number 236: 
+### code chunk number 236: IPSUR.Rnw:10821-10822
 ###################################################
-#line 10822 "IPSUR.Rnw"
 pnorm(43.1, mean = 37, sd = 9, lower.tail = FALSE)
 
 
 ###################################################
-### chunk number 237: 
+### code chunk number 237: IPSUR.Rnw:10926-10934
 ###################################################
-#line 10927 "IPSUR.Rnw"
 heights = rep(0, 16)
 for (j in 7:15) heights[j] <- dhyper(3, m = 7, n = j - 7, k = 4)
 plot(6:15, heights[6:15], pch = 16, cex = 1.5, xlab = "number of fish in pond", ylab = "Likelihood")
@@ -2069,27 +1835,24 @@ points(9, 0, pch = 4, lwd = 3, cex = 2)
 
 
 ###################################################
-### chunk number 238:  eval=FALSE
+### code chunk number 238: IPSUR.Rnw:10985-10988 (eval = FALSE)
 ###################################################
-## #line 10986 "IPSUR.Rnw"
 ## curve(x^5*(1-x)^2, from = 0, to = 1, xlab = "p", ylab = "L(p)")
 ## curve(x^4*(1-x)^3, from = 0, to = 1, add = TRUE)
 ## curve(x^3*(1-x)^4, 0, 1, add = TRUE)
 
 
 ###################################################
-### chunk number 239: 
+### code chunk number 239: IPSUR.Rnw:10994-10997
 ###################################################
-#line 10995 "IPSUR.Rnw"
 curve(x^5*(1-x)^2, 0, 1, xlab = "p", ylab = "L(p)")
 curve(x^4*(1-x)^3, 0, 1, add = TRUE)
 curve(x^3*(1-x)^4, 0, 1, add = TRUE)
 
 
 ###################################################
-### chunk number 240: 
+### code chunk number 240: IPSUR.Rnw:11046-11059
 ###################################################
-#line 11047 "IPSUR.Rnw"
 dat <- rbinom(27, size = 1, prob = 0.3)
 like <- function(x){
 r <- 1
@@ -2106,42 +1869,37 @@ text(mle, mleobj/6, substitute(hat(theta)==a, list(a=round(mle, 4))), cex = 2, p
 
 
 ###################################################
-### chunk number 241: 
+### code chunk number 241: IPSUR.Rnw:11180-11183
 ###################################################
-#line 11181 "IPSUR.Rnw"
 x <- mtcars$am
 L <- function(p,x) prod(dbinom(x, size = 1, prob = p))
 optimize(L, interval = c(0,1), x = x, maximum = TRUE)
 
 
 ###################################################
-### chunk number 242: 
+### code chunk number 242: IPSUR.Rnw:11186-11187
 ###################################################
-#line 11187 "IPSUR.Rnw"
 A <- optimize(L, interval = c(0,1), x = x, maximum = TRUE)
 
 
 ###################################################
-### chunk number 243: 
+### code chunk number 243: IPSUR.Rnw:11206-11208
 ###################################################
-#line 11207 "IPSUR.Rnw"
 minuslogL <- function(p,x) -sum(dbinom(x, size = 1, prob = p, log = TRUE))
 optimize(minuslogL, interval = c(0,1), x = x)
 
 
 ###################################################
-### chunk number 244: 
+### code chunk number 244: IPSUR.Rnw:11231-11234
 ###################################################
-#line 11232 "IPSUR.Rnw"
 minuslogL <- function(mu, sigma2){
   -sum(dnorm(x, mean = mu, sd = sqrt(sigma2), log = TRUE))
 }
 
 
 ###################################################
-### chunk number 245: 
+### code chunk number 245: IPSUR.Rnw:11245-11249
 ###################################################
-#line 11246 "IPSUR.Rnw"
 x <- PlantGrowth$weight
 library(stats4)
 MaxLikeEst <- mle(minuslogL, start = list(mu = 5, sigma2 = 0.5))
@@ -2149,147 +1907,129 @@ summary(MaxLikeEst)
 
 
 ###################################################
-### chunk number 246: 
+### code chunk number 246: IPSUR.Rnw:11259-11262
 ###################################################
-#line 11260 "IPSUR.Rnw"
 mean(x)
 var(x)*29/30
 sd(x)/sqrt(30)
 
 
 ###################################################
-### chunk number 247: 
+### code chunk number 247: IPSUR.Rnw:11340-11343
 ###################################################
-#line 11341 "IPSUR.Rnw"
 set.seed(seed + 1)
 library(TeachingDemos)
 ci.examp()
 
 
 ###################################################
-### chunk number 248: 
+### code chunk number 248: IPSUR.Rnw:11399-11401
 ###################################################
-#line 11400 "IPSUR.Rnw"
 library(aplpack)
 with(PlantGrowth, stem.leaf(weight))
 
 
 ###################################################
-### chunk number 249: 
+### code chunk number 249: IPSUR.Rnw:11413-11416
 ###################################################
-#line 11414 "IPSUR.Rnw"
 dim(PlantGrowth)   # sample size is first entry
 with(PlantGrowth, mean(weight))
 qnorm(0.975)
 
 
 ###################################################
-### chunk number 250: 
+### code chunk number 250: IPSUR.Rnw:11431-11433
 ###################################################
-#line 11432 "IPSUR.Rnw"
 library(TeachingDemos)
 plot(z.test(PlantGrowth$weight, stdev = 0.70), "Conf")
 
 
 ###################################################
-### chunk number 251: 
+### code chunk number 251: IPSUR.Rnw:11538-11541
 ###################################################
-#line 11539 "IPSUR.Rnw"
 library(TeachingDemos)
 temp <- with(PlantGrowth, z.test(weight, stdev = 0.7))
 temp
 
 
 ###################################################
-### chunk number 252:  eval=FALSE
+### code chunk number 252: IPSUR.Rnw:11549-11551 (eval = FALSE)
 ###################################################
-## #line 11550 "IPSUR.Rnw"
 ## library(IPSUR)
 ## plot(temp, "Conf")
 
 
 ###################################################
-### chunk number 253: 
+### code chunk number 253: IPSUR.Rnw:11706-11709
 ###################################################
-#line 11707 "IPSUR.Rnw"
 library(Hmisc)
 binconf(x = 7, n = 25, method = "asymptotic")
 binconf(x = 7, n = 25, method = "wilson")
 
 
 ###################################################
-### chunk number 254: 
+### code chunk number 254: IPSUR.Rnw:11717-11719
 ###################################################
-#line 11718 "IPSUR.Rnw"
 tab <- xtabs(~gender, data = RcmdrTestDrive)
 prop.test(rbind(tab), conf.level = 0.95, correct = FALSE)
 
 
 ###################################################
-### chunk number 255: 
+### code chunk number 255: IPSUR.Rnw:11722-11725
 ###################################################
-#line 11723 "IPSUR.Rnw"
 A <- as.data.frame(Titanic)
 library(reshape)
 B <- with(A, untable(A, Freq))
 
 
 ###################################################
-### chunk number 256: 
+### code chunk number 256: IPSUR.Rnw:11931-11932
 ###################################################
-#line 11932 "IPSUR.Rnw"
 dhyper(0, m = 26, n = 26, k = 5)
 
 
 ###################################################
-### chunk number 257: 
+### code chunk number 257: IPSUR.Rnw:12058-12059
 ###################################################
-#line 12059 "IPSUR.Rnw"
 - qnorm(0.99)
 
 
 ###################################################
-### chunk number 258: 
+### code chunk number 258: IPSUR.Rnw:12067-12070
 ###################################################
-#line 12068 "IPSUR.Rnw"
 A <- as.data.frame(UCBAdmissions)
 head(A)
 xtabs(Freq ~ Admit, data = A)
 
 
 ###################################################
-### chunk number 259: 
+### code chunk number 259: IPSUR.Rnw:12075-12077
 ###################################################
-#line 12076 "IPSUR.Rnw"
 phat <- 1755/(1755 + 2771)
 (phat - 0.4)/sqrt(0.4 * 0.6/(1755 + 2771)) 
 
 
 ###################################################
-### chunk number 260: 
+### code chunk number 260: IPSUR.Rnw:12099-12100
 ###################################################
-#line 12100 "IPSUR.Rnw"
 -qnorm(0.95)
 
 
 ###################################################
-### chunk number 261: 
+### code chunk number 261: IPSUR.Rnw:12150-12151
 ###################################################
-#line 12151 "IPSUR.Rnw"
 pnorm(-1.680919)
 
 
 ###################################################
-### chunk number 262: 
+### code chunk number 262: IPSUR.Rnw:12183-12184
 ###################################################
-#line 12184 "IPSUR.Rnw"
 prop.test(1755, 1755 + 2771, p = 0.4, alternative = "less", conf.level = 0.99, correct = FALSE)
 
 
 ###################################################
-### chunk number 263:  eval=FALSE
+### code chunk number 263: IPSUR.Rnw:12189-12193 (eval = FALSE)
 ###################################################
-## #line 12190 "IPSUR.Rnw"
 ## library(IPSUR)
 ## library(HH)
 ## temp <- prop.test(1755, 1755 + 2771, p = 0.4, alternative = "less", conf.level = 0.99, correct = FALSE)
@@ -2297,92 +2037,80 @@ prop.test(1755, 1755 + 2771, p = 0.4, alternative = "less", conf.level = 0.99, c
 
 
 ###################################################
-### chunk number 264: 
+### code chunk number 264: IPSUR.Rnw:12199-12201
 ###################################################
-#line 12200 "IPSUR.Rnw"
 library(HH)
 plot(prop.test(1755, 1755 + 2771, p = 0.4, alternative = "less", conf.level = 0.99, correct = FALSE), 'Hypoth')
 
 
 ###################################################
-### chunk number 265: 
+### code chunk number 265: IPSUR.Rnw:12301-12304
 ###################################################
-#line 12302 "IPSUR.Rnw"
 x <- rnorm(37, mean = 2, sd = 3)
 library(TeachingDemos)
 z.test(x, mu = 1, sd = 3, conf.level = 0.90)
 
 
 ###################################################
-### chunk number 266: 
+### code chunk number 266: IPSUR.Rnw:12310-12312
 ###################################################
-#line 12311 "IPSUR.Rnw"
 library(HH)
 plot(prop.test(1755, 1755 + 2771, p = 0.4, alternative = "less", conf.level = 0.99, correct = FALSE), 'Hypoth')
 
 
 ###################################################
-### chunk number 267: 
+### code chunk number 267: IPSUR.Rnw:12330-12332
 ###################################################
-#line 12331 "IPSUR.Rnw"
 x <- rnorm(13, mean = 2, sd = 3)
 t.test(x, mu = 0, conf.level = 0.90, alternative = "greater")
 
 
 ###################################################
-### chunk number 268: 
+### code chunk number 268: IPSUR.Rnw:12365-12367
 ###################################################
-#line 12366 "IPSUR.Rnw"
 library(TeachingDemos)
 sigma.test(women$height, sigma = 8)
 
 
 ###################################################
-### chunk number 269: 
+### code chunk number 269: IPSUR.Rnw:12441-12442
 ###################################################
-#line 12442 "IPSUR.Rnw"
 t.test(extra ~ group, data = sleep, paired = TRUE)
 
 
 ###################################################
-### chunk number 270: 
+### code chunk number 270: IPSUR.Rnw:12454-12455
 ###################################################
-#line 12455 "IPSUR.Rnw"
 ks.test(randu$x, "punif")
 
 
 ###################################################
-### chunk number 271: 
+### code chunk number 271: IPSUR.Rnw:12464-12465
 ###################################################
-#line 12465 "IPSUR.Rnw"
 shapiro.test(women$height)
 
 
 ###################################################
-### chunk number 272: 
+### code chunk number 272: IPSUR.Rnw:12476-12477
 ###################################################
-#line 12477 "IPSUR.Rnw"
 with(chickwts, by(weight, feed, shapiro.test))
 
 
 ###################################################
-### chunk number 273: 
+### code chunk number 273: IPSUR.Rnw:12482-12483
 ###################################################
-#line 12483 "IPSUR.Rnw"
 temp <- lm(weight ~ feed, data = chickwts)
 
 
 ###################################################
-### chunk number 274: 
+### code chunk number 274: IPSUR.Rnw:12488-12489
 ###################################################
-#line 12489 "IPSUR.Rnw"
 anova(temp)
 
 
 ###################################################
-### chunk number 275: 
+### code chunk number 275: IPSUR.Rnw:12497-12506
 ###################################################
-#line 12498 "IPSUR.Rnw"
 y1 <- rnorm(300, mean = c(2,8,22))
 plot(y1, xlim = c(-1,25), ylim = c(0,0.45) , type = "n")
 f <- function(x){dnorm(x, mean = 2)}
@@ -2395,9 +2123,8 @@ rug(y1)
 
 
 ###################################################
-### chunk number 276: 
+### code chunk number 276: IPSUR.Rnw:12522-12530
 ###################################################
-#line 12523 "IPSUR.Rnw"
 y2 <- rnorm(300, mean = c(4,4.1,4.3))
 hist(y2, 30, prob = TRUE)
 f <- function(x){dnorm(x, mean = 4)/3}
@@ -2409,9 +2136,8 @@ curve(f, add = TRUE, lwd = 2)
 
 
 ###################################################
-### chunk number 277: 
+### code chunk number 277: IPSUR.Rnw:12540-12546
 ###################################################
-#line 12541 "IPSUR.Rnw"
 library(HH)
 old.omd <- par(omd = c(.05,.88, .05,1))
 F.setup(df1 = 5, df2 = 30)
@@ -2421,17 +2147,15 @@ par(old.omd)
 
 
 ###################################################
-### chunk number 278: 
+### code chunk number 278: IPSUR.Rnw:12587-12589
 ###################################################
-#line 12588 "IPSUR.Rnw"
 library(TeachingDemos)
 power.examp()
 
 
 ###################################################
-### chunk number 279: 
+### code chunk number 279: IPSUR.Rnw:12744-12761
 ###################################################
-#line 12745 "IPSUR.Rnw"
  # open window
 plot(c(0,5), c(0,6.5), type = "n", xlab="x", ylab="y")
 ## the x- and y-axes
@@ -2452,391 +2176,339 @@ segments(4,4.5, 4+dnorm(0,0,0.5),4.5, lty = 2, col = "gray")
 
 
 ###################################################
-### chunk number 280: 
+### code chunk number 280: IPSUR.Rnw:12777-12778
 ###################################################
-#line 12778 "IPSUR.Rnw"
 head(cars)
 
 
 ###################################################
-### chunk number 281: 
+### code chunk number 281: IPSUR.Rnw:12790-12791
 ###################################################
-#line 12791 "IPSUR.Rnw"
 plot(dist ~ speed, data = cars)
 
 
 ###################################################
-### chunk number 282:  eval=FALSE
+### code chunk number 282: IPSUR.Rnw:12805-12806 (eval = FALSE)
 ###################################################
-## #line 12806 "IPSUR.Rnw"
 ## plot(dist ~ speed, data = cars)
 
 
 ###################################################
-### chunk number 283: 
+### code chunk number 283: IPSUR.Rnw:12885-12886
 ###################################################
-#line 12886 "IPSUR.Rnw"
 cars.lm <- lm(dist ~ speed, data = cars)
 
 
 ###################################################
-### chunk number 284: 
+### code chunk number 284: IPSUR.Rnw:12904-12905
 ###################################################
-#line 12905 "IPSUR.Rnw"
 coef(cars.lm)
 
 
 ###################################################
-### chunk number 285: 
+### code chunk number 285: IPSUR.Rnw:12921-12923
 ###################################################
-#line 12922 "IPSUR.Rnw"
 plot(dist ~ speed, data = cars, pch = 16)
 abline(coef(cars.lm))
 
 
 ###################################################
-### chunk number 286:  eval=FALSE
+### code chunk number 286: IPSUR.Rnw:12932-12934 (eval = FALSE)
 ###################################################
-## #line 12933 "IPSUR.Rnw"
 ## plot(dist ~ speed, data = cars, pch = 16)
 ## abline(coef(cars))
 
 
 ###################################################
-### chunk number 287: 
+### code chunk number 287: IPSUR.Rnw:13006-13007
 ###################################################
-#line 13007 "IPSUR.Rnw"
 cars[5, ]
 
 
 ###################################################
-### chunk number 288: 
+### code chunk number 288: IPSUR.Rnw:13039-13040
 ###################################################
-#line 13040 "IPSUR.Rnw"
 fitted(cars.lm)[1:5]
 
 
 ###################################################
-### chunk number 289: 
+### code chunk number 289: IPSUR.Rnw:13053-13054
 ###################################################
-#line 13054 "IPSUR.Rnw"
 predict(cars.lm, newdata = data.frame(speed = c(6, 8, 21)))
 
 
 ###################################################
-### chunk number 290: 
+### code chunk number 290: IPSUR.Rnw:13089-13090
 ###################################################
-#line 13090 "IPSUR.Rnw"
 residuals(cars.lm)[1:5]
 
 
 ###################################################
-### chunk number 291: 
+### code chunk number 291: IPSUR.Rnw:13111-13113
 ###################################################
-#line 13112 "IPSUR.Rnw"
 carsumry <- summary(cars.lm)
 carsumry$sigma
 
 
 ###################################################
-### chunk number 292: 
+### code chunk number 292: IPSUR.Rnw:13170-13171
 ###################################################
-#line 13171 "IPSUR.Rnw"
 summary(cars.lm)
 
 
 ###################################################
-### chunk number 293: 
+### code chunk number 293: IPSUR.Rnw:13173-13175
 ###################################################
-#line 13174 "IPSUR.Rnw"
 A <- round(summary(cars.lm)$coef, 3)
 B <- round(confint(cars.lm), 3)
 
 
 ###################################################
-### chunk number 294: 
+### code chunk number 294: IPSUR.Rnw:13189-13190
 ###################################################
-#line 13190 "IPSUR.Rnw"
 confint(cars.lm)
 
 
 ###################################################
-### chunk number 295: 
+### code chunk number 295: IPSUR.Rnw:13261-13262
 ###################################################
-#line 13262 "IPSUR.Rnw"
 new <- data.frame(speed = c(5, 6, 21))
 
 
 ###################################################
-### chunk number 296: 
+### code chunk number 296: IPSUR.Rnw:13268-13269
 ###################################################
-#line 13269 "IPSUR.Rnw"
 predict(cars.lm, newdata = new, interval = "confidence")
 
 
 ###################################################
-### chunk number 297: 
+### code chunk number 297: IPSUR.Rnw:13272-13273
 ###################################################
-#line 13273 "IPSUR.Rnw"
 carsCI <- round(predict(cars.lm, newdata = new, interval = "confidence"), 2)
 
 
 ###################################################
-### chunk number 298: 
+### code chunk number 298: IPSUR.Rnw:13278-13279
 ###################################################
-#line 13279 "IPSUR.Rnw"
 predict(cars.lm, newdata = new, interval = "prediction")
 
 
 ###################################################
-### chunk number 299: 
+### code chunk number 299: IPSUR.Rnw:13282-13283
 ###################################################
-#line 13283 "IPSUR.Rnw"
 carsPI <- round(predict(cars.lm, newdata = new, interval = "prediction"), 2)
 
 
 ###################################################
-### chunk number 300: 
+### code chunk number 300: IPSUR.Rnw:13336-13338
 ###################################################
-#line 13337 "IPSUR.Rnw"
 library(HH)
 print(ci.plot(cars.lm))
 
 
 ###################################################
-### chunk number 301:  eval=FALSE
+### code chunk number 301: IPSUR.Rnw:13348-13350 (eval = FALSE)
 ###################################################
-## #line 13349 "IPSUR.Rnw"
 ## library(HH)
 ## ci.plot(cars.lm)
 
 
 ###################################################
-### chunk number 302: 
+### code chunk number 302: IPSUR.Rnw:13394-13395
 ###################################################
-#line 13395 "IPSUR.Rnw"
 summary(cars.lm)
 
 
 ###################################################
-### chunk number 303: 
+### code chunk number 303: IPSUR.Rnw:13397-13399
 ###################################################
-#line 13398 "IPSUR.Rnw"
 A <- round(summary(cars.lm)$coef, 3)
 B <- round(confint(cars.lm), 3)
 
 
 ###################################################
-### chunk number 304: 
+### code chunk number 304: IPSUR.Rnw:13484-13485
 ###################################################
-#line 13485 "IPSUR.Rnw"
 anova(cars.lm)
 
 
 ###################################################
-### chunk number 305: 
+### code chunk number 305: IPSUR.Rnw:13498-13499
 ###################################################
-#line 13499 "IPSUR.Rnw"
 carsumry$r.squared
 
 
 ###################################################
-### chunk number 306: 
+### code chunk number 306: IPSUR.Rnw:13511-13512
 ###################################################
-#line 13512 "IPSUR.Rnw"
 sqrt(carsumry$r.squared)
 
 
 ###################################################
-### chunk number 307: 
+### code chunk number 307: IPSUR.Rnw:13553-13554
 ###################################################
-#line 13554 "IPSUR.Rnw"
 anova(cars.lm)
 
 
 ###################################################
-### chunk number 308: 
+### code chunk number 308: IPSUR.Rnw:13610-13611
 ###################################################
-#line 13611 "IPSUR.Rnw"
 plot(cars.lm, which = 2)
 
 
 ###################################################
-### chunk number 309: 
+### code chunk number 309: IPSUR.Rnw:13647-13648
 ###################################################
-#line 13648 "IPSUR.Rnw"
 shapiro.test(residuals(cars.lm))
 
 
 ###################################################
-### chunk number 310: 
+### code chunk number 310: IPSUR.Rnw:13698-13699
 ###################################################
-#line 13699 "IPSUR.Rnw"
 plot(cars.lm, which = 3)
 
 
 ###################################################
-### chunk number 311: 
+### code chunk number 311: IPSUR.Rnw:13733-13735
 ###################################################
-#line 13734 "IPSUR.Rnw"
 library(lmtest)
 bptest(cars.lm)
 
 
 ###################################################
-### chunk number 312: 
+### code chunk number 312: IPSUR.Rnw:13767-13768
 ###################################################
-#line 13768 "IPSUR.Rnw"
 plot(cars.lm, which = 1)
 
 
 ###################################################
-### chunk number 313: 
+### code chunk number 313: IPSUR.Rnw:13797-13799
 ###################################################
-#line 13798 "IPSUR.Rnw"
 library(lmtest)
 dwtest(cars.lm, alternative = "two.sided")
 
 
 ###################################################
-### chunk number 314: 
+### code chunk number 314: IPSUR.Rnw:13941-13943
 ###################################################
-#line 13942 "IPSUR.Rnw"
 sres <- rstandard(cars.lm)
 sres[1:5]
 
 
 ###################################################
-### chunk number 315: 
+### code chunk number 315: IPSUR.Rnw:13949-13950
 ###################################################
-#line 13950 "IPSUR.Rnw"
 sres[which(abs(sres) > 2)]
 
 
 ###################################################
-### chunk number 316: 
+### code chunk number 316: IPSUR.Rnw:13958-13960
 ###################################################
-#line 13959 "IPSUR.Rnw"
 sdelres <- rstudent(cars.lm)
 sdelres[1:5]
 
 
 ###################################################
-### chunk number 317: 
+### code chunk number 317: IPSUR.Rnw:13967-13969
 ###################################################
-#line 13968 "IPSUR.Rnw"
 t0.005 <- qt(0.005, df = 47, lower.tail = FALSE)
 sdelres[which(abs(sdelres) > t0.005)]
 
 
 ###################################################
-### chunk number 318: 
+### code chunk number 318: IPSUR.Rnw:13976-13979
 ###################################################
-#line 13977 "IPSUR.Rnw"
 leverage <- hatvalues(cars.lm)
 leverage[1:5]
 leverage[which(leverage > 4/50)]
 
 
 ###################################################
-### chunk number 319: 
+### code chunk number 319: IPSUR.Rnw:14020-14022
 ###################################################
-#line 14021 "IPSUR.Rnw"
 dfb <- dfbetas(cars.lm)
 head(dfb)
 
 
 ###################################################
-### chunk number 320: 
+### code chunk number 320: IPSUR.Rnw:14042-14044
 ###################################################
-#line 14043 "IPSUR.Rnw"
 dff <- dffits(cars.lm)
 dff[1:5]
 
 
 ###################################################
-### chunk number 321: 
+### code chunk number 321: IPSUR.Rnw:14080-14082
 ###################################################
-#line 14081 "IPSUR.Rnw"
 cooksD <- cooks.distance(cars.lm)
 cooksD[1:5]
 
 
 ###################################################
-### chunk number 322: 
+### code chunk number 322: IPSUR.Rnw:14090-14091
 ###################################################
-#line 14091 "IPSUR.Rnw"
 plot(cars.lm, which = 4)
 
 
 ###################################################
-### chunk number 323: 
+### code chunk number 323: IPSUR.Rnw:14108-14110
 ###################################################
-#line 14109 "IPSUR.Rnw"
 F0.50 <- qf(0.5, df1 = 2, df2 = 48)
 cooksD[which(cooksD > F0.50)]
 
 
 ###################################################
-### chunk number 324:  eval=FALSE
+### code chunk number 324: IPSUR.Rnw:14123-14124 (eval = FALSE)
 ###################################################
-## #line 14124 "IPSUR.Rnw"
 ## influence.measures(cars.lm)
 
 
 ###################################################
-### chunk number 325:  eval=FALSE
+### code chunk number 325: IPSUR.Rnw:14134-14137 (eval = FALSE)
 ###################################################
-## #line 14135 "IPSUR.Rnw"
 ## par(mfrow = c(2,2))
 ## plot(cars.lm)
 ## par(mfrow = c(1,1))
 
 
 ###################################################
-### chunk number 326: 
+### code chunk number 326: IPSUR.Rnw:14148-14151
 ###################################################
-#line 14149 "IPSUR.Rnw"
 par(mfrow = c(2,2))
 plot(cars.lm)
 par(mfrow = c(1,1))
 
 
 ###################################################
-### chunk number 327:  eval=FALSE
+### code chunk number 327: IPSUR.Rnw:14173-14175 (eval = FALSE)
 ###################################################
-## #line 14174 "IPSUR.Rnw"
 ## plot(cars.lm, which = 5)   # std'd resids vs lev plot
 ## identify(leverage, sres, n = 4)   # identify 4 points
 
 
 ###################################################
-### chunk number 328: 
+### code chunk number 328: IPSUR.Rnw:14297-14298
 ###################################################
-#line 14298 "IPSUR.Rnw"
 head(trees)
 
 
 ###################################################
-### chunk number 329: 
+### code chunk number 329: IPSUR.Rnw:14311-14313
 ###################################################
-#line 14312 "IPSUR.Rnw"
 library(lattice)
 print(splom(trees))
 
 
 ###################################################
-### chunk number 330:  eval=FALSE
+### code chunk number 330: IPSUR.Rnw:14322-14324 (eval = FALSE)
 ###################################################
-## #line 14323 "IPSUR.Rnw"
 ## library(lattice)
 ## splom(trees)
 
 
 ###################################################
-### chunk number 331:  eval=FALSE
+### code chunk number 331: IPSUR.Rnw:14374-14378 (eval = FALSE)
 ###################################################
-## #line 14375 "IPSUR.Rnw"
 ## library(scatterplot3d)
 ## s3d <- with(trees, scatterplot3d(Girth, Height, Volume, pch = 16, highlight.3d = TRUE, angle = 60))
 ## fit <- lm(Volume ~ Girth + Height, data = trees)
@@ -2844,9 +2516,8 @@ print(splom(trees))
 
 
 ###################################################
-### chunk number 332: 
+### code chunk number 332: IPSUR.Rnw:14384-14388
 ###################################################
-#line 14385 "IPSUR.Rnw"
 library(scatterplot3d)
 s3d <- with(trees, scatterplot3d(Girth, Height, Volume, pch = 16, highlight.3d = TRUE, angle = 60))
 fit <- lm(Volume ~ Girth + Height, data = trees)
@@ -2854,231 +2525,200 @@ s3d$plane3d(fit)
 
 
 ###################################################
-### chunk number 333: 
+### code chunk number 333: IPSUR.Rnw:14461-14463
 ###################################################
-#line 14462 "IPSUR.Rnw"
 trees.lm <- lm(Volume ~ Girth + Height, data = trees)
 trees.lm
 
 
 ###################################################
-### chunk number 334: 
+### code chunk number 334: IPSUR.Rnw:14476-14477
 ###################################################
-#line 14477 "IPSUR.Rnw"
 head(model.matrix(trees.lm))
 
 
 ###################################################
-### chunk number 335: 
+### code chunk number 335: IPSUR.Rnw:14546-14547
 ###################################################
-#line 14547 "IPSUR.Rnw"
 fitted(trees.lm)[1:5]
 
 
 ###################################################
-### chunk number 336: 
+### code chunk number 336: IPSUR.Rnw:14563-14564
 ###################################################
-#line 14564 "IPSUR.Rnw"
 new <- data.frame(Girth = c(9.1, 11.6, 12.5), Height = c(69, 74, 87))
 
 
 ###################################################
-### chunk number 337: 
+### code chunk number 337: IPSUR.Rnw:14569-14570
 ###################################################
-#line 14570 "IPSUR.Rnw"
 new
 
 
 ###################################################
-### chunk number 338: 
+### code chunk number 338: IPSUR.Rnw:14575-14576
 ###################################################
-#line 14576 "IPSUR.Rnw"
 predict(trees.lm, newdata = new)
 
 
 ###################################################
-### chunk number 339: 
+### code chunk number 339: IPSUR.Rnw:14579-14580
 ###################################################
-#line 14580 "IPSUR.Rnw"
 treesFIT <- round(predict(trees.lm, newdata = new), 1)
 
 
 ###################################################
-### chunk number 340: 
+### code chunk number 340: IPSUR.Rnw:14636-14637
 ###################################################
-#line 14637 "IPSUR.Rnw"
 residuals(trees.lm)[1:5]
 
 
 ###################################################
-### chunk number 341: 
+### code chunk number 341: IPSUR.Rnw:14646-14648
 ###################################################
-#line 14647 "IPSUR.Rnw"
 treesumry <- summary(trees.lm)
 treesumry$sigma
 
 
 ###################################################
-### chunk number 342: 
+### code chunk number 342: IPSUR.Rnw:14704-14705
 ###################################################
-#line 14705 "IPSUR.Rnw"
 confint(trees.lm)
 
 
 ###################################################
-### chunk number 343: 
+### code chunk number 343: IPSUR.Rnw:14708-14709
 ###################################################
-#line 14709 "IPSUR.Rnw"
 treesPAR <- round(confint(trees.lm), 1)
 
 
 ###################################################
-### chunk number 344: 
+### code chunk number 344: IPSUR.Rnw:14755-14756
 ###################################################
-#line 14756 "IPSUR.Rnw"
 new <- data.frame(Girth = c(9.1, 11.6, 12.5), Height = c(69, 74, 87))
 
 
 ###################################################
-### chunk number 345: 
+### code chunk number 345: IPSUR.Rnw:14761-14762
 ###################################################
-#line 14762 "IPSUR.Rnw"
 predict(trees.lm, newdata = new, interval = "confidence")
 
 
 ###################################################
-### chunk number 346: 
+### code chunk number 346: IPSUR.Rnw:14765-14766
 ###################################################
-#line 14766 "IPSUR.Rnw"
 treesCI <- round(predict(trees.lm, newdata = new, interval = "confidence"), 1)
 
 
 ###################################################
-### chunk number 347: 
+### code chunk number 347: IPSUR.Rnw:14771-14772
 ###################################################
-#line 14772 "IPSUR.Rnw"
 predict(trees.lm, newdata = new, interval = "prediction")
 
 
 ###################################################
-### chunk number 348: 
+### code chunk number 348: IPSUR.Rnw:14775-14776
 ###################################################
-#line 14776 "IPSUR.Rnw"
 treesPI <- round(predict(trees.lm, newdata = new, interval = "prediction"), 1)
 
 
 ###################################################
-### chunk number 349: 
+### code chunk number 349: IPSUR.Rnw:14871-14873
 ###################################################
-#line 14872 "IPSUR.Rnw"
 treesumry$r.squared
 treesumry$adj.r.squared
 
 
 ###################################################
-### chunk number 350: 
+### code chunk number 350: IPSUR.Rnw:14905-14906
 ###################################################
-#line 14906 "IPSUR.Rnw"
 treesumry$fstatistic
 
 
 ###################################################
-### chunk number 351: 
+### code chunk number 351: IPSUR.Rnw:14956-14957
 ###################################################
-#line 14957 "IPSUR.Rnw"
 treesumry
 
 
 ###################################################
-### chunk number 352: 
+### code chunk number 352: IPSUR.Rnw:14986-14987
 ###################################################
-#line 14987 "IPSUR.Rnw"
 plot(Volume ~ Girth, data = trees)
 
 
 ###################################################
-### chunk number 353: 
+### code chunk number 353: IPSUR.Rnw:15073-15075
 ###################################################
-#line 15074 "IPSUR.Rnw"
 treesquad.lm <- lm(Volume ~ scale(Girth) + I(scale(Girth)^2), data = trees)
 summary(treesquad.lm)
 
 
 ###################################################
-### chunk number 354:  eval=FALSE
+### code chunk number 354: IPSUR.Rnw:15089-15091 (eval = FALSE)
 ###################################################
-## #line 15090 "IPSUR.Rnw"
 ## plot(Volume ~ scale(Girth), data = trees)
 ## lines(fitted(treesquad.lm) ~ scale(Girth), data = trees)
 
 
 ###################################################
-### chunk number 355: 
+### code chunk number 355: IPSUR.Rnw:15103-15105
 ###################################################
-#line 15104 "IPSUR.Rnw"
 plot(Volume ~ scale(Girth), data = trees)
 lines(fitted(treesquad.lm) ~ scale(Girth), data = trees)
 
 
 ###################################################
-### chunk number 356: 
+### code chunk number 356: IPSUR.Rnw:15126-15128
 ###################################################
-#line 15127 "IPSUR.Rnw"
 new <- data.frame(Girth = c(9.1, 11.6, 12.5))
 predict(treesquad.lm, newdata = new, interval = "prediction")
 
 
 ###################################################
-### chunk number 357: 
+### code chunk number 357: IPSUR.Rnw:15140-15141
 ###################################################
-#line 15141 "IPSUR.Rnw"
 summary(lm(Volume ~ Girth + I(Girth^2), data = trees))
 
 
 ###################################################
-### chunk number 358: 
+### code chunk number 358: IPSUR.Rnw:15222-15224
 ###################################################
-#line 15223 "IPSUR.Rnw"
 treesint.lm <- lm(Volume ~ Girth + Height + Girth:Height, data = trees)
 summary(treesint.lm)
 
 
 ###################################################
-### chunk number 359: 
+### code chunk number 359: IPSUR.Rnw:15236-15239
 ###################################################
-#line 15237 "IPSUR.Rnw"
 confint(treesint.lm)
 new <- data.frame(Girth = c(9.1, 11.6, 12.5), Height = c(69, 74, 87))
 predict(treesint.lm, newdata = new, interval = "prediction")
 
 
 ###################################################
-### chunk number 360: 
+### code chunk number 360: IPSUR.Rnw:15287-15289
 ###################################################
-#line 15288 "IPSUR.Rnw"
 trees$Tall <- cut(trees$Height, breaks = c(-Inf, 76, Inf), labels = c("no","yes"))
 trees$Tall[1:5]
 
 
 ###################################################
-### chunk number 361: 
+### code chunk number 361: IPSUR.Rnw:15329-15330
 ###################################################
-#line 15330 "IPSUR.Rnw"
 class(trees$Tall)
 
 
 ###################################################
-### chunk number 362: 
+### code chunk number 362: IPSUR.Rnw:15338-15340
 ###################################################
-#line 15339 "IPSUR.Rnw"
 treesdummy.lm <- lm(Volume ~ Girth + Tall, data = trees)
 summary(treesdummy.lm)
 
 
 ###################################################
-### chunk number 363:  eval=FALSE
+### code chunk number 363: IPSUR.Rnw:15388-15396 (eval = FALSE)
 ###################################################
-## #line 15389 "IPSUR.Rnw"
 ## treesTall <- split(trees, trees$Tall)
 ## treesTall[["yes"]]$Fit <- predict(treesdummy.lm, treesTall[["yes"]])
 ## treesTall[["no"]]$Fit <- predict(treesdummy.lm, treesTall[["no"]])
@@ -3090,9 +2730,8 @@ summary(treesdummy.lm)
 
 
 ###################################################
-### chunk number 364: 
+### code chunk number 364: IPSUR.Rnw:15402-15410
 ###################################################
-#line 15403 "IPSUR.Rnw"
 treesTall <- split(trees, trees$Tall)
 treesTall[["yes"]]$Fit <- predict(treesdummy.lm, treesTall[["yes"]])
 treesTall[["no"]]$Fit <- predict(treesdummy.lm, treesTall[["no"]])
@@ -3104,62 +2743,54 @@ lines(Fit ~ Girth, data = treesTall[["no"]])
 
 
 ###################################################
-### chunk number 365: 
+### code chunk number 365: IPSUR.Rnw:15503-15505
 ###################################################
-#line 15504 "IPSUR.Rnw"
 treesfull.lm <- lm(Volume ~ Girth + I(Girth^2) + Height + I(Height^2), data = trees)
 summary(treesfull.lm)
 
 
 ###################################################
-### chunk number 366: 
+### code chunk number 366: IPSUR.Rnw:15520-15521
 ###################################################
-#line 15521 "IPSUR.Rnw"
 treesreduced.lm <- lm(Volume ~ -1 + Girth + I(Girth^2), data = trees)
 
 
 ###################################################
-### chunk number 367: 
+### code chunk number 367: IPSUR.Rnw:15528-15529
 ###################################################
-#line 15529 "IPSUR.Rnw"
 anova(treesreduced.lm, treesfull.lm)
 
 
 ###################################################
-### chunk number 368: 
+### code chunk number 368: IPSUR.Rnw:15539-15541
 ###################################################
-#line 15540 "IPSUR.Rnw"
 treesreduced2.lm <- lm(Volume ~ Girth + I(Girth^2) + Height, data = trees)
 anova(treesreduced2.lm, treesfull.lm)
 
 
 ###################################################
-### chunk number 369: 
+### code chunk number 369: IPSUR.Rnw:15636-15638
 ###################################################
-#line 15637 "IPSUR.Rnw"
 treesNonlin.lm <- lm(log(Volume) ~ log(Girth) + log(Height), data = trees)
 summary(treesNonlin.lm)
 
 
 ###################################################
-### chunk number 370: 
+### code chunk number 370: IPSUR.Rnw:15650-15651
 ###################################################
-#line 15651 "IPSUR.Rnw"
 exp(confint(treesNonlin.lm))
 
 
 ###################################################
-### chunk number 371: 
+### code chunk number 371: IPSUR.Rnw:15659-15661
 ###################################################
-#line 15660 "IPSUR.Rnw"
 new <- data.frame(Girth = c(9.1, 11.6, 12.5), Height = c(69, 74, 87))
 exp(predict(treesNonlin.lm, newdata = new, interval = "confidence"))
 
 
 ###################################################
-### chunk number 372: 
+### code chunk number 372: IPSUR.Rnw:15700-15708
 ###################################################
-#line 15701 "IPSUR.Rnw"
 # fake data 
 set.seed(1) 
 x <- seq(from = 0, to = 1000, length.out = 200) 
@@ -3171,99 +2802,87 @@ summary(acc.nls)
 
 
 ###################################################
-### chunk number 373: 
+### code chunk number 373: IPSUR.Rnw:15909-15912
 ###################################################
-#line 15910 "IPSUR.Rnw"
 srs <- rnorm(25, mean = 3)
 resamps <- replicate(1000, sample(srs, 25, TRUE), simplify = FALSE)
 xbarstar <- sapply(resamps, mean, simplify = TRUE)
 
 
 ###################################################
-### chunk number 374: 
+### code chunk number 374: IPSUR.Rnw:15918-15920
 ###################################################
-#line 15919 "IPSUR.Rnw"
 hist(xbarstar, breaks = 40, prob = TRUE)
 curve(dnorm(x, 3, 0.2), add = TRUE)
 
 
 ###################################################
-### chunk number 375:  eval=FALSE
+### code chunk number 375: IPSUR.Rnw:15943-15945 (eval = FALSE)
 ###################################################
-## #line 15944 "IPSUR.Rnw"
 ## hist(xbarstar, breaks = 40, prob = TRUE)
 ## curve(dnorm(x, 3, 0.2), add = TRUE)  # overlay true normal density
 
 
 ###################################################
-### chunk number 376: 
+### code chunk number 376: IPSUR.Rnw:15959-15962
 ###################################################
-#line 15960 "IPSUR.Rnw"
 mean(xbarstar)
 mean(srs)
 mean(xbarstar) - mean(srs)
 
 
 ###################################################
-### chunk number 377: 
+### code chunk number 377: IPSUR.Rnw:15981-15982
 ###################################################
-#line 15982 "IPSUR.Rnw"
 sd(xbarstar)
 
 
 ###################################################
-### chunk number 378: 
+### code chunk number 378: IPSUR.Rnw:16012-16015
 ###################################################
-#line 16013 "IPSUR.Rnw"
 resamps <- replicate(1000, sample(rivers, 141, TRUE), simplify = FALSE)
 medstar <- sapply(resamps, median, simplify = TRUE)
 sd(medstar)
 
 
 ###################################################
-### chunk number 379: 
+### code chunk number 379: IPSUR.Rnw:16021-16022
 ###################################################
-#line 16022 "IPSUR.Rnw"
 hist(medstar, breaks = 40, prob = TRUE)
 
 
 ###################################################
-### chunk number 380:  eval=FALSE
+### code chunk number 380: IPSUR.Rnw:16035-16036 (eval = FALSE)
 ###################################################
-## #line 16036 "IPSUR.Rnw"
 ## hist(medstar, breaks = 40, prob = TRUE)
 
 
 ###################################################
-### chunk number 381: 
+### code chunk number 381: IPSUR.Rnw:16039-16042
 ###################################################
-#line 16040 "IPSUR.Rnw"
 median(rivers)
 mean(medstar)
 mean(medstar) - median(rivers)
 
 
 ###################################################
-### chunk number 382: 
+### code chunk number 382: IPSUR.Rnw:16067-16070
 ###################################################
-#line 16068 "IPSUR.Rnw"
 library(boot)
 mean_fun <- function(x, indices) mean(x[indices])
 boot(data = srs, statistic = mean_fun, R = 1000)
 
 
 ###################################################
-### chunk number 383: 
+### code chunk number 383: IPSUR.Rnw:16075-16077
 ###################################################
-#line 16076 "IPSUR.Rnw"
 median_fun <- function(x, indices) median(x[indices])
 boot(data = rivers, statistic = median_fun, R = 1000)
 
 
 ###################################################
-### chunk number 384: 
+### code chunk number 384: IPSUR.Rnw:16144-16149
 ###################################################
-#line 16145 "IPSUR.Rnw"
 btsamps <- replicate(2000, sample(stack.loss, 21, TRUE), simplify = FALSE)
 thetast <- sapply(btsamps, median, simplify = TRUE)
 mean(thetast)
@@ -3272,9 +2891,8 @@ quantile(thetast, c(0.025, 0.975))
 
 
 ###################################################
-### chunk number 385: 
+### code chunk number 385: IPSUR.Rnw:16159-16163
 ###################################################
-#line 16160 "IPSUR.Rnw"
 library(boot)
 med_fun <- function(x, ind) median(x[ind])
 med_boot <- boot(stack.loss, med_fun, R = 2000)
@@ -3282,101 +2900,88 @@ boot.ci(med_boot, type = c("perc", "norm", "bca"))
 
 
 ###################################################
-### chunk number 386: 
+### code chunk number 386: IPSUR.Rnw:16312-16314
 ###################################################
-#line 16313 "IPSUR.Rnw"
 library(coin)
 oneway_test(len ~ supp, data = ToothGrowth)
 
 
 ###################################################
-### chunk number 387: 
+### code chunk number 387: IPSUR.Rnw:16326-16327
 ###################################################
-#line 16327 "IPSUR.Rnw"
 t.test(len ~ supp, data = ToothGrowth, alt = "greater", var.equal = TRUE)
 
 
 ###################################################
-### chunk number 388: 
+### code chunk number 388: IPSUR.Rnw:16330-16332
 ###################################################
-#line 16331 "IPSUR.Rnw"
 A <- show(oneway_test(len ~ supp, data = ToothGrowth))
 B <- t.test(len ~ supp, data = ToothGrowth, alt = "greater", var.equal = TRUE)
 
 
 ###################################################
-### chunk number 389:  eval=FALSE
+### code chunk number 389: IPSUR.Rnw:16405-16408 (eval = FALSE)
 ###################################################
-## #line 16406 "IPSUR.Rnw"
 ## install.packages("IPSUR", repos="http://R-Forge.R-project.org")
 ## library(IPSUR)
 ## read(IPSUR)
 
 
 ###################################################
-### chunk number 390:  eval=FALSE
+### code chunk number 390: IPSUR.Rnw:16419-16422 (eval = FALSE)
 ###################################################
-## #line 16420 "IPSUR.Rnw"
 ## install.packages("IPSUR", repos="http://R-Forge.R-project.org")
 ## library(IPSUR)
 ## read(IPSUR)
 
 
 ###################################################
-### chunk number 391:  eval=FALSE
+### code chunk number 391: IPSUR.Rnw:16433-16436 (eval = FALSE)
 ###################################################
-## #line 16434 "IPSUR.Rnw"
 ## install.packages("IPSUR", repos="http://R-Forge.R-project.org")
 ## library(IPSUR)
 ## read(IPSUR)
 
 
 ###################################################
-### chunk number 392: 
+### code chunk number 392: IPSUR.Rnw:16448-16449
 ###################################################
-#line 16449 "IPSUR.Rnw"
 sessionInfo()
 
 
 ###################################################
-### chunk number 393: 
+### code chunk number 393: IPSUR.Rnw:16967-16968
 ###################################################
-#line 16968 "IPSUR.Rnw"
 x <- c(3, 5, 9)
 
 
 ###################################################
-### chunk number 394: 
+### code chunk number 394: IPSUR.Rnw:16975-16976
 ###################################################
-#line 16976 "IPSUR.Rnw"
 y <- c(3, "5", TRUE)
 
 
 ###################################################
-### chunk number 395: 
+### code chunk number 395: IPSUR.Rnw:16995-16996
 ###################################################
-#line 16996 "IPSUR.Rnw"
 matrix(letters[1:6], nrow = 2, ncol = 3)
 
 
 ###################################################
-### chunk number 396: 
+### code chunk number 396: IPSUR.Rnw:17003-17004
 ###################################################
-#line 17004 "IPSUR.Rnw"
 matrix(letters[1:6], nrow = 2, ncol = 3, byrow = TRUE)
 
 
 ###################################################
-### chunk number 397: 
+### code chunk number 397: IPSUR.Rnw:17012-17013
 ###################################################
-#line 17013 "IPSUR.Rnw"
 matrix(c(1,"2",NA, FALSE), nrow = 2, ncol = 3)
 
 
 ###################################################
-### chunk number 398: 
+### code chunk number 398: IPSUR.Rnw:17023-17027
 ###################################################
-#line 17024 "IPSUR.Rnw"
 A <- matrix(1:6, 2, 3)
 B <- matrix(2:7, 2, 3)
 A + B
@@ -3384,31 +2989,27 @@ A * B
 
 
 ###################################################
-### chunk number 399: 
+### code chunk number 399: IPSUR.Rnw:17038-17040
 ###################################################
-#line 17039 "IPSUR.Rnw"
 try(A * B)     # an error
 A %*% t(B)     # this is alright
 
 
 ###################################################
-### chunk number 400: 
+### code chunk number 400: IPSUR.Rnw:17046-17047
 ###################################################
-#line 17047 "IPSUR.Rnw"
 solve(A %*% t(B))     # input matrix must be square
 
 
 ###################################################
-### chunk number 401: 
+### code chunk number 401: IPSUR.Rnw:17054-17055
 ###################################################
-#line 17055 "IPSUR.Rnw"
 array(LETTERS[1:24], dim = c(3,4,2))
 
 
 ###################################################
-### chunk number 402: 
+### code chunk number 402: IPSUR.Rnw:17070-17075
 ###################################################
-#line 17071 "IPSUR.Rnw"
 x <- c(1.3, 5.2, 6)
 y <- letters[1:3]
 z <- c(TRUE, FALSE, TRUE)
@@ -3417,43 +3018,38 @@ A
 
 
 ###################################################
-### chunk number 403: 
+### code chunk number 403: IPSUR.Rnw:17083-17085
 ###################################################
-#line 17084 "IPSUR.Rnw"
 names(A) <- c("Fred","Mary","Sue")
 A
 
 
 ###################################################
-### chunk number 404: 
+### code chunk number 404: IPSUR.Rnw:17112-17114
 ###################################################
-#line 17113 "IPSUR.Rnw"
 A <- as.data.frame(Titanic)
 head(A)
 
 
 ###################################################
-### chunk number 405: 
+### code chunk number 405: IPSUR.Rnw:17132-17135
 ###################################################
-#line 17133 "IPSUR.Rnw"
 library(reshape)
 B <- with(A, untable(A, Freq))
 head(B)
 
 
 ###################################################
-### chunk number 406: 
+### code chunk number 406: IPSUR.Rnw:17155-17158
 ###################################################
-#line 17156 "IPSUR.Rnw"
 C <- B[, -5]
 rownames(C) <- 1:dim(C)[1]
 head(C)
 
 
 ###################################################
-### chunk number 407: 
+### code chunk number 407: IPSUR.Rnw:17171-17175
 ###################################################
-#line 17172 "IPSUR.Rnw"
 tab <- matrix(1:6, nrow = 2, ncol = 3)
 rownames(tab) <- c('first', 'second')
 colnames(tab) <- c('A', 'B', 'C')
@@ -3461,9 +3057,8 @@ tab  # Counts
 
 
 ###################################################
-### chunk number 408: 
+### code chunk number 408: IPSUR.Rnw:17186-17192
 ###################################################
-#line 17187 "IPSUR.Rnw"
 p <- c("milk","tea")
 g <- c("milk","tea")
 catgs <- expand.grid(poured = p, guessed = g)
@@ -3473,86 +3068,75 @@ xtabs(count ~ poured + guessed, data = D)
 
 
 ###################################################
-### chunk number 409:  eval=FALSE
+### code chunk number 409: IPSUR.Rnw:17276-17278 (eval = FALSE)
 ###################################################
-## #line 17277 "IPSUR.Rnw"
 ## library(foreign)
 ## read.spss("foo.sav")
 
 
 ###################################################
-### chunk number 410: 
+### code chunk number 410: IPSUR.Rnw:17326-17328
 ###################################################
-#line 17327 "IPSUR.Rnw"
 Tmp <- Puromycin[order(Puromycin$conc), ]
 head(Tmp)
 
 
 ###################################################
-### chunk number 411:  eval=FALSE
+### code chunk number 411: IPSUR.Rnw:17333-17334 (eval = FALSE)
 ###################################################
-## #line 17334 "IPSUR.Rnw"
 ## with(Puromycin, Puromycin[order(conc), ])
 
 
 ###################################################
-### chunk number 412:  eval=FALSE
+### code chunk number 412: IPSUR.Rnw:17341-17342 (eval = FALSE)
 ###################################################
-## #line 17342 "IPSUR.Rnw"
 ## with(Puromycin, Puromycin[order(state, conc), ])
 
 
 ###################################################
-### chunk number 413: 
+### code chunk number 413: IPSUR.Rnw:17348-17350
 ###################################################
-#line 17349 "IPSUR.Rnw"
 Tmp <- with(Puromycin, Puromycin[order(-conc), ])
 head(Tmp)
 
 
 ###################################################
-### chunk number 414: 
+### code chunk number 414: IPSUR.Rnw:17358-17360
 ###################################################
-#line 17359 "IPSUR.Rnw"
 Tmp <- with(Puromycin, Puromycin[order(-xtfrm(state)), ])
 head(Tmp)
 
 
 ###################################################
-### chunk number 415:  eval=FALSE
+### code chunk number 415: IPSUR.Rnw:18172-18174 (eval = FALSE)
 ###################################################
-## #line 18173 "IPSUR.Rnw"
 ## library(odfWeave)
 ## odfWeave(file = "infile.odt", dest = "outfile.odt")
 
 
 ###################################################
-### chunk number 416: 
+### code chunk number 416: IPSUR.Rnw:18237-18239
 ###################################################
-#line 18238 "IPSUR.Rnw"
 library(Hmisc)
 summary(cbind(Sepal.Length, Sepal.Width) ~ Species, data = iris)
 
 
 ###################################################
-### chunk number 417: 
+### code chunk number 417: IPSUR.Rnw:18260-18261
 ###################################################
-#line 18261 "IPSUR.Rnw"
 set.seed(095259)
 
 
 ###################################################
-### chunk number 418: 
+### code chunk number 418: IPSUR.Rnw:18310-18312
 ###################################################
-#line 18311 "IPSUR.Rnw"
 options(digits = 16)
 runif(1)
 
 
 ###################################################
-### chunk number 419: 
+### code chunk number 419: IPSUR.Rnw:18762-18767
 ###################################################
-#line 18763 "IPSUR.Rnw"
 rm(.Random.seed)
 # try(dir.create("../../data"), silent = TRUE)
 # save.image(file = "../../data/IPSUR.RData")

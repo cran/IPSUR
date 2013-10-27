@@ -1,16 +1,16 @@
 Package: IPSUR
 Type: Package
 Title: Introduction to Probability and Statistics Using R
-Version: 1.4
-Date: 2011-02-17
+Version: 1.5
+Date: 2013-10-27
 Author: G. Jay Kerns
 Maintainer: G. Jay Kerns <gkerns@ysu.edu>
 Depends: R (>= 2.10)
 Suggests: actuar, aplpack, boot, coin, combinat, DAAG, diagram, distr,
-        distrEx, distrTeach, e1071, exactRankTests, HH (>= 2.1-32),
-        Hmisc, lattice, lmtest, mvtnorm, odfWeave, prob, qcc,
-        RcmdrPlugin.IPSUR (>= 0.1-6), Rcmdr, reshape, scatterplot3d,
-        TeachingDemos (>= 2.5), vcd
+        distrEx, distrTeach, e1071, HH (>= 2.1-32), Hmisc, lattice,
+        lmtest, mvtnorm, odfWeave, prob, qcc, RcmdrPlugin.IPSUR (>=
+        0.1-6), Rcmdr, reshape, scatterplot3d, TeachingDemos (>= 2.5),
+        vcd
 Description: This package contains the Sweave source code used to
         generate IPSUR, an introductory probability and statistics
         textbook, alongside other supplementary materials such as the
@@ -19,8 +19,7 @@ Description: This package contains the Sweave source code used to
         Documentation License.
 License: GPL (>= 3)
 LazyLoad: yes
+Packaged: 2013-10-27 23:52:52 UTC; jay
+NeedsCompilation: no
 Repository: CRAN
-Repository/R-Forge/Project: ipsur
-Repository/R-Forge/Revision: 199
-Date/Publication: 2012-10-29 08:57:10
-Packaged: 2012-10-29 08:57:10 UTC; ripley
+Date/Publication: 2013-10-28 07:46:12
