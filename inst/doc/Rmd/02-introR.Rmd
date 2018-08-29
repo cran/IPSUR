@@ -1,0 +1,685 @@
+# An Introduction to R {#cha-introduction-to-r}                                           
+
+```{r, echo=FALSE, eval=FALSE}
+#    IPSUR: Introduction to Probability and Statistics Using R
+#    Copyright (C) 2018 G. Jay Kerns
+#
+#    Chapter: An Introduction to R
+#
+#    This file is part of IPSUR.
+#
+#    IPSUR is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    IPSUR is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IPSUR.  If not, see <http://www.gnu.org/licenses/>.
+```
+
+Every R book I have ever seen has had a section/chapter
+that is an introduction to R, and so does this one.  The
+goal of this chapter is for a person to get up and running, ready for
+the material that follows.  See Section \@ref(sec-external-resources) for links
+to other material which the reader may find useful.
+
+**What do I want them to know?**
+
+* Where to find R to install on a home computer, and a
+  few comments to help with the usual hiccups that occur when
+  installing something.
+* Abbreviated remarks about the available options to interact with
+  R.
+* Basic operations (arithmetic, entering data, vectors) at the command
+  prompt.
+* How and where to find help when they get in trouble.
+* Other little shortcuts I am usually asked when introducing
+  R.
+
+## Downloading and Installing R {#sec-download-install-r}
+
+The instructions for obtaining R largely depend on the
+user's hardware and operating system. The R Project has
+written an R Installation and Administration manual with
+complete, precise instructions about what to do, together with all
+sorts of additional information. The following is just a primer to get
+a person started.
+
+### Installing R 
+
+Visit one of the links below to download the latest version of R 
+for your operating system:
+
+* Microsoft Windows: <http://cran.r-project.org/bin/windows/base/>
+* MacOS: <http://cran.r-project.org/bin/macosx/>
+* Linux:  <http://cran.r-project.org/bin/linux/>
+
+On Microsoft Windows, click the `R-x.y.z.exe` installer to start
+installation. When it asks for "Customized startup options", specify
+`Yes`. In the next window, be sure to select the SDI (single document
+interface) option; this is useful later when we discuss three
+dimensional plots with the `rgl` package [@rgl].
+
+#### Installing R on a USB drive (Windows)
+
+With this option you can use R portably and without
+administrative privileges. There is an entry in the R for
+Windows FAQ about this. Here is the procedure I use:
+
+1. Download the Windows installer above and start installation as
+   usual. When it asks *where* to install, navigate to the top-level
+   directory of the USB drive instead of the default `C` drive.
+2. When it asks whether to modify the Windows registry, uncheck the
+   box; we do NOT want to tamper with the registry.
+3. After installation, change the name of the folder from `R-x.y.z` to
+   just plain R. (Even quicker: do this in step 1.)
+4. [Download this shortcut](http://ipsur.r-forge.r-project.org/book/download/R.exe) and
+   move it to the top-level directory of the USB drive, right beside
+   the R folder, not inside the folder. Use the
+   downloaded shortcut to run R.
+
+Steps 3 and 4 are not required but save you the trouble of navigating
+to the `R-x.y.z/bin` directory to double-click `Rgui.exe` every time
+you want to run the program. It is useless to create your own shortcut
+to `Rgui.exe`. Windows does not allow shortcuts to have relative
+paths; they always have a drive letter associated with them. So if you
+make your own shortcut and plug your USB drive into some *other*
+machine that happens to assign your drive a different letter, then
+your shortcut will no longer be pointing to the right place.
+
+### Installing and Loading Add-on Packages {#sub-installing-loading-packages}
+
+There are *base* packages (which come with R
+automatically), and *contributed* packages (which must be downloaded
+for installation). For example, on the version of R being
+used for this document the default base packages loaded at startup are
+
+```{r, echo=TRUE, results=TRUE}
+getOption("defaultPackages")
+```
+
+The base packages are maintained by a select group of volunteers,
+called R Core. In addition to the base packages, there
+are over ten thousand additional contributed packages written by
+individuals all over the world. These are stored worldwide on mirrors
+of the Comprehensive R Archive Network, or `CRAN` for
+short. Given an active Internet connection, anybody is free to
+download and install these packages and even inspect the source code.
+
+To install a package named `foo`, open up R and type
+`install.packages("foo")`
+\index{install.packages@\texttt{install.packages}}. To
+install `foo` and additionally install all of the other packages on
+which `foo` depends, instead type `install.packages("foo", depends =
+TRUE)`.
+
+The general command `install.packages()` will (on most operating
+systems) open a window containing a huge list of available packages;
+simply choose one or more to install.
+
+No matter how many packages are installed onto the system, each one
+must first be loaded for use with the
+`library` \index{library@\texttt{library}} function. For instance, the
+`foreign` package [@foreign] contains all sorts of functions
+needed to import data sets into R from other software
+such as SPSS, SAS, *etc*. But none of those functions will be
+available until the command `library("foreign")` is issued.
+
+Type `library()` at the command prompt (described below) to see a list
+of all available packages in your library.
+
+For complete, precise information regarding installation of
+R and add-on packages, see the [R Installation and Administration manual](http://cran.r-project.org/manuals.html).
+
+## Communicating with R {#sec-communicating-with-r}
+
+### One line at a time
+
+This is the most basic method and is the first one that beginners will use.
+
+* RGui (Microsoft \(\circledR\) Windows)
+* RStudio
+* Terminal
+* Emacs/ESS, XEmacs
+
+### Multiple lines at a time
+
+For longer programs (called *scripts*) there is too much code to write
+all at once at the command prompt. Furthermore, for longer scripts it
+is convenient to be able to only modify a certain piece of the script
+and run it again in R. Programs called *script editors*
+are specially designed to aid the communication and code writing
+process. They have all sorts of helpful features including
+R syntax highlighting, automatic code completion,
+delimiter matching, and dynamic help on the R functions
+as they are being written. Even more, they often have all of the text
+editing features of programs like Microsoft\(\circledR\)Word. Lastly,
+most script editors are fully customizable in the sense that the user
+can customize the appearance of the interface to choose what colors to
+display, when to display them, and how to display them.
+
+* **R Editor (Windows):** In Microsoft\(\circledR\) Windows,
+     R Gui has its own built-in script editor, called
+     R Editor. From the console window, select `File`
+     \(\triangleright\) `New Script`. A script window opens, and the
+     lines of code can be written in the window. When satisfied with
+     the code, the user highlights all of the commands and presses
+     \textsf{Ctrl+R}. The commands are automatically run at once in
+     R and the output is shown. To save the script for
+     later, click `File` \(\triangleright\) `Save as...` in
+     R Editor. The script can be reopened later with
+     `File` \(\triangleright\)} `Open Script...` in `RGui`. Note that
+     R Editor does not have the fancy syntax highlighting
+     that the others do.
+* **RStudio:**
+* **Emacs/ESS:** Emacs is an all
+                purpose text editor. It can do absolutely anything
+                with respect to modifying, searching, editing, and
+                manipulating, text. And if Emacs can't do it, then you
+                can write a program that extends Emacs to do it. Once
+                such extension is called `ESS`, which stands for
+                /E/-macs /S/-peaks /S/-tatistics. With ESS a person
+                can speak to R, do all of the tricks that
+                the other script editors offer, and much, much,
+                more. Please see the following for installation
+                details, documentation, reference cards, and a whole
+                lot more: http://ess.r-project.org.  *Fair warning*:
+                if you want to try Emacs and if you grew up with
+                Microsoft\(\circledR\) Windows or Macintosh, then you
+                are going to need to relearn everything you thought
+                you knew about computers your whole life. (Or, since
+                Emacs is completely customizable, you can reconfigure
+                Emacs to behave the way you want.) I have personally
+                experienced this transformation and I will never go
+                back.
+
+### Graphical User Interfaces (GUIs)
+
+By the word "GUI" I mean an interface in which the user communicates
+with R by way of points-and-clicks in a menu of some
+sort. Again, there are many, many options and I only mention one that
+I have used and enjoyed. 
+
+* **R Commander** provides a point-and-click interface to
+     many basic statistical tasks. It is called the "Commander"
+     because every time one makes a selection from the menus, the code
+     corresponding to the task is listed in the output window. One can
+     take this code, copy-and-paste it to a text file, then re-run it
+     again at a later time without the R Commander's
+     assistance. It is well suited for the introductory level. `Rcmdr`
+     [@Rcmdr] also allows for user-contributed "Plugins" which are
+     separate packages on `CRAN` that add extra functionality to the
+     `Rcmdr` package. The plugins are typically named with the prefix
+     `RcmdrPlugin` to make them easy to identify in the `CRAN` package
+     list. One such plugin is the `RcmdrPlugin.IPSUR` package
+     [@RcmdrPlugin.IPSUR] which accompanies this text.
+
+## Basic R Operations and Concepts {#sec-basic-r-operations}
+
+The R developers have written an introductory document
+entitled "An Introduction to R". There is a sample
+session included which shows what basic interaction with
+R looks like. I recommend that all new users of
+R read that document, but bear in mind that there are
+concepts mentioned which will be unfamiliar to the beginner.
+
+Below are some of the most basic operations that can be done with
+R. Almost every book about R begins with a
+section like the one below; look around to see all sorts of things
+that can be done at this most basic level.
+
+### Arithmetic {#sub-arithmetic}
+
+```{r, echo=TRUE, results=TRUE}  
+2 + 3       # add
+4 # 5 / 6   # multiply and divide
+7^8         # 7 to the 8th power
+```
+
+Notice the comment character `#`. Anything typed
+after a `#` symbol is ignored by R. We know that \(20/6\)
+is a repeating decimal, but the above example shows only 7 digits. We
+can change the number of digits displayed with
+`options`:
+
+```{r, echo=TRUE, results=TRUE} 
+options(digits = 16)
+10/3                 # see more digits
+sqrt(2)              # square root
+exp(1)               # Euler's constant, e
+pi       
+options(digits = 7)  # back to default
+```
+
+Note that it is possible to set `digits`
+ up to 22, but setting them
+over 16 is not recommended (the extra significant digits are not
+necessarily reliable). Above notice the `sqrt`
+ function for square roots and the
+`exp` \index{exp@\texttt{exp}} function for powers of
+\(\mathrm{e}\), Euler's number.
+
+### Assignment, Object names, and Data types {#sub-assignment-object-names}
+
+It is often convenient to assign numbers and values to variables
+(objects) to be used later. The proper way to assign values to a
+variable is with the `<-` operator (with a space on either side). The
+`=` symbol works too, but it is recommended by the R
+masters to reserve `=` for specifying arguments to functions
+(discussed later). In this book we will follow their advice and use
+`<-` for assignment. Once a variable is assigned, its value can be
+printed by simply entering the variable name by itself.
+
+```{r, echo=TRUE, results=TRUE} 
+x <- 7*41/pi   # don't see the calculated value
+x              # take a look
+```
+
+When choosing a variable name you can use letters, numbers, dots
+"\texttt{.}", or underscore "\texttt{\_}" characters. You cannot
+use mathematical operators, and a leading dot may not be followed by a
+number. Examples of valid names are: `x`, `x1`, `y.value`, and
+`y_hat`. (More precisely, the set of allowable characters in object
+names depends on one's particular system and locale; see An
+Introduction to R for more discussion on this.)
+
+Objects can be of many *types*, *modes*, and *classes*. At this level,
+it is not necessary to investigate all of the intricacies of the
+respective types, but there are some with which you need to become
+familiar:
+
+* integer: the values \(0\), \(\pm1\), \(\pm2\), ...; these are represented exactly by R.
+* double: real numbers (rational and irrational); these numbers are not represented exactly (save integers or fractions with a denominator that is a power of 2, see [@Venables2010]).
+* character: elements that are wrapped with pairs of `"` or ';
+* logical: includes `TRUE`, `FALSE`, and `NA` (which are reserved words); the `NA` \index{NA@\texttt{NA}} stands for "not available", *i.e.*, a missing value.
+
+You can determine an object's type with the `typeof`
+\index{typeof@\texttt{typeof}} function. In addition to the above,
+there is the `complex` \index{complex@\texttt{complex}}
+\index{as.complex@\texttt{as.complex}} data type:
+
+```{r, echo=TRUE, results=TRUE} 
+sqrt(-1)              # isn't defined
+sqrt(-1+0i)           # is defined
+sqrt(as.complex(-1))  # same thing
+(0 + 1i)^2            # should be -1
+typeof((0 + 1i)^2)
+```
+
+Note that you can just type `(1i)^2` to get the same answer. The
+`NaN` \index{NaN@\texttt{NaN}} stands for "not a number"; it is
+represented internally as `double` \index{double}.
+
+### Vectors {#sub-vectors}
+
+All of this time we have been manipulating vectors of length 1. Now
+let us move to vectors with multiple entries.
+
+#### Entering data vectors
+
+**The long way:** \index{c@\texttt{c}} If you would like to enter the
+data `74,31,95,61,76,34,23,54,96` into R, you may create
+a data vector with the `c` function (which is short for
+*concatenate*).
+
+```{r, echo=TRUE, results=TRUE} 
+x <- c(74, 31, 95, 61, 76, 34, 23, 54, 96)
+x
+```
+
+The elements of a vector are usually coerced by R to the
+the most general type of any of the elements, so if you do `c(1, "2")`
+then the result will be `c("1", "2")`.
+
+**A shorter way:** \index{scan@\texttt{scan}} The `scan` method is
+useful when the data are stored somewhere else. For instance, you may
+type `x <- scan()` at the command prompt and R will
+display `1:` to indicate that it is waiting for the first data
+value. Type a value and press `Enter`, at which point R
+will display `2:`, and so forth. Note that entering an empty line
+stops the scan. This method is especially handy when you have a column
+of values, say, stored in a text file or spreadsheet. You may copy and
+paste them all at the `1:` prompt, and R will store all
+of the values instantly in the vector `x`.
+
+**Repeated data; regular patterns:** the `seq` \index{seq@\texttt{seq}}
+function will generate all sorts of sequences of numbers. It has the
+arguments `from`, `to`, `by`, and `length.out` which can be set in
+concert with one another. We will do a couple of examples to show you
+how it works.
+
+```{r, echo=TRUE, results=TRUE} 
+seq(from = 1, to = 5)
+seq(from = 2, by = -0.1, length.out = 4)
+```
+
+Note that we can get the first line much quicker with the colon
+operator.
+
+```{r, echo=TRUE, results=TRUE} 
+1:5
+```
+
+The vector `LETTERS` \index{LETTERS@\texttt{LETTERS}} has the 26
+letters of the English alphabet in uppercase and
+`letters` \index{letters@\texttt{letters}} has all of them in
+lowercase.
+
+#### Indexing data vectors
+
+Sometimes we do not want the whole vector, but just a piece of it. We
+can access the intermediate parts with the `[]` operator. Observe
+(with `x` defined above)
+
+```{r, echo=TRUE, results=TRUE} 
+x[1]
+x[2:4]
+x[c(1,3,4,8)]
+x[-c(1,3,4,8)]
+```
+
+Notice that we used the minus sign to specify those elements that we
+do *not* want.
+
+```{r, echo=TRUE, results=TRUE} 
+LETTERS[1:5]
+letters[-(6:24)]
+```
+
+### Functions and Expressions {#sub-functions-and-expressions}
+
+A function takes arguments as input and returns an object as
+output. There are functions to do all sorts of things. We show some
+examples below.
+
+```{r, echo=TRUE, results=TRUE} 
+x <- 1:5
+sum(x)
+length(x)
+min(x)
+mean(x)      # sample mean
+sd(x)        # sample standard deviation
+```
+
+It will not be long before the user starts to wonder how a particular
+function is doing its job, and since R is open-source,
+anybody is free to look under the hood of a function to see how things
+are calculated. For detailed instructions see the article "Accessing
+the Sources" by Uwe Ligges [@Ligges2006]. In short:
+
+**Type the name of the function** without any parentheses or
+arguments. If you are lucky then the code for the entire function will
+be printed, right there looking at you. For instance, suppose that we
+would like to see how the `intersect`
+\index{intersect@\texttt{intersect}} function works:
+
+```{r, echo=TRUE, results=TRUE} 
+intersect
+```
+
+If instead it shows `UseMethod(something)`
+\index{UseMethod@\texttt{UseMethod}} then you will need to choose the
+*class* of the object to be inputted and next look at the *method*
+that will be *dispatched* to the object. For instance, typing `rev`
+\index{rev@\texttt{rev}} says
+
+```{r, echo=TRUE, results=TRUE} 
+rev
+```
+
+The output is telling us that there are multiple methods associated
+with the `rev` function. To see what these are, type
+
+```{r, echo=TRUE, results=TRUE} 
+methods(rev)
+```
+
+Now we learn that there are two different `rev(x)` functions, only one
+of which being chosen at each call depending on what `x` is. There is
+one for `dendrogram` objects and a `default` method for everything
+else. Simply type the name to see what each method does. For example,
+the `default` method can be viewed with
+
+```{r, echo=TRUE, results=TRUE} 
+rev.default
+```
+
+**Some functions are hidden by a namespace** (see An Introduction to
+R @Venables2010), and are not visible on the first
+try. For example, if we try to look at the code for `wilcox.test`
+\index{wilcox.test@\texttt{wilcox.test}} (see Chapter \@ref(cha-nonparametric-statistics)) we get the following:
+
+```{r, echo=TRUE, results=TRUE} 
+wilcox.test
+methods(wilcox.test)
+```
+
+If we were to try `wilcox.test.default` we would get a "not found"
+error, because it is hidden behind the namespace for the package
+`stats` [@stats] (shown in the last line when we tried
+`wilcox.test`). In cases like these we prefix the package name to the
+front of the function name with three colons; the command
+`stats:::wilcox.test.default` will show the source code, omitted here
+for brevity.
+
+If it shows `.Internal(something)`
+\index{.Internal@\texttt{.Internal}} or `.Primitive(something)`
+\index{.Primitive@\texttt{.Primitive}}, then it will be necessary to
+download the source code of R (which is *not* a binary
+version with an `.exe` extension) and search inside the code
+there. See Ligges [@Ligges2006] for more discussion on this. An
+example is `exp`:
+
+```{r, echo=TRUE, results=TRUE} 
+exp
+```
+
+
+Be warned that most of the `.Internal` functions are written in other
+computer languages which the beginner may not understand, at least
+initially.
+
+## Getting Help {#sec-getting-help}
+
+When you are using R, it will not take long before you
+find yourself needing help. Fortunately, R has extensive
+help resources and you should immediately become familiar with
+them. Begin by clicking `Help` on `RGui`. The following options are
+available.
+
+* Console: gives useful shortcuts, for instance, `Ctrl+L`, to clear
+              the R console screen.
+* FAQ on R: frequently asked questions concerning
+     general R operation.
+* FAQ on R for Windows: frequently asked questions
+     about R, tailored to the Microsoft Windows operating
+     system.
+* Manuals: technical manuals about all features of the
+              R system including installation, the
+              complete language definition, and add-on packages.
+* R functions (text)...: use this if you know the
+     *exact* name of the function you want to know more about, for
+     example, `mean` or `plot`. Typing `mean` in the window is
+     equivalent to typing `help("mean")`
+     \index{help@\texttt{help}} at the command line, or more
+     simply, `?mean` \index{?@\texttt{?}}. Note that this
+     method only works if the function of interest is contained in a
+     package that is already loaded into the search path with
+     `library`.
+* HTML Help: use this to browse the manuals with point-and-click
+                links. It also has a Search Engine \& Keywords for
+                searching the help page titles, with point-and-click
+                links for the search results. This is possibly the
+                best help method for beginners. It can be started from
+                the command line with the command
+                `help.start()` \index{help.start@\texttt{help.start}}.
+* Search help ...: use this if you do not know the exact name of
+     the function of interest, or if the function is in a package that
+     has not been loaded yet. For example, you may enter `plo` and a
+     text window will return listing all the help files with an alias,
+     concept, or title matching `plo` using regular expression
+     matching; it is equivalent to typing
+     `help.search("plo")` \index{help.search@\texttt{help.search}} at
+     the command line. The advantage is that you do not need to know
+     the exact name of the function; the disadvantage is that you
+     cannot point-and-click the results. Therefore, one may wish to
+     use the HTML Help search engine instead. An equivalent way is
+     `??plo` \index{??@\texttt{??}} at the command line.
+* search.r-project.org ...: this will search for words in help
+     lists and email archives of the R Project. It can be
+     very useful for finding other questions that other users have
+     asked.
+* Apropos ...: use this for more sophisticated partial name
+                  matching of functions. See `?apropos`
+                  \index{apropos@\texttt{apropos}} for details.
+
+On the help pages for a function there are sometimes "Examples"
+listed at the bottom of the page, which will work if copy-pasted at
+the command line (unless marked otherwise). The `example`
+\index{example@\texttt{example}} function will run the code
+automatically, skipping the intermediate step. For instance, we may
+try `example(mean)` to see a few examples of how the `mean` function
+works.
+
+### R Help Mailing Lists
+
+There are several mailing lists associated with R, and
+there is a huge community of people that read and answer questions
+related to
+R. See [here](http://www.r-project.org/mail.html) for an
+idea of what is available. Particularly pay attention to the bottom of
+the page which lists several special interest groups (SIGs) related to
+R.
+
+Bear in mind that R is free software, which means that it
+was written by volunteers, and the people that frequent the mailing
+lists are also volunteers who are not paid by customer support
+fees. Consequently, if you want to use the mailing lists for free
+advice then you must adhere to some basic etiquette, or else you may
+not get a reply, or even worse, you may receive a reply which is a bit
+less cordial than you are used to. Below are a few considerations:
+
+1. Read the [FAQ](http://cran.r-project.org/faqs.html). Note that
+   there are different FAQs for different operating systems. You
+   should read these now, even without a question at the moment, to
+   learn a lot about the idiosyncrasies of R.
+2. Search the archives. Even if your question is not a FAQ, there is a
+   very high likelihood that your question has been asked before on
+   the mailing list. If you want to know about topic `foo`, then you
+   can do `RSiteSearch("foo")`
+   \index{RSiteSearch@\texttt{RSiteSearch}} to search the
+   mailing list archives (and the online help) for it.
+3. Do a Google search and an \texttt{RSeek.org} search.
+
+If your question is not a FAQ, has not been asked on
+R-help before, and does not yield to a Google (or
+alternative) search, then, and only then, should you even consider
+writing to R-help. Below are a few additional
+considerations.
+
+* Read
+  the [posting guide](http://www.r-project.org/posting-guide.html)
+  before posting. This will save you a lot of trouble and pain.
+* Get rid of the command prompts (`>`) from output. Readers of your
+  message will take the text from your mail and copy-paste into an
+  R session. If you make the readers' job easier then it
+  will increase the likelihood of a response.
+* Questions are often related to a specific data set, and the best way
+  to communicate the data is with a `dump` \index{dump@\texttt{dump}}
+  command. For instance, if your question involves data stored in a
+  vector `x`, you can type `dump("x","")` at the command prompt and
+  copy-paste the output into the body of your email message. Then the
+  reader may easily copy-paste the message from your email into
+  R and `x` will be available to him/her.
+* Sometimes the answer the question is related to the operating system
+  used, the attached packages, or the exact version of R
+  being used. The `sessionInfo()`
+  \index{sessionInfo@\texttt{sessionInfo}} command collects
+  all of this information to be copy-pasted into an email (and the
+  Posting Guide requests this information). See Appendix
+  \@ref(cha-r-session-information) for an example.
+
+## External Resources {#sec-external-resources}
+
+There is a mountain of information on the Internet about
+R. Below are a few of the important ones.
+
+* [The R- Project for Statistical Computing](http://www.r-project.org/) \index{The
+  R-Project@The \textsf{R}-Project}: Go there first.
+* [The Comprehensive R Archive Network](http://cran.r-project.org/)
+  \index{CRAN}: That is where R is stored along with thousands of contributed
+  packages. There are also loads of contributed information (books,
+  tutorials, *etc*.). There are mirrors all over the world with
+  duplicate information.
+* [R-Forge](http://r-forge.r-project.org/) \index{R-Forge@\textsf{R}-Forge}: This is
+  another location where R packages are stored. Here you
+  can find development code which has not yet been released to `CRAN`.
+* [R Seek](http://www.rseek.org) is a
+  search engine based on Google specifically tailored for
+  R queries.
+
+## Other Tips
+
+It is unnecessary to retype commands repeatedly, since R
+remembers what you have recently entered on the command line. On the
+Microsoft\(\circledR\) Windows R Gui, to cycle through
+the previous commands just push the \(\uparrow\) (up arrow) key. On
+Emacs/ESS the command is `M-p` (which means hold down the `Alt` button
+and press "p"). More generally, the command `history()`
+\index{history@\texttt{history}} will show a whole list of recently
+entered commands.
+
+* To find out what all variables are in the current work environment,
+  use the commands `objects()` \index{objects@\texttt{objects}} or
+  `ls()` \index{ls@\texttt{ls}}. These list all available objects in
+  the workspace. If you wish to remove one or more variables, use
+  `remove(var1, var2, var3)` \index{remove@\texttt{remove}}, or more
+  simply use `rm(var1, var2, var3)`, and to remove all objects use
+  `rm(list = ls(all = TRUE))`.
+* Another use of `scan` is when you have a long list of numbers
+  (separated by spaces or on different lines) already typed somewhere
+  else, say in a text file To enter all the data in one fell swoop,
+  first highlight and copy the list of numbers to the Clipboard with
+  `Edit` \(\triangleright\) `Copy` (or by right-clicking and selecting
+  `Copy`). Next type the `x <- scan()` command in the R
+  console, and paste the numbers at the `1:` prompt with `Edit`
+  \(\triangleright\) `Paste`. All of the numbers will automatically be
+  entered into the vector `x`.
+* The command `Ctrl+l` clears the display in the
+  Microsoft\(\circledR\) Windows R Gui. In Emacs/ESS,
+  press `Ctrl+l` repeatedly to cycle point (the place where the cursor
+  is) to the bottom, middle, and top of the display.
+* Once you use R for awhile there may be some commands
+  that you wish to run automatically whenever R
+  starts. These commands may be saved in a file called `Rprofile.site`
+  \index{Rprofile.site@\texttt{Rprofile.site}} which is
+  usually in the `etc` folder, which lives in the R home
+  directory (which on Microsoft\(\circledR\) Windows usually is
+  `C:\Program Files\R`). Alternatively, you can make a file
+  `.Rprofile` \index{.Rprofile@\texttt{.Rprofile}} to be
+  stored in the user's home directory, or anywhere R is
+  invoked. This allows for multiple configurations for different
+  projects or users. See "Customizing the Environment" of *An
+  Introduction to R* BLANK for more details.
+* When exiting R the user is given the option to "save
+  the workspace". I recommend that beginners DO NOT save the
+  workspace when quitting. If `Yes` is selected, then all of the
+  objects and data currently in R's memory is saved in a
+  file located in the working directory called
+  `.RData` \index{.RData@\texttt{.RData}}. This file is then
+  automatically loaded the next time R starts (in which
+  case R will say `[previously saved workspace restored]`). 
+  This is a valuable feature for experienced users of
+  R, but I find that it causes more trouble than it saves
+  with beginners.
+
+\newpage{}
+
+## Exercises
+
+

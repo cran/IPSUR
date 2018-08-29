@@ -1,0 +1,21 @@
+# History {#cha-history}
+
+| Title:     | Introduction to Probability and Statistics Using R, Third Edition |
+|------------+-------------------------------------------------------------------|
+| Year:      | 2018                                                              |
+| Authors:   | G. Jay Kerns                                                      |
+| Publisher: | G. Jay Kerns                                                      |
+
+| Title:     | Introduction to Probability and Statistics Using R, Second Edition |
+|------------+--------------------------------------------------------------------|
+| Year:      | 2014                                                               |
+| Authors:   | G. Jay Kerns                                                       |
+| Publisher: | G. Jay Kerns                                                       |
+
+| Title:     | Introduction to Probability and Statistics Using R, First Edition |
+|------------+-------------------------------------------------------------------|
+| Year:      | 2010                                                              |
+| Authors:   | G. Jay Kerns                                                      |
+| Publisher: | G. Jay Kerns                                                      |
+
+

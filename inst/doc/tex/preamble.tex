@@ -1,0 +1,126 @@
+%    IPSUR: Introduction to Probability and Statistics Using R
+%    Copyright (C)  2018 G. Jay Kerns
+%
+%    This file is part of IPSUR.
+%
+%    Permission is granted to copy, distribute and/or modify this document
+%    under the terms of the GNU Free Documentation License, Version 1.3
+%    or any later version published by the Free Software Foundation;
+%    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+%    A copy of the license is contained in the LICENSE file in this
+%    directory.
+
+\subtitle{Third Edition}
+
+\usepackage{lmodern}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+
+% needed packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[english]{babel}
+\usepackage{epsfig}
+\usepackage{fancyvrb}
+\usepackage{fixltx2e}
+\usepackage{float}
+%\usepackage{floatflt}
+\usepackage[T1]{fontenc}
+\usepackage{footnote}
+%\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{longtable}
+\usepackage{makeidx}
+\usepackage{marvosym}
+\usepackage{multicol}
+%\usepackage{pslatex}
+%\usepackage{showidx}
+\usepackage{soul}
+\usepackage{srcltx}
+\usepackage{stmaryrd}
+\usepackage{subfig}
+\usepackage{textcomp}
+%\usepackage{theorem}
+\usepackage[subfigure]{tocloft}
+\usepackage{txfonts}
+\usepackage{upgreek}
+\usepackage{url}
+\usepackage{varioref}
+\usepackage{verbatim}
+%\usepackage{wasysym}
+\usepackage{wrapfig}
+
+% Page setup
+%\usepackage[paperwidth=7.44in,paperheight=9.69in]{geometry}
+%\geometry{verbose,tmargin=1in,bmargin=1in,outer=1.25in,inner=0.75in}
+%\geometry{paperwidth=6in,paperheight=9in, margin=0.55in}
+%\geometry{paperwidth=6in,paperheight=9in, margin=0.75in}
+\geometry{paperwidth=6in,paperheight=9in,tmargin=0.75in,bmargin=0.75in,outer=0.5in,inner=0.75in}
+%\geometry{paperwidth=7in,paperheight=10in,tmargin=0.75in,bmargin=0.75in,outer=0.5in,inner=0.75in}
+\pagestyle{headings}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+
+
+\makeindex
+
+
+% PDF settings
+\usepackage[hyperref,x11names]{xcolor}
+\usepackage{hyperref}
+\hypersetup{pdftitle={Introduction to Probability and Statistics Using R},
+ 		pdfauthor={G. Jay Kerns},
+		linkcolor=Firebrick4,
+		citecolor=black,
+		urlcolor=SteelBlue4}
+
+% special logos
+\providecommand{\IPSUR}
+{\textsc{I\kern 0ex\lower-0.3ex\hbox{\small P}\kern -0.5ex\lower0.4ex\hbox{\footnotesize S}\kern -0.25exU}\kern -0.1ex\lower 0.15ex\hbox{\textsf{\large R}}\@}
+
+%  user defined commands
+% special operators
+
+\renewcommand{\vec}[1]{\mbox{\boldmath$#1$}}
+
+\makeatletter
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+
+\numberwithin{equation}{chapter}
+\numberwithin{figure}{chapter}
+
+\theoremstyle{plain}
+  \newtheorem{thm}{Theorem}[chapter]
+  \newtheorem{fact}[thm]{Fact}
+  \newtheorem{axiom}[thm]{Axiom}
+  \newtheorem{prop}[thm]{Proposition}
+  \newtheorem{cor}[thm]{Corollary}
+  \newtheorem{assumption}[thm]{Assumption}
+
+\theoremstyle{definition}
+  \newtheorem{defn}[thm]{Definition}
+%  \newtheorem{example}[thm]{Example}
+  \newtheorem{xca}{Exercise}[chapter]
+
+\theoremstyle{remark}
+  \newtheorem{note}[thm]{Note}
+  \newtheorem{rem}[thm]{Remark}
+
+\setlength{\cftfignumwidth}{1.5cm}
+
+\@ifundefined{showcaptionsetup}{}{%
+ \PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+\AtBeginDocument{
+  \def\labelitemii{\(\circ\)}
+}
+
+\makeatother
+
+
+

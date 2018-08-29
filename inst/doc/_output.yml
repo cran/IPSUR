@@ -1,0 +1,11 @@
+bookdown::pdf_book:
+  includes:
+    in_header: tex/preamble.tex
+    before_body: ["tex/frontmatter.tex", "tex/preface-third.tex"]
+    after_body: tex/backmatter.tex
+  latex_engine: pdflatex
+  dev: "cairo_pdf"
+  toc: no
+  citation_package: biblatex
+  keep_tex: yes
+

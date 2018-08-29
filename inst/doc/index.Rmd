@@ -1,0 +1,17 @@
+--- 
+title: "Introduction to Probability and Statistics Using R"
+author: "G. Jay Kerns"
+date: '`r Sys.Date()`'
+output: pdf_document
+documentclass: book
+link-citations: yes
+description: This is an Introduction to Probability and Statistics Using R.
+site: bookdown::bookdown_site
+bibliography:
+- tex/IPSUR.bib
+- tex/Rpackages.bib
+vignette: >
+  %\VignetteIndexEntry{bookdown index.Rmd file for IPSUR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---

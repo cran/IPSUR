@@ -1,0 +1,535 @@
+# Nonparametric Statistics 
+
+
+```{r, echo=FALSE, eval=FALSE}
+#    IPSUR: Introduction to Probability and Statistics Using R
+#    Copyright (C) 2018  G. Jay Kerns
+#
+#    Chapter: Nonparametric Statistics
+#
+#    This file is part of IPSUR.
+#
+#    IPSUR is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    IPSUR is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IPSUR.  If not, see <http://www.gnu.org/licenses/>.
+```
+
+```{r, echo=FALSE, include=FALSE}
+# Preliminary code to load before start
+# This chapter's package dependencies
+library(mvtnorm)
+```
+
+## Single Sample
+
+### Sign Test (Fisher, 1925)
+
+```{r, echo=FALSE}
+set.seed(42)
+```
+
+The model is
+\[
+Z_{i} = \theta + e_{i},\quad i=1,2,\ldots,n,
+\]
+where
+
+* \(e_{1} \ldots e_{n}\) are mutually independent
+* each \(e\) comes from a continuous population (but not necessarily the same one) with median zero, that is \(\mathbb{P}(e_{i} < 0) = \mathbb{P}(e_{i} > 0) = 1/2\).
+
+#### Test statistic
+
+For a specified value \(\theta = \theta_{0}\), let 
+\[
+\psi_{i}=\begin{cases}
+1, & \text{if }Z_{i}>\theta_{0},\\
+0, & \text{if }Z_{i}<\theta_{0}.
+\end{cases}
+\]
+Then 
+\[
+B = \sum_{i=1}^{n} \psi_{i} = \mbox{number of \(Z_{i}\)'s falling above \(\theta_{0}\)}.
+\]
+
+
+#### Hypothesis tests
+
+Let \(b_{\alpha,n,1/2}\) satisfy the equation \(\mathbb{P}\left(B \geq b_{\alpha,n,1/2}\right) = \alpha\), where \[B \sim \mathtt{binom(size = n, prob = 0.5)}\].  This distribution is implemented in R with the `pbinom` function.
+
+| \(H_{0}\)               | \(H_{a}\)                  | Rejection Region                                                            |
+|-------------------------+----------------------------+-----------------------------------------------------------------------------|
+| \(\theta = \theta_{0}\) | \(\theta > \theta_{0}\)    | \(B \geq b_{\alpha,n,1/2}\)                                                    |
+| \(\theta = \theta_{0}\) | \(\theta < \theta_{0}\)    | \(B \leq (n - b_{\alpha,n,1/2})\)                                 |
+| \(\theta = \theta_{0}\) | \(\theta \neq \theta_{0}\) | \(B \geq b_{\alpha/2,n,1/2}\) or \(B \leq (n - b_{\alpha/2,n,1/2})\) |
+
+Table: Hypothesis tests, population median, small samples.
+
+
+#### Large sample approximation
+
+If \(n\) is large then use \(B^{\ast}\) instead defined by
+\[
+B^{\ast} = \frac{B - (n/2)}{\sqrt{n/4}}  \overset{\cdot}{\sim} \mathtt{norm(mean = 0, sd = 1)}
+\]
+
+#### How to handle ties
+Discard any values \(Z_{i} = \theta_{0}\) and decrease \(n\) by the number of discards.
+
+#### Confidence Interval
+
+For a \(100(1-\alpha)\%\) confidence interval for \(\theta\) first find an integer \(C_{\alpha}\) from `pbinom(size = n, prob = 0.5)` that satisfies
+\[
+\mathbb{P}\left\{C_{\alpha} \leq  B \leq \left(n - C_{\alpha}\right)\right\} \geq 1 - \alpha.
+\]
+Order \(Z_{(1)} \leq Z_{(2)} \leq \cdots \leq Z_{(n)}\) and set
+\[
+\theta_{L} = Z_{\left(C_\alpha\right)}\quad \mbox{and}\quad \theta_{U} = Z_{\left(n + 1 - C_{\alpha}\right)}.
+\]
+Then
+\[
+\mathbb{P}\left(\theta_{L} \leq  \theta \leq \theta_{U}\right) \geq 1 - \alpha.
+\]
+For large samples, \[C_{\alpha}\approx \frac{n}{2} - z_{\alpha/2}\sqrt{\frac{n}{4}}\].
+
+Note that the \(\mathtt{binom(size = n, prob = 0.5)}\) distribution is symmetric and the method is such that all of our confidence intervals look like \([Z_{(k)},\ Z_{(n-k)}]\) for some \(k\); there are a limited number of such intervals (about \(n/2\) of them).  Consequently there is a limited list of confidence levels possible to achieve using the above method.  The confidence level for \([Z_{(k)},\ Z_{(n-k)}]\) is
+\[
+\mathbb{P}\left\{k \leq  B \leq (n - k)\right\} = 1 - 2\sum_{i=0}^{k-1}{n \choose i}\frac{1}{2^{n}}.
+\]
+For a specified confidence level \(1-\alpha\) we are obliged to take the confidence interval available with the next-highest confidence level.
+
+
+#### Point estimate
+
+\[
+\tilde{\theta} = \text{median}\left\{Z_{i},\ i=1,\ldots,n\right\}
+\]
+
+
+#### How to do it with R
+
+First we generate a simple random sample of size 13 from a nonnormal continuous distribution (not symmetric) for the sake of argument.  Note that the population median for this distribution is `log(2)` \(\approx 0.7\).
+```{r}
+z <- rexp(13)
+z
+```
+
+Then we perform a test of \(H_{0}:\theta = 1\) against \(H_{a}:\theta \neq 1\).  Note that the alternative hypothesis is true in this example.
+
+```{r}
+sum(z > 1)
+```
+
+We use this number of "successes" to plug into the `binom.test` function.  Our test is about the median, so `p = 0.50`.
+```{r}
+binom.test(x = 4, n = 13, p = 0.5)
+```
+
+```{r, echo=FALSE}
+TMP <- binom.test(x = 4, n = 13, p = 0.5)
+```
+
+Here we fail to reject the null hypothesis at significance level \(\alpha = 0.05\). The `sample estimate` given above is for the probability of success, which is not the parameter of interest to us. Instead we calculate our point estimate for \(\theta\) by hand with
+```{r}
+median(z)
+```
+
+The confidence interval reported above isn't the one we want, either.  We must also compute that by hand, and as we said, there are only so many confidence intervals for \(\theta\) available to us. Those for this example are displayed in the table below.
+
+```{r}
+data.frame(lwr = sort(z)[1:5],
+           upr = sort(z, decreasing=TRUE)[1:5],
+           clevel = 1 - 2*pbinom(5 - 5:1, size = 13, prob = 0.5))
+```
+
+```{r, echo=FALSE}
+TMP <- data.frame(lwr = sort(z)[1:5],
+           upr = sort(z, decreasing=TRUE)[1:5],
+           clevel = 1 - 2*pbinom(5 - (5:1), size = 13, prob = 0.5))
+TMP <- round(TMP,3)
+```
+
+If we want 95% confidence interval for \(\theta\) then we take the `r 100*TMP[3,3]`% interval which runs from approximately `r TMP[3,1]` to `r TMP[3,2]`.
+
+### Wilcoxon Signed Rank (one sample)
+
+```{r, echo=FALSE}
+set.seed(42)
+```
+
+The model is
+\[
+Z_{i} = \theta + e_{i},\quad i=1,2,\ldots,n,
+\]
+where
+
+* \(e_{1}, \ldots, e_{n}\) are mutually independent
+* each \(e\) has a continuous distribution (not necessarily the same one) that is symmetric about zero
+
+#### Test statistic
+
+For a specified value \(\theta = \theta_{0}\), the test statistic \(V\) is determined by the following procedure.
+
+1.  Let \(R_{i}\) denote the rank of \(\vert Z_{i} - \theta_{0}\vert\) in the ordered (least to greatest) list of \(\vert Z_{1} - \theta_{0}\vert,\ \vert Z_{2} - \theta_{0}\vert,\ldots \vert Z_{n} - \theta_{0}\vert\).
+
+2. Let 
+\[
+\psi_{i}=\begin{cases}
+1, & \text{if }Z_{i}>\theta_{0},\\
+0, & \text{if }Z_{i}<\theta_{0}.
+\end{cases}
+\]
+Then the *positive signed rank* of \(Z_{i}\) is \(R_{i}\psi_{i}\) and 
+\[
+V = \sum_{i=1}^{n}R_{i}\psi_{i} = \mbox{sum of positive signed ranks}.
+\]
+
+#### Hypothesis tests
+
+Let \(v_{\alpha,n}\) satisfy the equation \(\mathbb{P}\left(V \geq v_{\alpha,n}\right) = \alpha\), where the probability is calculated under the assumption \(\theta = \theta_{0} = 0\).  This distribution is implemented in R with the `psignrank` function.
+
+| \(H_{0}\)               | \(H_{a}\)                  | Rejection Region                                                            |
+|-------------------------+----------------------------+-----------------------------------------------------------------------------|
+| \(\theta = \theta_{0}\) | \(\theta > \theta_{0}\)    | \(V \geq v_{\alpha,n}\)                                                    |
+| \(\theta = \theta_{0}\) | \(\theta < \theta_{0}\)    | \(V \leq \left[ \frac{n(n+1)}{2} - v_{\alpha,n}\right]\)                                 |
+| \(\theta = \theta_{0}\) | \(\theta \neq \theta_{0}\) | \(V \geq v_{\alpha/2,n}\) or \(V \leq \left[\frac{n(n+1)}{2} - v_{\alpha/2,n}\right]\) |
+
+Table: Hypothesis tests, population median, small sample.
+
+#### Large samples
+
+If \(n\) is large then use \(V^{\ast}\) instead defined by
+\[
+V^{\ast} = \frac{V-\frac{n(n+1)}{4}}{\sqrt{\frac{n(n+1)(2n+1)}{24}}} \overset{\cdot}{\sim} \mathtt{norm(mean = 0, sd = 1)}
+\]
+
+#### How to handle ties
+
+* discard any values \(Z_{i} = \theta_{0}\) and decrease \(n\) by the number of discards
+* If there are ties among nondiscarded \(Z_{i}\)'s then use average ranks to compute \(V\)
+* with large samples, use average ranks and modified variance
+  \[
+  \text{Var}_{\theta_{0}}\left(V\right)=\frac{1}{24}\left[n(n+1)(2n+1)- \frac{1}{2}\sum_{j=1}^{g}t_{j}(t_{j} - 1)(t_{j}+1)\right],
+  \]
+  where \(g\) is the number of groups and \(t_{j}\) is the size of group \(j\) (if there are no ties then \(g = n\) and \(t_{j} \equiv 1\)).
+
+##### Comments
+
+* \(V\) was introduced by Wilcoxon (1945)
+* Pratt (1959) said what to do with zero observations and tied ranks
+
+#### Confidence Interval
+
+For a \(100(1-\alpha)\%\) confidence interval for \(\theta\) first find an integer \(C_{\alpha} \) from `psignrank` that satisfies
+\[
+\mathbb{P}\left( C_{\alpha} \leq  V \leq \left[\frac{n(n+1)}{2} - C_{\alpha}\right] \right) = 1 - \alpha
+\]
+Let
+\[
+W_{(1)} \leq W_{(2)} \leq \cdots \leq W_{(M)}
+\]
+be the ordered values of \(\frac{Z_{i} + Z_{j}}{2}\), \(i \leq j \), where \(M=n(n + 1)/2\).
+
+Set
+\[
+\theta_{L} = W_{\left(C_\alpha\right)}\quad \mbox{and}\quad \theta_{U} = W_{\left(M + 1 - C_{\alpha}\right)}.
+\]
+Then
+\[
+\mathbb{P}\left(\theta_{L} \leq  \theta \leq \theta_{U}\right) = 1 - \alpha.
+\]
+
+As with the Sign Test, the nature of the confidence interval procedure implies that not all possible confidence levels are achievable, particularly if the sample size is very small.  
+
+#### Point estimate
+
+The Hodges-Lehmann estimator is the sample *pseudomedian* given by
+\[
+\hat{\theta} = \text{median}\left\{\frac{Z_{i} + Z_{j}}{2},\ i \leq j  \right\}.
+\]
+
+The pseudomedian of a distribution \(F\) is the median of the distribution of \((U+V)/2\), where \(U\) and \(V\) are independent and identically distributed according to \(F\).  If \(F\) is symmetric then the pseudomedian and the median are the same.
+
+  
+#### How to do it with R
+
+First we generate a simple random sample of size 15 from a nonnormal continuous symmetric distribution with population median 0 for the sake of argument.
+```{r}
+z = rcauchy(15)
+z
+```
+
+Then we perform a test of \(H_{0}:\theta = 4\) against \(H_{a}:\theta \neq 4\).  (Note that the alternative hypothesis is true in this example.)
+
+```{r}
+wilcox.test(z, mu = 4, conf.int = TRUE)
+```
+
+```{r, echo = FALSE}
+TMP <- wilcox.test(z, mu = 4, conf.int = TRUE)
+```
+
+Here we reject the null hypothesis at significance level \(\alpha = 0.05\), the Hodges-Lehmann estimator is \(\hat{\theta} \approx `r round(TMP$estimate,3)`\), and the confidence interval is approximately `r round(TMP$conf.int[1],3)` to  `r round(TMP$conf.int[2],3)`.
+
+Watch what happens if we try the same thing with a ridiculously small sample of size three: 
+
+```{r}
+wilcox.test(rcauchy(3), mu = 4, conf.int = TRUE)
+```
+
+
+
+
+## Two Samples
+
+### Wilcoxon Rank Sum (independent samples)
+
+We observe \(X_{1},\ldots,X_{m}\) and \(Y_{1},\ldots,Y_{n}\). The model is
+\[
+\begin{aligned}
+X_{i} & = e_{i} + \Delta, & i = 1,\ldots,m,\\
+Y_{j} & = e_{m+j},        & j = 1,\ldots,n.
+\end{aligned}
+\]
+where
+
+* \(\Delta\) is an unknown "location shift"
+* \(\Delta = \mu_{x} - \mu_{y}\) where the \(\mu\)'s are the medians and if
+  the means exist then \(\Delta\) also equals the difference in means.
+* The \(N = m + n\) \(e\)'s are a \(SRS(N)\) from a continuous population distribution.
+
+#### Comments
+Closely related to the *Mann-Whitney* test.
+
+#### Test statistic
+
+For a specified value \(\Delta=\Delta_{0}\), the test statistic \(W\) is determined by the following procedure.
+
+1. Sort the \(N=m+n\) observations \((X_{1}-\Delta_{0}),\ldots,(X_{m}-\Delta_{0})\) and \(Y_{1},\ldots,Y_{n}\) in increasing order and let \(R_{i}\) denote the rank of \((X_{i}-\Delta_{0})\), for \(i=1,\ldots,m\).
+2. Set \[W = \sum_{i = 1}^{m} R_{i} = \mbox{sum of ranks assigned to } (X_{1}-\Delta_{0}),\ldots,(X_{m}-\Delta_{0}).\]
+
+#### Hypothesis tests
+
+Let \(w_{\alpha,m,n}\) satisfy the equation \(\mathbb{P}\left(W \geq w_{\alpha,m,n}\right) = \alpha\), where the probability is calculated under the  assumption \(\Delta = \Delta_{0} = 0\).  This distribution is implemented in R with the `pwilcox` function.
+
+| \(H_{0}\)               | \(H_{a}\)                  | Rejection Region                                                            |
+|-------------------------+----------------------------+-----------------------------------------------------------------------------|
+| \(\Delta = \Delta_{0}\) | \(\Delta > \Delta_{0}\)    | \(W \geq w_{\alpha,m,n}\)                                                    |
+| \(\Delta = \Delta_{0}\) | \(\Delta < \Delta_{0}\)    | \(W \leq \left[m(m+n+1) - w_{\alpha,m,n} \right]\)                                 |
+| \(\Delta = \Delta_{0}\) | \(\Delta \neq \Delta_{0}\) | \(W \geq w_{\alpha/2,m,n}\) or \(W \leq \left[m(m+n+1) - w_{\alpha/2,m,n} \right]\) |
+
+Table: Hypothesis tests, difference in population medians, small sample.
+
+#### Large samples
+
+When \(N\) is large use the statistic \(W^{\ast}\) instead defined by
+\[
+W^{\ast} = \frac{W - [m(m + n + 1)]/2}{[mn(m + n + 1)/12]^{1/2}} \overset{\cdot}{\sim} \mathtt{norm(mean = 0, sd = 1)}.
+\]
+
+#### How to handle ties
+
+Use average ranks.  For the large sample approximation we replace \(\text{Var}_{\Delta_{0}}(W)\) above with
+\[
+\text{Var}_{\Delta_{0}}(W)=\frac{mn}{12}\left\{m+n+1-\frac{\sum_{j=1}^{g}t_{j}(t_{j}^{2}-1)}{(m+n)(m+n-1)}\right\},
+\]
+where \(g\) is the number of "groups" and \(t_{j}\) is the number of observations in group \(j\) (if there are no ties then \(g=n\) and \(t_{j} \equiv 1\)).
+
+#### Confidence Interval
+
+For a \(100(1-\alpha)\%\) confidence interval for \(\Delta\) first find an integer \(C_{\alpha}\) from `pwilcox` that satisfies
+\[
+\mathbb{P}\left( \left[\frac{m(m+1)}{2} + C_{\alpha}\right] \leq  W \leq \left[\frac{m(2n+m+1)}{2} - C_{\alpha}\right] \right) = 1 - \alpha.
+\]
+Let
+\[
+U_{(1)} \leq U_{(2)} \leq \cdots \leq U_{(mn)}
+\]
+be the ordered values of \((X_{i} - Y_{j})\), \(i = 1,\ldots,m\) and \(j=1,\ldots,n\) and set
+\[
+\Delta_{L} = U_{\left(C_\alpha\right)}\quad \mbox{and}\quad \Delta_{U} = U_{\left(mn + 1 - C_{\alpha}\right)}.
+\]
+Then
+\[
+\mathbb{P}\left(\Delta_{L} \leq  \Delta \leq \Delta_{U}\right) = 1 - \alpha.
+\]
+
+As with the other procedures, particularly with small sample sizes some confidence levels are not achievable.
+
+#### Point estimate
+
+The Hodges-Lehmann estimator is
+\[
+\hat{\Delta} = \text{median}\{(X_{i} - Y_{j}),\ i = 1,\ldots,m,\ j = 1,\ldots,n \}
+\]
+
+#### Note
+
+For rules about what R considers "large samples" see `?pwilcox`.
+
+#### How to do it with R
+
+```{r, echo = FALSE}
+set.seed(42)
+```
+
+First we generate independent samples from a nonnormal continuous distribution, say, from an Exponential distribution (it could have been anything continuous, really), and let's shift the `x` data up by \(\Delta = 3\).  
+
+```{r}
+x <- rexp(15) + 3
+y <- rexp(9)
+```
+
+Note that the samples are not the same size.  We will test the hypothesis \(H_{0}:\Delta = 2\) against a two-sided alternative.  Note that the alternative hypothesis is true in this example.
+
+```{r}
+wilcox.test(x, y, mu = 2, conf.int = TRUE)
+```
+
+```{r, echo = FALSE}
+TMP <- wilcox.test(x, y, mu = 2, conf.int = TRUE)
+```
+
+Here we reject the null hypothesis (barely) at significance level \(\alpha = 0.05\), the Hodges-Lehmann estimator is \(\hat{\Delta} \approx `r round(TMP$estimate,3)`\), and with 95% confidence \(\Delta\) is covered by the interval `r round(TMP$conf.int[1],3)` to  `r round(TMP$conf.int[2],3)`.
+
+
+
+
+### Wilcoxon Signed Rank (paired samples)
+
+```{r, echo=FALSE}
+set.seed(42)
+```
+
+We observe \(X_{1},\ldots,X_{n}\) and \(Y_{1},\ldots,Y_{n}\), where \(X_{i}\) is paired or matched to \(Y_{i}\). Define \(Z_{i} = X_{i} - Y_{i}\) and continue as in the one sample problem. The model is
+\[
+Z_{i} = (X_{i} - Y_{i}) = \theta + e_{i},\quad i=1,2,\ldots,n,
+\]
+where
+
+* \(e_{1}, \ldots, e_{n}\) are mutually independent
+* each \(e\) has a continuous distribution (not necessarily the same one) that is symmetric about zero.
+
+#### Comments 
+* if \(X_{i}\) and \(Y_{i}\) come from populations differing
+  only in location then \(Z_{i}\) comes from a population symmetric about
+  zero, and the same is true under more general conditions, see Hollander and Wolfe.
+* we don't assume that \(X_{i}\) and \(Y_{i}\) are independent, and in practice they are often dependent
+
+#### Test statistic, Hypothesis tests, Confidence Interval, Point estimate
+
+Same as in the one sample problem.
+
+#### How to do it with R
+
+```{r, echo = FALSE}
+set.seed(42)
+```
+First we generate some correlated data from a nonnormal continuous distribution symmetric about zero, say, from a bivariate Student's t distribution with \(\rho = 0.9\) and 3 degrees of freedom, and let's take \(\theta = 1\).  
+
+```{r}
+library(mvtnorm)
+mu <- c(1, 0); Sigma <- matrix(c(1,0.9,0.9,1),2,2)
+U <- rmvt(n = 15, sigma = Sigma*(3-2)/3, df = 3) 
+V <- U + rep(mu, each = 15)
+x <- V[,1];  y <- V[,2]
+```
+
+We will test the hypothesis \(H_{0}:\theta = 1\) against a two-sided alternative.  Note that the null hypothesis is true in this example.
+
+```{r}
+wilcox.test(x, y, mu = 1, paired = TRUE, conf.int = TRUE)
+```
+
+```{r, echo = FALSE}
+TMP <- wilcox.test(x, y, mu = 1, paired = TRUE, conf.int = TRUE)
+```
+
+Here we fail to reject the null hypothesis at significance level \(\alpha = 0.05\), the Hodges-Lehmann estimator is \(\hat{\theta} \approx `r round(TMP$estimate,3)`\), and with 95% confidence \(\theta\) is covered by the interval `r round(TMP$conf.int[1],3)` to  `r round(TMP$conf.int[2],3)`.
+
+
+## Three or More Samples
+
+### Kruskal Wallis Rank Sum Test
+
+We observe \(k \geq 3\) samples 
+\[
+\left\{X_{11},\ldots,X_{n_{1}1}\right\},\  \left\{X_{12},\ldots,X_{n_{2}2}\right\},\ldots, \  \left\{X_{1k},\ldots,X_{n_{k}k}\right\},
+\]
+and the model is
+\[
+X_{ij} = \mu + \tau_{j} + \epsilon_{ij}, \quad j = 1,\ldots,k, \quad i = 1,\ldots,n_{j},
+\]
+where
+
+* \(N = \sum n_{j}\) is the total sample size
+* \(\mu\) is the grand mean
+* \(\tau_{j}\) is the effect of treatment \(j\)
+* \(\sum \tau_{j} = 0\)
+* \(e_{ij}\)'s are a \(SRS(N)\) from a continuous population distribution
+
+#### Test statistic
+
+In short, we sort all \(N\) observations from least to greatest and compute the ordinary ANOVA test statistic on the ranks.  In symbols, denote the rank of \(X_{ij}\) by \(r_{ij}\) and set
+\[
+R_{j} = \sum_{i=1}^{n_{j}}r_{ij}, \quad R_{\cdot j} = \frac{R_{j}}{n_{j}}, \quad R_{\cdot\cdot}= \frac{N+1}{2}. 
+\]
+The Kruskal-Wallis test statistic is \(H\) defined by
+\[
+\begin{aligned}
+H & = \frac{12}{N(N+1)} \sum_{j = 1}^{k} n_{j} \left(R_{\cdot j} - R_{\cdot\cdot} \right)^{2}, \\
+  & = \left(\frac{12}{N(N+1)}\sum_{j=1}^{k} \frac{R_{j}^{2}}{n_{j}}  \right) - 3(N+1).        
+\end{aligned}
+\]
+The null distribution of \(H\) is computationally intensive to compute except for relatively small sample sizes.  The asymptotic distribution of \(H\) as \(N \to \infty\) is \(\mathtt{chisq(df = k - 1)}\), and this asymptotic distribution is what R uses to compute/report *p*-values.
+
+#### Hypothesis test
+
+The null hypothesis is \[H_{0}: \tau_{1} = ... = \tau_{k},\] and the alternative is \[H_{a}: \mbox{at least one \(\tau_{j}\) differs from the others.} \] 
+
+We reject \(H_{0}\) if \(H \geq \chi^2_{\alpha}(\mathtt{df = 1})\).
+
+#### How to handle ties
+
+Use average ranks and instead of \(H\) use \(H^{\ast}\)
+defined by
+\[
+H^{\ast} = \frac{H}{1 - \left.\sum_{j=1}^{g}\left(t_{j}^{3} - t_{j}\right) \right/\left(N^{3}-N\right)}.
+\]
+where \(g\) is the number of groups and \(t_{j}\) is the size of group \(j\) (if there are no ties then \(g = n\) and \(t_{j} \equiv 1\)).
+
+#### How to do it with R
+
+```{r, echo = FALSE}
+set.seed(42)
+```
+
+We need nonnormal data that are identically distributed except for (possibly) a difference in location.  For this example let's generate some data according to the Weibull distribution. We will use four groups of size 11, with location shifts 1 through 4, respectively.
+
+```{r}
+x <- rweibull(44, shape = 1) + 1:4
+gps <- factor(rep(c("A","B","C","D"), times = 11))
+A <- data.frame(response = x, group = gps)
+```
+
+We may take a look at the data with side-by-side stripcharts.
+
+```{r}
+stripchart(response ~ group, data = A, method = "jitter")
+```
+
+We know that the data come from distributions identical except for a location shift by design, even though the plot may suggest otherwise.  We perform a test that the location parameters are all the same with the `kruskal.test` function.  Note that the alternative hypothesis is true in this example. The *p*-value returned is based on the asymptotic chi-squared distribution.
+
+```{r}
+kruskal.test(response ~ group, data = A)
+```
+
+Here we reject the null hypothesis that all treatment effects are the same.  

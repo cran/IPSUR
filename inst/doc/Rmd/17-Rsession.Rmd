@@ -1,0 +1,17 @@
+# (APPENDIX) Appendix {-}
+
+# R Session Information {#cha-r-session-information}
+
+If you ever try to communicate with someone about an error you are having with R, 
+then you should include your session information in the message. Here is how to 
+do that, and below is what the output looks like.
+
+```{r, echo=TRUE, results=TRUE} 
+sessionInfo()
+```
+
+```{r, echo=FALSE, message=FALSE, results='hide', purl=FALSE, warning=FALSE, eval=FALSE}
+input  = knitr::current_input()  # filename of input document
+output = paste(tools::file_path_sans_ext(input), 'R', sep = '.')
+knitr::purl(input,output,documentation=1,quiet=TRUE)
+```

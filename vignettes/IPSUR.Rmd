@@ -1,0 +1,26 @@
+---
+title: "Introduction to Probability and Statistics Using R"
+author: "G. Jay Kerns"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+vignette: >
+  %\VignetteIndexEntry{Introduction to Probability and Statistics Using R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+You are here because you are looking for the source code for `IPSUR`, but it isn't here.  All of the source code for `IPSUR.pdf` can be found in the `/inst/doc` folder of the source package.
+
+To build `IPSUR` yourself, or a modified copy, install the `bookdown` package and start a `New Project...` with `RStudio` in the existing directory of `/inst/doc` as the root folder.  The source code for all chapters is located in the `/inst/doc/Rmd` directory.
+
+# Sample R code
+
+We can run code like the following in an R Markdown file.
+
+```{r}
+rnorm(10)
+```
+
+
+

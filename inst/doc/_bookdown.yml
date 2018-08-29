@@ -1,0 +1,4 @@
+rmd_subdir: true
+before_chapter_script: "R/prelim.R"
+clean: ["_bookdown_files", "_main.run.xml"]
+
